@@ -48,9 +48,34 @@
             transition: background 0.3s;
             cursor: pointer;
         }
+        
         ul li:hover {
             background: #ffefef;
         }
+        
+        .recipe-header {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out content */
+            align-items: center; /* Center items vertically */
+            gap: 10px; /* Add spacing between items */
+        }
+
+        .recipe-title {
+            font-weight: bold;
+            flex: 1; /* Allow title to take up available space */
+            margin: 0; /* Reset default margins */
+            white-space: nowrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow text */
+            text-overflow: ellipsis; /* Add ellipsis for long titles */
+        }
+
+        h4 {
+            font-size: 0.8em;
+            margin: 0;
+            white-space: nowrap; /* Prevent wrapping */
+            text-align: right; /* Align content to the right */
+        }
+
         .recipe-details {
             display: none;
             margin-top: 10px;
@@ -60,6 +85,7 @@
             border-radius: 4px;
         }
     </style>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 </head>
 <body>
     <header>
@@ -80,8 +106,8 @@
 
         <div class="header-list">
             <h2>Available Recipes</h2>
-            <button class="sort-button">Name <span class="sort-icon"></span></button>
-            <button class="sort-button">Rating <span class="sort-icon"></span></button>
+            <button class="sort-button" value="titleSortFunction">Name <span class="sort-icon"></span></button>
+            <button class="sort-button" value="ratingSortFunction">Rating <span class="sort-icon"></span></button>
         </div>
         
         <ul id="recipe-list"></ul>
@@ -98,45 +124,43 @@
         let sortAsc = true; // Flag to track sort order
 
         // Function to render recipes based on filters
-        const renderRecipes = (titleSearch = '', ingredientSearch = '', sortAsc = true, sortAttribute = 'title') => {
+        const renderRecipes = (titleSearch = '', ingredientSearch = '', isAsc = true, sortFunction = titleSortFunction) => {
             // Clear recipe list
             recipeList.innerHTML = '';
 
-            console.log(sortAttribute);
-
             // Filter recipes based on search text and selected ingredient
             const filteredRecipes = recipes
+                // Fulfills title search (if any)
                 .filter(recipe => recipe.title.toLowerCase().includes(titleSearch.toLowerCase()))
-                .filter(recipe => !ingredientSearch || recipe.ingredients.includes(ingredientSearch))
-                .sort((a, b) => {
-                    if (sortAsc) {
-                        return typeof a === "number" ? a - b : a.title.localeCompare(b.title);
-                    } else {
-                        return typeof a === "number" ? b - a: b.title.localeCompare(a.title);
-                    }
-                });
+                // Fulfills nested ingredient search (if any) skips empty ingredients
+                .filter(recipe => !ingredientSearch || recipe.ingredients && recipe.ingredients.map(ingredient => getIngredientName(ingredient)).includes(ingredientSearch))
+                .sort((a, b) => sortFunction(a, b, isAsc));
 
             // Render filtered recipes
             filteredRecipes.forEach(recipe => {
                 const listItem = document.createElement('li');
-                listItem.innerHTML = recipe.title;
+                listItem.className = 'recipe-list-item';
+
+                listItem.innerHTML = `<div class='recipe-header'><p class='recipe-title'>${formatTitle(recipe.title)}</p>
+                <h4>${formatRating(recipe.rating)}</h2>
+                    <h4>${formatTime(getTotalCookTime(recipe))}</h2></div>`
 
                 const detailsDiv = document.createElement('div');
                 detailsDiv.className = 'recipe-details';
-
+                
                 // Add cook times (if exist)
-                detailsDiv.innerHTML.concat(recipe.prep_time ? `<p><strong>Prep Time:</strong> ${recipe.prep_time}</p>` : '')
-                detailsDiv.innerHTML.concat(recipe.cook_time ? `<p><strong>Cook Time:</strong> ${recipe.cook_time}</p>` : '')
-
+                detailsDiv.innerHTML += (recipe.prep_time ? `<p><strong>Prep Time:</strong> ${formatTime(recipe.prep_time)}</p>` : '')
+                detailsDiv.innerHTML += (recipe.cook_time ? `<p><strong>Cook Time:</strong> ${formatTime(recipe.cook_time)}</p>` : '')
+                
                 // Add ingredients (if exist)
                 detailsDiv.innerHTML += recipe.ingredients ? `<h4>Ingredients:</h4>
-                    <ul>${recipe.ingredients.map(ingredient => ingredient ? `<li>${formatIngredient(ingredient)}</li>` : '').join('')}</ul>` : 
-                    ''
-
+                <ul>${recipe.ingredients.map(ingredient => ingredient ? `<li>${formatIngredient(ingredient)}</li>` : '').join('')}</ul>` : 
+                ''
+                
                 // Add instructions (if exist)
                 detailsDiv.innerHTML += recipe.instructions ? `<h4>Instructions:</h4>
-                    <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>` :
-
+                <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>` : ''
+                
                 // Hide details in a toggle clickable dropdown
                 listItem.appendChild(detailsDiv);
                 listItem.addEventListener('click', () => {
@@ -147,8 +171,6 @@
             });
         };
 
-
-
         // Populate ingredient dropdown with unique ingredients
         const populateIngredientFilter = () => {
             const uniqueIngredients = new Set();
@@ -157,8 +179,7 @@
             recipes.forEach(recipe => {
                 if(recipe.ingredients){
                     recipe.ingredients.forEach(ingredient => {
-                        console.log(getIngredientName(ingredient));
-                        uniqueIngredients.add(ingredient[1]);
+                        uniqueIngredients.add(getIngredientName(ingredient));
                     });
                 }
             });
@@ -186,7 +207,7 @@
             sortButton.addEventListener('click', () => {
                 sortAsc = !sortAsc; // Toggle sort order
                 
-                // Clear other sorts
+                // Clear other sort icons
                 document.querySelectorAll('.sort-button > .sort-icon').forEach(sortButtonClear => {
                     sortButtonClear.textContent = ''
                 });
@@ -194,7 +215,8 @@
                 // Change sort icon
                 event.target.getElementsByClassName('sort-icon')[0].textContent = sortAsc ? '⬆️' : '⬇️';
 
-                renderRecipes(searchInput.value, ingredientFilter.value, sortAsc);
+                // Access search function from html value
+                renderRecipes(searchInput.value, ingredientFilter.value, sortAsc, window[event.target.value]);
             });
         });
 
