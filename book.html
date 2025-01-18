@@ -88,6 +88,7 @@
     </div>
 
     <script src="data.js"></script>
+    <script src="data_actions.js"></script>
     <script>
         const recipeList = document.getElementById('recipe-list');
         const searchInput = document.getElementById('search');
@@ -109,9 +110,9 @@
                 .filter(recipe => !ingredientSearch || recipe.ingredients.includes(ingredientSearch))
                 .sort((a, b) => {
                     if (sortAsc) {
-                        return a.title.localeCompare(b.title);
+                        return typeof a === "number" ? a - b : a.title.localeCompare(b.title);
                     } else {
-                        return b.title.localeCompare(a.title);
+                        return typeof a === "number" ? b - a: b.title.localeCompare(a.title);
                     }
                 });
 
@@ -122,14 +123,19 @@
 
                 const detailsDiv = document.createElement('div');
                 detailsDiv.className = 'recipe-details';
-                detailsDiv.innerHTML = `
-                    <p><strong>Prep Time:</strong> ${recipe.prep_time}</p>
-                    <p><strong>Cook Time:</strong> ${recipe.cook_time}</p>
-                    <h4>Ingredients:</h4>
-                    <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
-                    <h4>Instructions:</h4>
-                    <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>
-                `;
+
+                // Add cook times (if exist)
+                detailsDiv.innerHTML.concat(recipe.prep_time ? `<p><strong>Prep Time:</strong> ${recipe.prep_time}</p>` : '')
+                detailsDiv.innerHTML.concat(recipe.cook_time ? `<p><strong>Cook Time:</strong> ${recipe.cook_time}</p>` : '')
+
+                // Add ingredients (if exist)
+                detailsDiv.innerHTML += recipe.ingredients ? `<h4>Ingredients:</h4>
+                    <ul>${recipe.ingredients.map(ingredient => ingredient ? `<li>${formatIngredient(ingredient)}</li>` : '').join('')}</ul>` : 
+                    ''
+
+                // Add instructions (if exist)
+                detailsDiv.innerHTML += recipe.instructions ? `<h4>Instructions:</h4>
+                    <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>` :
 
                 // Hide details in a toggle clickable dropdown
                 listItem.appendChild(detailsDiv);
@@ -141,11 +147,20 @@
             });
         };
 
+
+
         // Populate ingredient dropdown with unique ingredients
         const populateIngredientFilter = () => {
             const uniqueIngredients = new Set();
+            
+            // Add every ingredient to set (from every recipe)
             recipes.forEach(recipe => {
-                recipe.ingredients.forEach(ingredient => uniqueIngredients.add(ingredient));
+                if(recipe.ingredients){
+                    recipe.ingredients.forEach(ingredient => {
+                        console.log(getIngredientName(ingredient));
+                        uniqueIngredients.add(ingredient[1]);
+                    });
+                }
             });
 
             uniqueIngredients.forEach(ingredient => {

@@ -1,17 +1,18 @@
 const recipes = [
     {
-        "title": "Spaghetti Bolognese",
-        "prep_time": "15 minutes",
-        "cook_time": "1 hour",
+        "title": "SpaGheTti bolOGnEse",
+        "prep_time": 15,
+        "cook_time": 60,
+        "rating": 4.43,
+        "category": "main dish",
         "ingredients": [
-            "200g spaghetti",
-            "100g ground beef",
-            "1 can of tomatoes",
-            "1 onion, diced",
-            "2 cloves garlic, minced",
-            "1 tbsp olive oil",
-            "Salt and pepper to taste",
-            "Grated Parmesan (optional)"
+            ["200g", "spAghetti"],
+            ["100g","grOund beEf"],
+            ["1 can", "tomatoes"],
+            ["1", "onion", "diced"],
+            ["2 cloves", "garlic", "minced"],
+            ["1 tbsp", "olive oil"],
+            ["1 cup", "Parmesan", "Grated"]
         ],
         "instructions": [
             "Cook spaghetti according to package instructions.",
@@ -25,18 +26,20 @@ const recipes = [
     },
     {
         "title": "Chicken Curry",
-        "prep_time": "20 minutes",
-        "cook_time": "40 minutes",
+        "prep_time": 65,
+        "cook_time": 140,
+        "rating": 8,
+        "category": "main dish",
         "ingredients": [
-            "500g chicken",
-            "1 onion, diced",
-            "2 cloves garlic, minced",
-            "1 tbsp curry powder",
-            "1 can coconut milk",
-            "1 tbsp vegetable oil",
-            "Salt to taste",
-            "Fresh cilantro (optional)",
-            "1 can of tomatoes"
+            ["500g", "chicken"],
+            ["1", "onion", "diced"],
+            ["2 cloves", "garlic", "minced"],
+            ["1 tbsp", "curry powder"],
+            ["1 can", "coconut milk"],
+            ["1 tbsp", "vegetable oil"],
+            ["1 tsp", "Salt", "to taste"],
+            ["Fresh", "cilantro", "(optional)"],
+            ["1 can", "tomatoes"]
         ],
         "instructions": [
             "Heat oil in a large pan over medium heat.",
@@ -48,27 +51,9 @@ const recipes = [
         ]
     },
     {
-        "title": "Something Curry",
-        "prep_time": "20 minutes",
-        "cook_time": "40 minutes",
-        "ingredients": [
-            "500g chicken",
-            "1 onion, diced",
-            "2 cloves garlic, minced",
-            "1 tbsp curry powder",
-            "1 can coconut milk",
-            "1 tbsp vegetable oil",
-            "Salt to taste",
-            "Fresh cilantro (optional)",
-            "1 can of tomatoes"
-        ],
-        "instructions": [
-            "Heat oil in a large pan over medium heat.",
-            "Add onion and garlic, sauté until golden.",
-            "Stir in curry powder and cook for 1 minute.",
-            "Add chicken and cook until browned.",
-            "Pour in coconut milk and simmer for 20 minutes.",
-            "Season with salt and garnish with cilantro before serving."
-        ]
+        "title": "another dish",
+        "prep_time": 20,
+        "cook_time": 45,
+        "category": "dessert"
     }
 ];
