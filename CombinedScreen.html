@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .recipes-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        ul li:hover {
+            background: #ffefef;
+        }
+        .recipe-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff7e6;
+            border: 1px solid #ff6f61;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Viewer</h1>
+    </header>
+    <div class="recipes-container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for recipes...">
+        </div>
+        <h2>Available Recipes</h2>
+        <ul id="recipe-list"></ul>
+    </div>
+
+    <script>
+        // Example YAML-like recipe data
+        const recipes = [
+            {
+                "title": "Spaghetti Bolognese",
+                "prep_time": "15 minutes",
+                "cook_time": "1 hour",
+                "ingredients": [
+                    "200g spaghetti",
+                    "100g ground beef",
+                    "1 can of tomatoes",
+                    "1 onion, diced",
+                    "2 cloves garlic, minced",
+                    "1 tbsp olive oil",
+                    "Salt and pepper to taste",
+                    "Grated Parmesan (optional)"
+                ],
+                "instructions": [
+                    "Cook spaghetti according to package instructions.",
+                    "In a large pan, heat olive oil over medium heat.",
+                    "Add onion and garlic, sauté until translucent.",
+                    "Add ground beef and cook until browned.",
+                    "Pour in the can of tomatoes, season with salt and pepper.",
+                    "Simmer for 30-40 minutes, stirring occasionally.",
+                    "Serve sauce over spaghetti and top with Parmesan if desired."
+                ]
+            },
+            {
+                "title": "Chicken Curry",
+                "prep_time": "20 minutes",
+                "cook_time": "40 minutes",
+                "ingredients": [
+                    "500g chicken",
+                    "1 onion, diced",
+                    "2 cloves garlic, minced",
+                    "1 tbsp curry powder",
+                    "1 can coconut milk",
+                    "1 tbsp vegetable oil",
+                    "Salt to taste",
+                    "Fresh cilantro (optional)"
+                ],
+                "instructions": [
+                    "Heat oil in a large pan over medium heat.",
+                    "Add onion and garlic, sauté until golden.",
+                    "Stir in curry powder and cook for 1 minute.",
+                    "Add chicken and cook until browned.",
+                    "Pour in coconut milk and simmer for 20 minutes.",
+                    "Season with salt and garnish with cilantro before serving."
+                ]
+            }
+        ];
+
+        // Render list of recipes
+        const recipeList = document.getElementById('recipe-list');
+        const searchInput = document.getElementById('search');
+
+        const renderRecipes = (filter = '') => {
+            recipeList.innerHTML = '';
+            recipes
+                .filter(recipe => recipe.title.toLowerCase().includes(filter.toLowerCase()))
+                .forEach(recipe => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = recipe.title;
+
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'recipe-details';
+                    detailsDiv.innerHTML = `
+                        <p><strong>Prep Time:</strong> ${recipe.prep_time}</p>
+                        <p><strong>Cook Time:</strong> ${recipe.cook_time}</p>
+                        <h4>Ingredients:</h4>
+                        <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+                        <h4>Instructions:</h4>
+                        <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>
+                    `;
+
+                    listItem.appendChild(detailsDiv);
+                    listItem.addEventListener('click', () => {
+                        detailsDiv.style.display = detailsDiv.style.display === 'none' || !detailsDiv.style.display ? 'block' : 'none';
+                    });
+
+                    recipeList.appendChild(listItem);
+                });
+        };
+
+        searchInput.addEventListener('input', (e) => {
+            renderRecipes(e.target.value);
+        });
+
+        renderRecipes();
+    </script>
+</body>
+</html>
