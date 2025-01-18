@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .recipes-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search-bar, .sort-bar, .ingredient-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input, .ingredient-bar select, .sort-bar button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        ul li:hover {
+            background: #ffefef;
+        }
+        .recipe-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff7e6;
+            border: 1px solid #ff6f61;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Viewer</h1>
+    </header>
+    <div class="recipes-container">
+        <!-- Search Bar for Recipe Titles -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for recipes...">
+        </div>
+
+        <!-- Dropdown for Ingredients -->
+        <div class="ingredient-bar">
+            <select id="ingredient-filter">
+                <option value="">Select an ingredient</option>
+            </select>
+        </div>
+
+        <div class="header-list">
+            <h2>Available Recipes</h2>
+            <button class="sort-button">Name <span class="sort-icon"></span></button>
+            <button class="sort-button">Rating <span class="sort-icon"></span></button>
+        </div>
+        
+        <ul id="recipe-list"></ul>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        const recipeList = document.getElementById('recipe-list');
+        const searchInput = document.getElementById('search');
+        const ingredientFilter = document.getElementById('ingredient-filter');
+        const titleSortButton = document.getElementById('title-sort');
+
+        let sortAsc = true; // Flag to track sort order
+
+        // Function to render recipes based on filters
+        const renderRecipes = (titleSearch = '', ingredientSearch = '', sortAsc = true, sortAttribute = 'title') => {
+            // Clear recipe list
+            recipeList.innerHTML = '';
+
+            console.log(sortAttribute);
+
+            // Filter recipes based on search text and selected ingredient
+            const filteredRecipes = recipes
+                .filter(recipe => recipe.title.toLowerCase().includes(titleSearch.toLowerCase()))
+                .filter(recipe => !ingredientSearch || recipe.ingredients.includes(ingredientSearch))
+                .sort((a, b) => {
+                    if (sortAsc) {
+                        return a.title.localeCompare(b.title);
+                    } else {
+                        return b.title.localeCompare(a.title);
+                    }
+                });
+
+            // Render filtered recipes
+            filteredRecipes.forEach(recipe => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = recipe.title;
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'recipe-details';
+                detailsDiv.innerHTML = `
+                    <p><strong>Prep Time:</strong> ${recipe.prep_time}</p>
+                    <p><strong>Cook Time:</strong> ${recipe.cook_time}</p>
+                    <h4>Ingredients:</h4>
+                    <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+                    <h4>Instructions:</h4>
+                    <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>
+                `;
+
+                // Hide details in a toggle clickable dropdown
+                listItem.appendChild(detailsDiv);
+                listItem.addEventListener('click', () => {
+                    detailsDiv.style.display = detailsDiv.style.display === 'none' || !detailsDiv.style.display ? 'block' : 'none';
+                });
+
+                recipeList.appendChild(listItem);
+            });
+        };
+
+        // Populate ingredient dropdown with unique ingredients
+        const populateIngredientFilter = () => {
+            const uniqueIngredients = new Set();
+            recipes.forEach(recipe => {
+                recipe.ingredients.forEach(ingredient => uniqueIngredients.add(ingredient));
+            });
+
+            uniqueIngredients.forEach(ingredient => {
+                const option = document.createElement('option');
+                option.value = ingredient;
+                option.textContent = ingredient;
+                ingredientFilter.appendChild(option);
+            });
+        };
+
+        // Event listener for search input
+        searchInput.addEventListener('input', (e) => {
+            renderRecipes(e.target.value, ingredientFilter.value, sortAsc);
+        });
+
+        // Event listener for ingredient filter dropdown
+        ingredientFilter.addEventListener('change', (e) => {
+            renderRecipes(searchInput.value, e.target.value, sortAsc);
+        });
+
+        // Add sort event listeners for all sort buttons
+        document.querySelectorAll('.sort-button').forEach(sortButton => {
+            sortButton.addEventListener('click', () => {
+                sortAsc = !sortAsc; // Toggle sort order
+                
+                // Clear other sorts
+                document.querySelectorAll('.sort-button > .sort-icon').forEach(sortButtonClear => {
+                    sortButtonClear.textContent = ''
+                });
+
+                // Change sort icon
+                event.target.getElementsByClassName('sort-icon')[0].textContent = sortAsc ? '⬆️' : '⬇️';
+
+                renderRecipes(searchInput.value, ingredientFilter.value, sortAsc);
+            });
+        });
+
+        // Initial rendering and setup
+        populateIngredientFilter();
+        renderRecipes();
+    </script>
+</body>
+</html>
