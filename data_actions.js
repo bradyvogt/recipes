@@ -42,11 +42,51 @@ const getProperCase = (string) => {
         .join(" ");
 }
 
-// Comparators (Sort Functions)
-var titleSortFunction = (a, b, isAsc) => {
-    return isAsc ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
+const getRecipes = (filterFunctions = [], sortFunctions = []) => {
+    let filteredRecipes = recipes;
+
+    // Apply each filter with parameter
+    filterFunctions.forEach(filter => {
+        filteredRecipes = filteredRecipes.filter(recipe => filter.function(recipe, filter.parameter));
+    });
+
+    // Apply each sort in order
+    sortFunctions.forEach(sort => {
+        filteredRecipes = filteredRecipes.sort((a, b) => sort.isAsc ? sort.function(a, b) : sort.function(b, a));
+    });
+
+    return filteredRecipes;
+}
+
+const getAllIngredients = () => {
+    const uniqueIngredients = new Set();
+            
+    // Add every ingredient to set (from every recipe)
+    recipes.forEach(recipe => {
+        if(recipe.ingredients){
+            recipe.ingredients.forEach(ingredient => {
+                uniqueIngredients.add(getIngredientName(ingredient));
+            });
+        }
+    });
+
+    return uniqueIngredients;
+}
+            
+// Sort Functions (comparators)
+var titleSortFunction = (a, b) => {
+    return a.title.localeCompare(b.title);
 };
 
-var ratingSortFunction = (a, b, isAsc) => {
-    return isAsc ? a.rating - b.rating : b.rating - a.rating;
+var ratingSortFunction = (a, b) => {
+    return (a.rating ? a.rating : 0) - (b.rating ? b.rating : 0);
 };
+
+// Filter functions
+var titleFilterFunction = (recipe, searchCriteria) => {
+    return recipe.title.toLowerCase().includes(searchCriteria.toLowerCase());
+}
+
+var ingredientFilterFunction = (recipe, searchCriteria) => {
+    return !searchCriteria || recipe.ingredients && recipe.ingredients.map(ingredient => getIngredientName(ingredient)).includes(searchCriteria);
+}

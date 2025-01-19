@@ -94,7 +94,7 @@
     <div class="recipes-container">
         <!-- Search Bar for Recipe Titles -->
         <div class="search-bar">
-            <input type="text" id="search" placeholder="Search for recipes...">
+            <input type="text" filter="titleFilterFunction" placeholder="Search for recipes...">
         </div>
 
         <!-- Dropdown for Ingredients -->
@@ -106,8 +106,8 @@
 
         <div class="header-list">
             <h2>Available Recipes</h2>
-            <button class="sort-button" value="titleSortFunction">Name <span class="sort-icon"></span></button>
-            <button class="sort-button" value="ratingSortFunction">Rating <span class="sort-icon"></span></button>
+            <button class="sort-button" sort="titleSortFunction">Name <span class="sort-icon"></span></button>
+            <button class="sort-button" sort="ratingSortFunction">Rating <span class="sort-icon"></span></button>
         </div>
         
         <ul id="recipe-list"></ul>
@@ -120,21 +120,46 @@
         const searchInput = document.getElementById('search');
         const ingredientFilter = document.getElementById('ingredient-filter');
         const titleSortButton = document.getElementById('title-sort');
+        const SORT_ASC_INDICATOR = 'asc';
+        const SORT_ASC_ICON = '↑';
+        const SORT_DESC_INDICATOR = 'desc';
+        const SORT_DESC_ICON = '↓';
+        const sortOrderToggleSequence = ['', SORT_ASC_INDICATOR, SORT_DESC_INDICATOR];
+        const sortOrderIcons = ['', SORT_ASC_ICON, SORT_DESC_ICON];
 
-        let sortAsc = true; // Flag to track sort order
 
         // Function to render recipes based on filters
-        const renderRecipes = (titleSearch = '', ingredientSearch = '', isAsc = true, sortFunction = titleSortFunction) => {
+        const renderRecipes = () => {
             // Clear recipe list
             recipeList.innerHTML = '';
+            
+            // Get all filters
+            let filterFunctionsToPass = [];
+            document.querySelectorAll("[filter]").forEach(element => {
+                // Don't apply filter if not active
+                if(element.value){
+                    filterFunctionsToPass.push({
+                        "function": window[element.getAttribute("filter")],
+                        "parameter": element.value
+                    })
+                }   
+            });
+            
+            // Get all sorts
+            let sortFunctionsToPass = [];
+            document.querySelectorAll("[sort]").forEach(element => {
 
-            // Filter recipes based on search text and selected ingredient
-            const filteredRecipes = recipes
-                // Fulfills title search (if any)
-                .filter(recipe => recipe.title.toLowerCase().includes(titleSearch.toLowerCase()))
-                // Fulfills nested ingredient search (if any) skips empty ingredients
-                .filter(recipe => !ingredientSearch || recipe.ingredients && recipe.ingredients.map(ingredient => getIngredientName(ingredient)).includes(ingredientSearch))
-                .sort((a, b) => sortFunction(a, b, isAsc));
+                // Don't apply sort if not active
+                if(element.getAttribute("order")){
+                    sortFunctionsToPass.push({
+                        "function": window[element.getAttribute("sort")],
+                        "isAsc": element.getAttribute("order").toLowerCase() === SORT_ASC_INDICATOR.toLowerCase()
+                    });
+                }
+            });
+
+            // Get filtered and sorted recipes
+            const filteredRecipes = getRecipes(filterFunctionsToPass, sortFunctionsToPass);
 
             // Render filtered recipes
             filteredRecipes.forEach(recipe => {
@@ -172,19 +197,8 @@
         };
 
         // Populate ingredient dropdown with unique ingredients
-        const populateIngredientFilter = () => {
-            const uniqueIngredients = new Set();
-            
-            // Add every ingredient to set (from every recipe)
-            recipes.forEach(recipe => {
-                if(recipe.ingredients){
-                    recipe.ingredients.forEach(ingredient => {
-                        uniqueIngredients.add(getIngredientName(ingredient));
-                    });
-                }
-            });
-
-            uniqueIngredients.forEach(ingredient => {
+        const populateIngredientDropdown = () => {
+            getAllIngredients().forEach(ingredient => {
                 const option = document.createElement('option');
                 option.value = ingredient;
                 option.textContent = ingredient;
@@ -192,36 +206,40 @@
             });
         };
 
-        // Event listener for search input
-        searchInput.addEventListener('input', (e) => {
-            renderRecipes(e.target.value, ingredientFilter.value, sortAsc);
-        });
-
-        // Event listener for ingredient filter dropdown
-        ingredientFilter.addEventListener('change', (e) => {
-            renderRecipes(searchInput.value, e.target.value, sortAsc);
-        });
-
+        
         // Add sort event listeners for all sort buttons
         document.querySelectorAll('.sort-button').forEach(sortButton => {
             sortButton.addEventListener('click', () => {
-                sortAsc = !sortAsc; // Toggle sort order
-                
-                // Clear other sort icons
-                document.querySelectorAll('.sort-button > .sort-icon').forEach(sortButtonClear => {
-                    sortButtonClear.textContent = ''
-                });
+                const prevSortOrder = event.target.getAttribute("order") === null ? '' : event.target.getAttribute("order"); // Null to empty string
+                const prevOrderIdx = sortOrderToggleSequence.indexOf(prevSortOrder);
+                const nextOrderIdx = (prevOrderIdx + 1 ) % sortOrderToggleSequence.length;
+
+                // Set new sort order
+                event.target.setAttribute("order", sortOrderToggleSequence[nextOrderIdx]);
 
                 // Change sort icon
-                event.target.getElementsByClassName('sort-icon')[0].textContent = sortAsc ? '⬆️' : '⬇️';
+                event.target.getElementsByClassName('sort-icon')[0].textContent = sortOrderIcons[nextOrderIdx];
 
-                // Access search function from html value
-                renderRecipes(searchInput.value, ingredientFilter.value, sortAsc, window[event.target.value]);
+                renderRecipes();
+            });
+        });
+        
+        // Refresh recipe list for all input text changes
+        document.querySelectorAll('input').forEach(element => {
+            element.addEventListener('input', () => {
+                renderRecipes();
             });
         });
 
+        // Refresh recipe list for all dropdown selection changes
+        document.querySelectorAll('select').forEach(element => {
+            element.addEventListener('change', () => {
+                renderRecipes();
+            });
+        });
+        
         // Initial rendering and setup
-        populateIngredientFilter();
+        populateIngredientDropdown();
         renderRecipes();
     </script>
 </body>

@@ -1,2 +1,2 @@
-Filter out null/empty when sorting
 Make ingredient dropdown searchable
+Add clear sort button [x]
