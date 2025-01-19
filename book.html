@@ -84,8 +84,15 @@
             border: 1px solid #ff6f61;
             border-radius: 4px;
         }
+
+        .recipe-details-header {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out content */
+            align-items: center; /* Center items vertically */
+            gap: 10px; /* Add spacing between items */
+        }
     </style>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
     <header>
@@ -172,11 +179,16 @@
 
                 const detailsDiv = document.createElement('div');
                 detailsDiv.className = 'recipe-details';
-                
+
+                const detailsHeaderDiv = document.createElement('div');
+                detailsHeaderDiv.className = 'recipe-details-header';
+                detailsDiv.appendChild(detailsHeaderDiv);
+                    
                 // Add cook times (if exist)
-                detailsDiv.innerHTML += (recipe.prep_time ? `<p><strong>Prep Time:</strong> ${formatTime(recipe.prep_time)}</p>` : '')
-                detailsDiv.innerHTML += (recipe.cook_time ? `<p><strong>Cook Time:</strong> ${formatTime(recipe.cook_time)}</p>` : '')
-                
+                detailsHeaderDiv.innerHTML += (recipe.prep_time ? `<p><img src='prep_time.svg' style='width: 20%; height: 20%;'/>${formatTime(recipe.prep_time)}</p>` : '');
+                detailsHeaderDiv.innerHTML += (recipe.cook_time ? `<p><img src='cook_time.svg' style='width: 20%; height: 20%;'/>${formatTime(recipe.cook_time)}</p>` : '');
+
+
                 // Add ingredients (if exist)
                 detailsDiv.innerHTML += recipe.ingredients ? `<h4>Ingredients:</h4>
                 <ul>${recipe.ingredients.map(ingredient => ingredient ? `<li>${formatIngredient(ingredient)}</li>` : '').join('')}</ul>` : 
