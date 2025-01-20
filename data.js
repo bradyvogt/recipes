@@ -13,6 +13,16 @@ const recipes = [
             ["10 oz", "cream of chicken"],
             ["1 pkg", "taco seasoning"],
             ["16 oz", "shredded cheddar"]
+        ],
+        "instructions": [
+            "Preheat oven to 350 degrees",
+            "Brown ground beef, drain grease, add water and taco seasoning",
+            "In medium-sized bowl mix the enchilada sauce, tomato soup, cream of chicken",
+            "Let ground beef simmer until water has absorbed",
+            "Add taco meat and cheese to each tortilla",
+            "Add all 10 rolled tortillas to greased 9x13 pan",
+            "Pour sauce mixture over the tortillas and sprinkle with cheese",
+            "Bake at 350 degrees for 30 min"
         ]
     },
     {
