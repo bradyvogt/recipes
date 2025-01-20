@@ -1,8 +1,8 @@
 const recipes = [
     {
         "title": "Beef Enchiladas",
-        "prep_time": 30,
-        "cook_time": 20,
+        "prep_time": 20,
+        "cook_time": 30,
         "rating": 8,
         "category": "main dish",
         "ingredients": [
