@@ -69,9 +69,10 @@ const recipes = [
     },
     {
         "title": "Quiche",
-        "prep_time": 40,
-        "cook_time": 20,
-        "rating": 7,
+        "prep_time": 10,
+        "cook_time": 40,
+        "rating": 6.5,
+        "serveds: 4,
         "category": "main dish",
         "ingredients": [
             ["1", "pie crust", "refrigerated"],
@@ -81,6 +82,13 @@ const recipes = [
             ["1 cup", "cooked ham"],
             ["1 1/2 cup", "shredded cheese"],
             ["3 tbsp", "green onions"]
+        ],
+        "instructions": [
+            "Preheat oven to 375",
+            "Unroll pie crust and press into 9" pie plate",
+            "In large bowl, whisk eggs, milk, salt, pepper",
+            "Sprinkle ham, cheese and green onions on pie crust. Pour egg mixture over and sprinkle more cheese on top.",
+            "Bake 35-40 min (until eggs are set). Cool 5-10 min"
         ]
     },
     {
