@@ -85,7 +85,7 @@ const recipes = [
         ],
         "instructions": [
             "Preheat oven to 375",
-            "Unroll pie crust and press into 9" pie plate",
+            "Unroll pie crust and press into 9 inch pie plate",
             "In large bowl, whisk eggs, milk, salt, pepper",
             "Sprinkle ham, cheese and green onions on pie crust. Pour egg mixture over and sprinkle more cheese on top.",
             "Bake 35-40 min (until eggs are set). Cool 5-10 min"
