@@ -1,13 +1,31 @@
+/* TEMPLATE
+{
+    "title": "",
+    "prep_time": #, //minutes
+    "cook_time": #, //minutes
+    "rating": #, //out of 10
+    "servings": #,
+    "category": "",
+    "ingredients": [
+        ["Amount", "Ingredient", "Notes"]
+    ],
+    "instructions": [
+        ""
+    ]
+}
+*/
+
 const recipes = [
     {
         "title": "Beef Enchiladas",
-        "prep_time": 20,
+        "prep_time": 30,
         "cook_time": 30,
-        "rating": 8,
+        "rating": 7,
+        "servings": 6,
         "category": "main dish",
         "ingredients": [
-            ["1 1/2 lbs", "ground beef"],
-            ["10", "tortillas"],
+            ["1 lb", "ground beef"],
+            ["8", "tortillas"],
             ["1 can", "enchilada sauce"],
             ["10 oz", "tomato soup"],
             ["10 oz", "cream of chicken"],
@@ -20,7 +38,7 @@ const recipes = [
             "In medium-sized bowl mix the enchilada sauce, tomato soup, cream of chicken",
             "Let ground beef simmer until water has absorbed",
             "Add taco meat and cheese to each tortilla",
-            "Add all 10 rolled tortillas to greased 9x13 pan",
+            "Add rolled tortillas to greased 9x13 pan",
             "Pour sauce mixture over the tortillas and sprinkle with cheese",
             "Bake at 350 degrees for 30 min"
         ]
@@ -41,6 +59,7 @@ const recipes = [
             ["1 tbsp", "vegetable oil"]
         ],
         "instructions": [
+            "Combine all ingredients (except chicken & oil) in a medium bowl. Refrigerate for 10-30 min.",
             "Heat oil in skillet over medium heat",
             "Cook chicken & marinade until liquid evaporates"
         ]
@@ -48,8 +67,8 @@ const recipes = [
     {
         "title": "Apricot Chicken",
         "prep_time": 20,
-        "cook_time": 20,
-        "rating": 7.5,
+        "cook_time": 30,
+        "servings": 4,
         "category": "main dish",
         "ingredients": [
             ["1 head", "broccoli"],
@@ -61,10 +80,19 @@ const recipes = [
             ["1 clove", "garlic"],
             ["2 tbsp", "soy sauce"],
             ["1 1/2 tbsp", "brown sugar"],
-            ["Serve with", "rice"]
+            ["1 cup", "rice"]
         ],
         "instructions": [
-            "Preheat oven to 425"
+            "Preheat oven to 425",
+            "Place broccoli on baking sheet and drizzle olive oil, salt, pepper",
+            "Roast for 15 to 20 minutes (until charred)",
+            "Toss chicken with salt, pepper, garlic powder",
+            "Toss chicken with flour until coated",
+            "Start cooking rice",
+            "Heat large skillet over medium heat with oil",
+            "Cook chicken 5-6 min per side",
+            "Whisk together jam, minced garlic, soy sauce, brown sugar",
+            "Have a wonderful dinner!"
         ]
     },
     {
@@ -72,7 +100,7 @@ const recipes = [
         "prep_time": 10,
         "cook_time": 40,
         "rating": 6.5,
-        "serveds: 4,
+        "servings": 4,
         "category": "main dish",
         "ingredients": [
             ["1", "pie crust", "refrigerated"],
@@ -94,7 +122,20 @@ const recipes = [
     {
         "title": "Overnight Oats",
         "prep_time": 10,
-        "cook_time": 300,
-        "category": "breakfast",
+        "cook_time": 120,
+        "servings": 1,
+        "ingredients": [
+            ["1/2 cup", "rolled oats"],
+            ["1/2 cup", "milk"],
+            ["1/4 cup", "greek yogurt"],
+            ["1 tbsp", "chia seeds"],
+            ["1 tbsp", "honey"],
+            ["1/4 tsp", "vanilla extract"]
+        ],
+        "instructions": [
+            "Mix all ingredients in a glass container",
+            "Cover glass and place in fridge for 2 hours to 5 days",
+            "Uncover and enjoy!"
+        ]
     }
 ];
