@@ -1,6 +1,6 @@
 /* TEMPLATE
 {
-    "title": "",
+    "title": "", (REQUIRED)
     "prep_time": #, //minutes
     "cook_time": #, //minutes
     "rating": #, //out of 10
@@ -137,5 +137,22 @@ const recipes = [
             "Cover glass and place in fridge for 2 hours to 5 days",
             "Uncover and enjoy!"
         ]
+    },
+    {
+        "title": "Pizza (store crust)",
+        "prep_time": 15,
+        "cook_time": 15,
+        "servings": 4,
+        "ingredients": [
+            ["1", "pizza crust"],
+            ["1/2 jar", "pizza sauce"],
+            ["6 oz","Shredded cheese"]
+        ]
+    },
+    {
+        "title": "Pizza (homemade)",
+        "prep_time": 150,
+        "cook_time": 15,
+        "servings": 4,
     }
 ];
