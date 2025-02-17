@@ -154,5 +154,14 @@ const recipes = [
         "prep_time": 150,
         "cook_time": 15,
         "servings": 4,
+    },
+    {
+        "title": "Spaghetti & meatballs",
+    },
+    {
+        "title": "Sheetpan sausage, potatoes & peppers",
+    },
+    {
+        "title": "Carne y nachos",
     }
 ];
