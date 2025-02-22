@@ -163,5 +163,31 @@ const recipes = [
     },
     {
         "title": "Carne y nachos",
+    },
+    {
+        "title": "Lasagna",
+        "prep_time": 20,
+        "cook_time": 60,
+        "servings": 10,
+        "ingredients": [
+            ["1/2 cup", "onion", "diced"],
+            ["1 lb", "ground beef"],
+            ["1 clove", "garlic", "minced"],
+            ["1/2 tsp", "oregano"],
+            ["1/2 tsp", "basil"],
+            ["some", "salt and pepper"],
+            ["1 lb", "tomatoes"],
+            ["2 sm cans", "tomato paste"],
+            ["16 oz", "cottage cheese", "sm curd"],
+            ["1/2 cup", "parmesan cheese"],
+            ["8 oz", "mozzarella cheese"],
+            ["1 tsp", "parsley"],
+            ["2", "eggs"]
+        ],
+        "instructions": [
+            "Brown hamburger and onion",
+            "Cover glass and place in fridge for 2 hours to 5 days",
+            "Uncover and enjoy!"
+        ]
     }
 ];
