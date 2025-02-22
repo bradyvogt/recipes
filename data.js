@@ -166,10 +166,11 @@ const recipes = [
     },
     {
         "title": "Lasagna",
-        "prep_time": 20,
+        "prep_time": 30,
         "cook_time": 60,
         "servings": 10,
         "ingredients": [
+            ["8-10 oz", "lasagna noodles"],
             ["1/2 cup", "onion", "diced"],
             ["1 lb", "ground beef"],
             ["1 clove", "garlic", "minced"],
@@ -186,8 +187,13 @@ const recipes = [
         ],
         "instructions": [
             "Brown hamburger and onion",
-            "Cover glass and place in fridge for 2 hours to 5 days",
-            "Uncover and enjoy!"
+            "Brown pork sausage and mix with hamburger/onion",
+            "Add garlic, oregano, basil, salt, tomato, tomato paste to meat",
+            "Cook 8-10 oz of lasagna noodles",
+            "Place a little tomato juice in 9x13 pan",
+            "Layer noodles, cheese, meat sauce (x2)",
+            "Sprinke parmesan on top",
+            "Bake at 350 for 1 hour"
         ]
     }
 ];
