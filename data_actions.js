@@ -49,6 +49,15 @@ const getProperCase = (string) => {
 const getRecipes = (filterFunctions = [], sortFunctions = []) => {
     let filteredRecipes = recipes;
 
+    // Add indexed id
+    filteredRecipes.forEach((recipe, index) => {
+        recipe.id = index;
+    });
+
+    // for(let i = 0; i < filteredRecipes.length; i++){
+    //     filteredRecipes[i] = 
+    // }
+
     // Apply each filter with parameter
     filterFunctions.forEach(filter => {
         filteredRecipes = filteredRecipes.filter(recipe => filter.function(recipe, filter.parameter));
