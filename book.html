@@ -61,15 +61,20 @@
         }
 
         .recipe-title {
+            font-size: 1.5em;
             font-weight: bold;
             flex: 1; /* Allow title to take up available space */
             margin: 0; /* Reset default margins */
-            white-space: nowrap; /* Prevent wrapping */
+            white-space: pre-wrap; /* Prevent wrapping */
             overflow: hidden; /* Hide overflow text */
             text-overflow: ellipsis; /* Add ellipsis for long titles */
         }
 
-        h4 {
+        h2 {
+            font-size: 0.8em;
+        }
+
+        h3 {
             font-size: 0.8em;
             margin: 0;
             white-space: nowrap; /* Prevent wrapping */
@@ -179,10 +184,13 @@
                 const listItem = document.createElement('li');
                 listItem.className = 'recipe-list-item';
 
+                const servingsDisplay = recipe.servings ? `<h3>${getImageLabel('servings.svg', recipe.servings)}</h3>` : '';
+                const totalCookTimeDisplay = getTotalCookTime(recipe) ? `<h3>${formatTime(getTotalCookTime(recipe))}</h3>` : '';
+
                 listItem.innerHTML = `<div class='recipe-header'>
                     <h2 class='recipe-title'>${formatTitle(recipe.title)}</h2>
-                    <h3>${getImageLabel('servings.svg', recipe.servings)}</h3>
-                    <h3>${formatTime(getTotalCookTime(recipe))}</h3>
+                    ${servingsDisplay}
+                    ${totalCookTimeDisplay}
                 </div>`
 
                 const detailsDiv = document.createElement('div');
@@ -193,7 +201,6 @@
                 detailsDiv.appendChild(detailsHeaderDiv);
                     
                 // Add cook times (if exist)
-                detailsHeaderDiv.innerHTML += (recipe.prep_time ? `<p></p>` : '');
                 detailsHeaderDiv.innerHTML += (recipe.prep_time ? `<p><img src='prep_time.svg' style='width: 20%; height: 20%;'/>${formatTime(recipe.prep_time)}</p>` : '');
                 detailsHeaderDiv.innerHTML += (recipe.cook_time ? `<p><img src='cook_time.svg' style='width: 20%; height: 20%;'/>${formatTime(recipe.cook_time)}</p>` : '');
 

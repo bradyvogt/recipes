@@ -27,7 +27,11 @@ const formatTime = (minutes) => {
     const remainingMinutes = minutes % 60;
 
     // Build formatted '2 hr 30 min'
-    return `${hours ? `${hours} hr` : ''} ${remainingMinutes ? `${remainingMinutes} min` : ''}`.trim();
+    //return `${hours ? `${hours} hr` : ''} ${remainingMinutes ? `${remainingMinutes} min` : ''}`.trim();
+    
+    // Build formatted '2:30'
+    return `${hours}:${String(remainingMinutes).padStart(2, '0')}`;
+
 }
 
 const formatRating = (rating) => {
