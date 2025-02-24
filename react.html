@@ -81,8 +81,26 @@
             text-align: right; /* Align content to the right */
         }
 
-        .recipe-details {
-            display: none;
+        .icon-label {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out content */
+            align-items: center; /* Center items vertically */
+        }
+
+        .toggle-container{
+            margin: 10px;
+            padding: 20px;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .toggle-container:hover {
+            background-color: #ccd7cf;
+        }
+
+        .toggle-details-container {
             margin-top: 10px;
             padding: 10px;
             background: #fff7e6;
@@ -90,18 +108,6 @@
             border-radius: 4px;
         }
 
-        .recipe-details-header {
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space out content */
-            align-items: center; /* Center items vertically */
-            gap: 10px; /* Add spacing between items */
-        }
-
-        .icon-label {
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space out content */
-            align-items: center; /* Center items vertically */
-        }
     </style>
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -139,8 +145,29 @@
     <script src="data_actions.js"></script>
 
     <script type="text/babel">
-      const recipesReact = getRecipes();
-      const sampleRecipe = recipesReact[0];
+        const { useState } = React;
+
+        const ToggleContainer = ({ header, details }) => {
+            const [isVisible, setIsVisible] = useState(false);
+
+            const toggleDetails = () => setIsVisible(!isVisible);
+
+            return (
+                <div className="toggle-container">
+                    <div className="toggle-header-container" onClick={toggleDetails} >
+                        {header}
+                    </div>
+                    {isVisible && (
+                        <div className="toggle-details-container">
+                            {details}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const recipesReact = getRecipes();
+        const sampleRecipe = recipesReact[0];
 
         const IconMetric = ({ icon, label }) => {
             return (
@@ -160,7 +187,7 @@
                 <div className="recipe-header">
                     <h2 className="recipe-title">{recipe.title}</h2>
                     {recipe.servings && (<IconMetric icon={ 'servings.svg' } label={ recipe.servings } />)}
-                    {getTotalCookTime(recipe) ? (<IconMetric icon={ 'prep_time.svg' } label={ formatTime(getTotalCookTime(recipe)) } />):''}
+                    {getTotalCookTime(recipe) ? (<IconMetric icon={ 'clock.svg' } label={ formatTime(getTotalCookTime(recipe)) } />):''}
                 </div>
             );
         };
@@ -168,12 +195,19 @@
         const RecipeList = ({ recipes }) => {
             console.log(recipes.length);    
             return (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+                <div>
                     {
                         recipes.map(recipe => (
-                            <RecipeSummary
-                            key={recipe.id}
-                            recipe={recipe}
+                            <ToggleContainer key={recipe.id}
+                                header = {
+                                    <RecipeSummary key={recipe.id} recipe={recipe}/>
+                                }
+                                details = {
+                                    <div>
+                                        <p>Ingredient list component</p>
+                                        <p>Instruction list component</p>
+                                    </div>
+                                }
                             />
                         ))
                     }
@@ -181,9 +215,10 @@
             );
         };
 
-      const container = document.getElementById('reactRoot');
-      const root = ReactDOM.createRoot(container);
-      root.render(<RecipeList recipes = { recipesReact } />)
+        // render at the root
+        const container = document.getElementById('reactRoot');
+        const root = ReactDOM.createRoot(container);
+        root.render(<RecipeList recipes = { recipesReact } />)
     </script>
 
     <script>
