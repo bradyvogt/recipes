@@ -195,5 +195,27 @@ const recipes = [
             "Sprinke parmesan on top",
             "Bake at 350 for 1 hour"
         ]
+    },
+    {
+        "title": "Chicken Pesto Bagels",
+        "prep_time": 10,
+        "cook_time": 15,
+        "servings": 6,
+        "ingredients": [
+            ["6", "Bagels"],
+            ["1 can", "Pesto Sauce"],
+            ["12", "chicken strips", "grilled"],
+            ["Some", "sundried tomatoes"],
+            ["8 oz", "mozzarella cheese"],
+        ],
+        "instructions": [
+            "Preheat oven to 350",
+            "Cut bagel in ½ and place on cookie sheet",
+            "Spread Pesto Sauce on bagel halves",
+            "Put meat on top of pesto sauce",
+            "Put sundried tomatoes on top of meat",
+            "Put cheese on top of tomatoes",
+            "Bake in oven for 10-15 minutes"
+        ]
     }
 ];
