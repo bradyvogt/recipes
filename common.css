@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+header {
+    background-color: #ecf8ef;
+    color: #246231;
+    padding: 10px 20px;
+    text-align: center;
+}
+.recipes-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+ul li:hover {
+    background: #ffefef;
+}
+
+.recipe-header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out content */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Add spacing between items */
+}
+
+.recipe-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    flex: 1; /* Allow title to take up available space */
+    margin: 0; /* Reset default margins */
+    white-space: pre-wrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for long titles */
+}
+
+h2 {
+    font-size: 0.8em;
+}
+
+h3 {
+    font-size: 0.8em;
+    margin: 0;
+    white-space: nowrap; /* Prevent wrapping */
+    text-align: right; /* Align content to the right */
+}
+
+.toggle-container{
+    margin: 10px 0;
+    padding: 15px;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.toggle-container:hover {
+    background-color: #ccd7cf;
+}
+
+.toggle-details-container {
+    margin-top: 10px;
+    padding: 10px;
+    background: #ecf8ef;
+    border: 1px solid #246231;
+    border-radius: 4px;
+}

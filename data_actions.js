@@ -54,10 +54,6 @@ const getRecipes = (filterFunctions = [], sortFunctions = []) => {
         recipe.id = index;
     });
 
-    // for(let i = 0; i < filteredRecipes.length; i++){
-    //     filteredRecipes[i] = 
-    // }
-
     // Apply each filter with parameter
     filterFunctions.forEach(filter => {
         filteredRecipes = filteredRecipes.filter(recipe => filter.function(recipe, filter.parameter));

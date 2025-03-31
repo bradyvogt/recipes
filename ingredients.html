@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients Viewer</title>
+    <link rel="stylesheet" href="common.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff5e6; /* Warm cream background */
+        }
+        header {
+            background-color: #ff6f61; /* Vibrant coral red */
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .ingredients-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffe0b2; /* Soft orange background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #d84315; /* Deep orange for headings */
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ingredients Viewer</h1>
+    </header>
+    <div id="ingredientsRoot" class="ingredients-container"></div>
+
+    <script src="data.js"></script>
+    <script src="data_actions.js"></script>
+    <script type="text/babel">
+        const { useEffect, useState } = React;
+    
+        const IngredientsViewer = () => {
+            const [ingredientsList, setIngredientsList] = useState([]);
+            const [newIngredient, setNewIngredient] = useState('');
+    
+            useEffect(() => {
+                const params = new URLSearchParams(window.location.search);
+                const recipeIds = params.get('ids')?.split(',').map(id => parseInt(id)) || [];
+    
+                const filteredRecipes = getRecipes().filter(recipe => recipeIds.includes(recipe.id));
+    
+                // Flatten all ingredients into a single list
+                const allIngredients = filteredRecipes.flatMap(recipe => 
+                    
+                    // Map to custom object with recipeId
+                    recipe.ingredients.map(ingredient => {
+                        return {
+                            recipeId: recipe.id,
+                            name: getIngredientName(ingredient),
+                            displayText: formatIngredient(ingredient)
+                        }
+                    })
+                );
+
+                console.log(allIngredients);
+    
+                setIngredientsList(allIngredients);
+            }, []);
+    
+            const addIngredient = () => {
+                if (!newIngredient.trim()) return;
+    
+                setIngredientsList(prevList => [...prevList, {name: newIngredient, displayText: newIngredient}]);
+                setNewIngredient('');
+            };
+
+            const removeIngredient = (indexToRemove) => {
+                setIngredientsList(prevList => prevList.filter((_, index) => index !== indexToRemove));
+            };
+    
+            return (
+                <div>
+                    <h2>Ingredients List</h2>
+                    {ingredientsList.length > 0 ? (
+                        <ul>
+                            {ingredientsList.map((ingredient, index) => (
+                                <li key={index}>
+                                    {ingredient.displayText}
+                                    <button onClick={() => removeIngredient(index)}>-</button>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No ingredients found.</p>
+                    )}
+    
+                    <div>
+                        <input
+                            type="text"
+                            value={newIngredient}
+                            onChange={(e) => setNewIngredient(e.target.value)}
+                            placeholder="Add a new ingredient"
+                        />
+                        <button onClick={addIngredient}>Add Ingredient</button>
+                    </div>
+                </div>
+            );
+        };
+    
+        const container = document.getElementById('ingredientsRoot');
+        const root = ReactDOM.createRoot(container);
+        root.render(<IngredientsViewer />);
+    </script>
+</body>
+</html>
