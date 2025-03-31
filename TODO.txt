@@ -1,2 +1,4 @@
 Make ingredient dropdown searchable
 Add clear sort button [x]
+Color by recipeid on ingredient page
+Sort by ingredient name on ingredient page
