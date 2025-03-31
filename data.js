@@ -167,6 +167,7 @@ const recipes = [
     {
         "title": "Fried Rice",
         "prep_time": 30,
+        "cook_time": 0,
         "servings": 10
     },
     {
