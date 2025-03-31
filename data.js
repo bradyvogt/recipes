@@ -139,7 +139,7 @@ const recipes = [
         ]
     },
     {
-        "title": "Pizza (store crust)",
+        "title": "Pizza (store-bought crust)",
         "prep_time": 15,
         "cook_time": 15,
         "servings": 4,
@@ -150,7 +150,7 @@ const recipes = [
         ]
     },
     {
-        "title": "Pizza (homemade)",
+        "title": "Pizza (homemade crust)",
         "prep_time": 150,
         "cook_time": 15,
         "servings": 4,
@@ -163,6 +163,11 @@ const recipes = [
     },
     {
         "title": "Carne y nachos",
+    },
+    {
+        "title": "Fried Rice",
+        "prep_time": 30,
+        "servings": 10
     },
     {
         "title": "Lasagna",

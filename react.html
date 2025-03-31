@@ -80,13 +80,7 @@
             white-space: nowrap; /* Prevent wrapping */
             text-align: right; /* Align content to the right */
         }
-
-        .icon-label {
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space out content */
-            align-items: center; /* Center items vertically */
-        }
-
+        
         .toggle-container{
             margin: 10px;
             padding: 20px;
@@ -171,16 +165,17 @@
 
         const IconMetric = ({ icon, label }) => {
             return (
-                <div className="icon-label" style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="icon-label" style={{ display: 'flex', alignItems: 'center', gap: '5px'}}>
                     <div className="icon-half">
-                        <img src={icon} alt="icon" style={{ width: '40px', height: '40px' }} />
+                        <img src={icon} alt="icon" style={{ width: '30px', height: '30px' }} />
                     </div>
-                    <div className="label-half" style={{ flex: '1' }}>
-                        <p>{label}</p>
+                    <div className="label-half">
+                        <h4 style={{margin: '0'}}>{label}</h4>
                     </div>
                 </div>
             );
         };
+
 
         const RecipeSummary = ({ recipe }) => {
             return (
@@ -192,11 +187,13 @@
             );
         };
 
+        // Top Level Recipe List
         const RecipeList = ({ recipes }) => {
             console.log(recipes.length);    
             return (
                 <div>
-                    {
+                    {   
+                        // List of recipe info boxes
                         recipes.map(recipe => (
                             <ToggleContainer key={recipe.id}
                                 header = {
@@ -204,8 +201,36 @@
                                 }
                                 details = {
                                     <div>
-                                        <p>Ingredient list component</p>
-                                        <p>Instruction list component</p>
+                                        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+                                            {recipe.prep_time && (<IconMetric icon={ 'prep_time.svg' } label={ formatTime(recipe.prep_time) } />)}
+                                            {recipe.cook_time && (<IconMetric icon={ 'cook_time.svg' } label={ formatTime(recipe.cook_time) } />)}
+                                        </div>
+
+                                        {recipe.ingredients && (
+                                            <>
+                                                <h4>Ingredients</h4>
+                                                <ul>
+                                                {
+                                                    recipe.ingredients.map(ingredient => (
+                                                        <li>{formatIngredient(ingredient)}</li>
+                                                    ))
+                                                }
+                                                </ul>
+                                            </>
+                                        )}
+
+                                        {recipe.instructions && (
+                                            <>
+                                                <h4>Instructions</h4>
+                                                <ul>
+                                                {
+                                                    recipe.instructions.map(instruction => (
+                                                        <li>{instruction}</li>
+                                                    ))
+                                                }
+                                                </ul>
+                                            </>
+                                        )}
                                     </div>
                                 }
                             />
