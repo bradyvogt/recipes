@@ -37,9 +37,24 @@
                     <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">{title}</h5>
-                        <button type="button" className="btn-close" onClick={onClose}></button>
+                        <button type="button" className="btn-close" onClick={onClose}>Close</button>
                     </div>
-                    <div className="modal-body">{recipes[0].title}</div>
+                    <div className="modal-body">
+                        <ul>
+                        {recipes.map((recipe) => (
+                            <li key={recipe.id}>
+                                <div className="row">
+                                    <div className="col-xs-8 text-left">
+                                        <p>{recipe.title}</p>
+                                    </div>
+                                    <div className="col-xs-4 text-right">
+                                        <p>Common Ingredients: {recipe.commonIngredients.join(", ")}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={onClose}>
                         Close
@@ -112,7 +127,7 @@
                                             <IconMetric icon={'cook_time.svg'} label={formatTime(recipe.cook_time)} />
                                         )}
                                         <button className="btn btn-primary" onClick={() => onSimilarClick(recipe)}>
-                                            View Similar Recipes
+                                            Similar
                                         </button>
                                     </div>
 
@@ -161,7 +176,7 @@
             return (
                 <div>
                     <RecipeList recipes={recipes} onSimilarClick={handleRecipeSimilarClick} />
-                    <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} title="Related Recipes" recipes={similarRecipes} />
+                    <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} title="Similar Recipes" recipes={similarRecipes} />
                 </div>
             );
         }

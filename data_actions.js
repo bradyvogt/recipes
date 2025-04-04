@@ -47,12 +47,29 @@ const getProperCase = (string) => {
 }
 
 const getSimilarRecipes = (recipe) => {
-    return getRecipes().filter(r => {
-        // Check if recipe is not the same and has similar ingredients
-        return r.id !== recipe.id; 
-                // r.ingredients && 
-                // r.ingredients.some(ingredient => recipe.ingredients && recipe.ingredients.includes(ingredient));
+    let currentRecipeIngredients = recipe.ingredients.map(ingredient => getIngredientName(ingredient));
+
+    // Filter out recipes with no ingredients or same recipe
+    let commonIngredientRecipes = getRecipes().filter(r => r.id !== recipe.id && r.ingredients && r.ingredients.length > 0);
+
+    console.log("Current recipe ingredients: ", currentRecipeIngredients);
+    console.log("Common ingredient recipes: ", commonIngredientRecipes);
+
+    // Add common ingredients with parameter recipe
+    commonIngredientRecipes.forEach(r => {
+        r.commonIngredients = []; // Initialize common ingredients array
+
+        // Add common ingredients to recipe
+        r.ingredients.forEach(ingredient => {
+            const ingredientName = getIngredientName(ingredient);
+            if (currentRecipeIngredients.includes(ingredientName)) {
+                r.commonIngredients.push(ingredientName);
+            }
+        })
     });
+
+    // Top 5 similar recipes with common ingredients
+    return commonIngredientRecipes.filter(r => r.commonIngredients.length > 0).splice(0,5);
 
 }
 
