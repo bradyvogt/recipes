@@ -46,6 +46,16 @@ const getProperCase = (string) => {
         .join(" ");
 }
 
+const getSimilarRecipes = (recipe) => {
+    return getRecipes().filter(r => {
+        // Check if recipe is not the same and has similar ingredients
+        return r.id !== recipe.id; 
+                // r.ingredients && 
+                // r.ingredients.some(ingredient => recipe.ingredients && recipe.ingredients.includes(ingredient));
+    });
+
+}
+
 const getRecipes = (filterFunctions = [], sortFunctions = []) => {
     let filteredRecipes = recipes;
 

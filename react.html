@@ -25,6 +25,32 @@
     <script type="text/babel">
         const { useState } = React;
 
+        const recipesReact = getRecipes();
+
+        // Generic popup component
+        const Popup = ({ isOpen, onClose, title, recipes }) => {
+            if (!isOpen) return null;
+
+            return (
+                <div className="modal show d-block" tabIndex="-1" role="dialog">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title">{title}</h5>
+                        <button type="button" className="btn-close" onClick={onClose}></button>
+                    </div>
+                    <div className="modal-body">{recipes[0].title}</div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" onClick={onClose}>
+                        Close
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            );
+        };
+
         const ToggleContainer = ({ header, details }) => {
             const [isVisible, setIsVisible] = useState(false);
 
@@ -43,9 +69,6 @@
                 </div>
             );
         };
-
-        const recipesReact = getRecipes();
-        const sampleRecipe = recipesReact[0];
 
         const IconMetric = ({ icon, label }) => {
             return (
@@ -71,63 +94,82 @@
             );
         };
 
-        // Top Level Recipe List
-        const RecipeList = ({ recipes }) => {
-            console.log(recipes.length);    
+        // Returns a formatted list of recipes with summary and details
+        const RecipeList = ({ recipes, onSimilarClick }) => {
             return (
                 <div>
-                    {   
-                        // List of recipe info boxes
-                        recipes.map(recipe => (
-                            <ToggleContainer key={recipe.id}
-                                header = {
-                                    <RecipeSummary key={recipe.id} recipe={recipe}/>
-                                }
-                                details = {
-                                    <div>
-                                        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-                                            {recipe.prep_time > 0 && (<IconMetric icon={ 'prep_time.svg' } label={ formatTime(recipe.prep_time) } />)}
-                                            {recipe.cook_time > 0 && formatTime(recipe.cook_time) && (<IconMetric icon={ 'cook_time.svg' } label={ formatTime(recipe.cook_time) } />)}
-                                        </div>
-
-                                        {recipe.ingredients && (
-                                            <>
-                                                <h4>Ingredients</h4>
-                                                <ul>
-                                                {
-                                                    recipe.ingredients.map(ingredient => (
-                                                        <li>{formatIngredient(ingredient)}</li>
-                                                    ))
-                                                }
-                                                </ul>
-                                            </>
+                    {recipes.map((recipe) => (
+                        <ToggleContainer
+                            key={recipe.id}
+                            header={<RecipeSummary key={recipe.id} recipe={recipe} />}
+                            details={
+                                <div>
+                                    <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+                                        {recipe.prep_time > 0 && (
+                                            <IconMetric icon={'prep_time.svg'} label={formatTime(recipe.prep_time)} />
                                         )}
-
-                                        {recipe.instructions && (
-                                            <>
-                                                <h4>Instructions</h4>
-                                                <ul>
-                                                {
-                                                    recipe.instructions.map(instruction => (
-                                                        <li>{instruction}</li>
-                                                    ))
-                                                }
-                                                </ul>
-                                            </>
+                                        {recipe.cook_time > 0 && (
+                                            <IconMetric icon={'cook_time.svg'} label={formatTime(recipe.cook_time)} />
                                         )}
+                                        <button className="btn btn-primary" onClick={() => onSimilarClick(recipe)}>
+                                            View Similar Recipes
+                                        </button>
                                     </div>
-                                }
-                            />
-                        ))
-                    }
+
+                                    {recipe.ingredients && (
+                                        <>
+                                            <h4>Ingredients</h4>
+                                            <ul>
+                                                {recipe.ingredients.map((ingredient) => (
+                                                    <li key={ingredient}>{formatIngredient(ingredient)}</li>
+                                                ))}
+                                            </ul>
+                                        </>
+                                    )}
+
+                                    {recipe.instructions && (
+                                        <>
+                                            <h4>Instructions</h4>
+                                            <ul>
+                                                {recipe.instructions.map((instruction, index) => (
+                                                    <li key={index}>{instruction}</li>
+                                                ))}
+                                            </ul>
+                                        </>
+                                    )}
+                                </div>
+                            }
+                        />
+                    ))}
                 </div>
             );
         };
 
+        // Main App Component - Manages state and displays recipes
+        const App = () => {
+            const [isPopupOpen, setIsPopupOpen] = useState(false);
+            const [similarRecipes, setSimilarRecipes] = useState([]);
+
+            // When a recipe is clicked, display a popup with related recipes
+            const handleRecipeSimilarClick = (recipe) => {
+                console.log('Clicked recipe:', recipe);
+                setSimilarRecipes(getSimilarRecipes(recipe));
+                console.log('Similar recipes:', similarRecipes);
+                setIsPopupOpen(true);
+            };
+
+            return (
+                <div>
+                    <RecipeList recipes={recipes} onSimilarClick={handleRecipeSimilarClick} />
+                    <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} title="Related Recipes" recipes={similarRecipes} />
+                </div>
+            );
+        }
+
         // render at the root
         const container = document.getElementById('reactRoot');
         const root = ReactDOM.createRoot(container);
-        root.render(<RecipeList recipes = { recipesReact } />)
+        root.render(<App />);
     </script>
 
   </body>
