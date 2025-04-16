@@ -162,9 +162,6 @@ const recipes = [
         "title": "Sheetpan sausage, potatoes & peppers",
     },
     {
-        "title": "Carne y nachos",
-    },
-    {
         "title": "Fried Rice",
         "prep_time": 30,
         "cook_time": 0,
@@ -172,13 +169,14 @@ const recipes = [
     },
     {
         "title": "Lasagna",
-        "prep_time": 30,
+        "prep_time": 40,
         "cook_time": 60,
         "servings": 10,
         "ingredients": [
             ["8-10 oz", "lasagna noodles"],
             ["1/2 cup", "onion", "diced"],
             ["1 lb", "ground beef"],
+            ["1 lb", "pork sausage"],
             ["1 clove", "garlic", "minced"],
             ["1/2 tsp", "oregano"],
             ["1/2 tsp", "basil"],
