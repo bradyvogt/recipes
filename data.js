@@ -103,13 +103,13 @@ const recipes = [
         "servings": 4,
         "category": "main dish",
         "ingredients": [
-            ["1", "pie crust", "refrigerated"],
             ["6", "eggs"],
             ["3/4 cup", "milk"],
             ["Some", "salt & pepper"],
             ["1 cup", "cooked ham"],
             ["1 1/2 cup", "shredded cheese"],
-            ["3 tbsp", "green onions"]
+            ["3 tbsp", "green onions"],
+            ["1", "pie crust", "refrigerated"],
         ],
         "instructions": [
             "Preheat oven to 375",
@@ -156,10 +156,31 @@ const recipes = [
         "servings": 4,
     },
     {
-        "title": "Spaghetti & meatballs",
+        "title": "Meatballs",
+         "prep_time": 30,
+        "cook_time": 60,
+        "servings": 10,
+        "ingredients": [
+            ["2 lb", "ground beef"],
+            ["1 lb", "ground pork"],
+            ["2 cups", "oatmeal"],
+            ["1 small", "onion", "chopped"],
+            ["1 can", "evaporated milk"],
+            ["2", "eggs"],
+            ["1/2 tsp", "salt"],
+            ["1/2 tsp", "garlic salt"],
+            ["1 1/2 tsp", "chili powder"]
+        ],
+        "instructions": [
+            "Mix beef, pork, oatmeal, onion, evap. milk, eggs, and spices in large bowl.",
+            "Preheat oven to...",
+        ]
     },
     {
         "title": "Sheetpan sausage, potatoes & peppers",
+    },
+        {
+        "title": "Pancakes",
     },
     {
         "title": "Fried Rice",
