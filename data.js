@@ -221,5 +221,34 @@ const recipes = [
             "Put cheese on top of tomatoes",
             "Bake in oven for 10-15 minutes"
         ]
+    },
+    {
+        "title": "Scalloped Potatoes + Ham",
+        "prep_time": 45,
+        "cook_time": 60,
+        "servings": 6,
+        "ingredients": [
+            ["6", "Potatoes", "Medium-sized"],
+            ["2 cups","ham", "cooked"],
+            ["1 1/2 cup", "shredded cheese", "cheddar"],
+            ["1/4 cup", "flour"],
+            ["8 oz", "mozzarella cheese"],
+            ["3 cups", "milk"],
+            ["1 1/2 tsp", "salt"],
+            ["3/4 tsp", "pepper"],
+            ["3/4 tsp", "onion powder"]
+        ],
+        "instructions": [
+            "Slice potatoes very thinly and cube ham into 1/2 inch pieces",
+            "Grease 9x9 pan and preheat oven to 400",
+            "Whisk milk and flour in medium bowl",
+            "Mix salt, pepper, onion powder together",
+            "Lay 1/3 of potatoes on greased pan shingle style",
+            "Put 1/3 seasonings, 1/3 ham, and 1/3 cheese on top",
+            "2nd Layer: Repeat last two steps",
+            "3rd Layer: Repeat but pour milk mixture on before cheese. Milk should almost cover potatoes.",
+            "Bake covered for 30 min, then uncovered for another 30 min.",
+            "Note: put a pan underneath in case of bubble over"
+        ]
     }
 ];
