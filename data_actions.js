@@ -46,6 +46,16 @@ const getProperCase = (string) => {
         .join(" ");
 }
 
+const formatCopyIngredients = (recipe) => {
+    // Safely access ingredients and format them
+    return recipe?.ingredients?.map(formatIngredient).join("\n") || "";
+}
+
+const formatCopyInstructions = (recipe) => {
+    // Safely access instructions and format them
+    return recipe?.instructions?.join("\n") || "";
+}
+
 const getSimilarRecipes = (recipe) => {
     let currentRecipeIngredients = recipe.ingredients.map(ingredient => getIngredientName(ingredient));
 

@@ -1,4 +1,4 @@
-Add copy to clipboard button (recipe/instructions separate)
+Make copy to clipboard it's own component
 Make ingredient dropdown searchable
 Add clear sort button [x]
 Color by recipeid on ingredient page

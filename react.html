@@ -111,6 +111,22 @@
 
         // Returns a formatted list of recipes with summary and details
         const RecipeList = ({ recipes, onSimilarClick }) => {
+            const handleCopyClick = (recipe, part) => {
+                if (part === 'ingredients') {
+                    navigator.clipboard.writeText(formatCopyIngredients(recipe)).then(() => {
+                        //alert('Successfully copied ingredients');
+                    }).catch((err) => {
+                        alert('Failed to copy ingredients. Error message: ',err)
+                    });
+                } else if (part === 'instructions') {
+                    navigator.clipboard.writeText(formatCopyInstructions(recipe)).then(() => {
+                        //alert('Successfully copied instructions');
+                    }).catch((err) => {
+                        console.error('Failed to copy instructions. Error message: ', err);
+                    });
+                }
+            };
+
             return (
                 <div>
                     {recipes.map((recipe) => (
@@ -133,7 +149,7 @@
 
                                     {recipe.ingredients && (
                                         <>
-                                            <h4>Ingredients</h4>
+                                            <h4>Ingredients <img src={'copy.svg'} onClick={() => handleCopyClick(recipe, "ingredients")} alt="icon" style={{ width: '20px', height: '20px' }} /></h4>
                                             <ul>
                                                 {recipe.ingredients.map((ingredient) => (
                                                     <li key={ingredient}>{formatIngredient(ingredient)}</li>
@@ -144,7 +160,7 @@
 
                                     {recipe.instructions && (
                                         <>
-                                            <h4>Instructions</h4>
+                                            <h4>Instructions <img src={'copy.svg'} onClick={() => handleCopyClick(recipe, "instructions")} alt="icon" style={{ width: '20px', height: '20px' }} /></h4>
                                             <ul>
                                                 {recipe.instructions.map((instruction, index) => (
                                                     <li key={index}>{instruction}</li>
