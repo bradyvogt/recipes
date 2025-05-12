@@ -289,7 +289,7 @@ const recipes = [
             ["2 pkgs", "crescent rolls"],
             ["2 cups", "chicken", "cooked"],
             ["4 oz", "cream cheese"],
-            ["1 tsp", "lemon pepper"],
+            ["2-3 tsp", "lemon pepper"],
             ["7 oz", "mushrooms"],
             ["4 tsp", "butter"],
             ["1 cup", "bread crumbs"],
