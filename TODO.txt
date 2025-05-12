@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-=======
-Make copy to clipboard it's own component with indicator that it correctly copied
 Add filters for category
 Add name search filter
->>>>>>> 23f9fe4aa287c5919d51e1b14885dbba2ad79629
 Make ingredient dropdown searchable
 Similar recipes sort by # of common ings
 Add sorting
