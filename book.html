@@ -23,7 +23,7 @@
     <script type="text/babel">
         const { useState } = React;
 
-        const recipesReact = getRecipes();
+        const reactRecipes = getRecipes();
 
         // Generic popup component
         const SimilarRecipePopup = ({ isOpen, onClose, title, recipes }) => {
@@ -204,7 +204,7 @@
 
             return (
                 <div>
-                    <RecipeList recipes={recipes} onSimilarClick={handleRecipeSimilarClick} />
+                    <RecipeList recipes={reactRecipes} onSimilarClick={handleRecipeSimilarClick} />
                     <SimilarRecipePopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} title="Similar Recipes" recipes={similarRecipes} />
                 </div>
             );

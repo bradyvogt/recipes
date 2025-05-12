@@ -208,7 +208,7 @@ const recipes = [
             ["1/2 tsp", "basil"],
             ["some", "salt and pepper"],
             ["1 lb", "tomatoes"],
-            ["2 sm cans", "tomato paste"],
+            ["12 oz", "tomato paste"],
             ["16 oz", "cottage cheese", "sm curd"],
             ["1/2 cup", "parmesan cheese"],
             ["8 oz", "mozzarella cheese"],
