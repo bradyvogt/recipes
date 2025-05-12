@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .recipes-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search-bar, .sort-bar, .ingredient-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input, .ingredient-bar select, .sort-bar button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        
+        ul li:hover {
+            background: #ffefef;
+        }
+        
+        .recipe-header {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out content */
+            align-items: center; /* Center items vertically */
+            gap: 10px; /* Add spacing between items */
+        }
+
+        .recipe-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            flex: 1; /* Allow title to take up available space */
+            margin: 0; /* Reset default margins */
+            white-space: pre-wrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow text */
+            text-overflow: ellipsis; /* Add ellipsis for long titles */
+        }
+
+        h2 {
+            font-size: 0.8em;
+        }
+
+        h3 {
+            font-size: 0.8em;
+            margin: 0;
+            white-space: nowrap; /* Prevent wrapping */
+            text-align: right; /* Align content to the right */
+        }
+
+        .recipe-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff7e6;
+            border: 1px solid #ff6f61;
+            border-radius: 4px;
+        }
+
+        .recipe-details-header {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out content */
+            align-items: center; /* Center items vertically */
+            gap: 10px; /* Add spacing between items */
+        }
+
+        .icon-label {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out content */
+            align-items: center; /* Center items vertically */
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <h1>Recipe Viewer</h1>
+    </header>
+    <div class="recipes-container">
+        <a href="react.html">React Version of this Page</a>
+
+        <!-- Search Bar for Recipe Titles -->
+        <div class="search-bar">
+            <input type="text" filter="titleFilterFunction" placeholder="Search for recipes...">
+        </div>
+
+        <!-- Dropdown for Ingredients -->
+        <div class="ingredient-bar">
+            <select id="ingredient-filter">
+                <option value="">Select an ingredient</option>
+            </select>
+        </div>
+
+        <div class="header-list">
+            <h2>Available Recipes</h2>
+            <button class="sort-button" sort="titleSortFunction">Name <span class="sort-icon"></span></button>
+            <button class="sort-button" sort="ratingSortFunction">Rating <span class="sort-icon"></span></button>
+        </div>
+        
+        <ul id="recipe-list"></ul>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="data_actions.js"></script>
+    <script>
+        const recipeList = document.getElementById('recipe-list');
+        const searchInput = document.getElementById('search');
+        const ingredientFilter = document.getElementById('ingredient-filter');
+        const titleSortButton = document.getElementById('title-sort');
+        const SORT_ASC_INDICATOR = 'asc';
+        const SORT_ASC_ICON = '↑';
+        const SORT_DESC_INDICATOR = 'desc';
+        const SORT_DESC_ICON = '↓';
+        const sortOrderToggleSequence = ['', SORT_ASC_INDICATOR, SORT_DESC_INDICATOR];
+        const sortOrderIcons = ['', SORT_ASC_ICON, SORT_DESC_ICON];
+
+
+        // Function to render recipes based on filters
+        const renderRecipes = () => {
+            // Clear recipe list
+            recipeList.innerHTML = '';
+            
+            // Get all filters
+            let filterFunctionsToPass = [];
+            document.querySelectorAll("[filter]").forEach(element => {
+                // Don't apply filter if not active
+                if(element.value){
+                    filterFunctionsToPass.push({
+                        "function": window[element.getAttribute("filter")],
+                        "parameter": element.value
+                    })
+                }   
+            });
+            
+            // Get all sorts
+            let sortFunctionsToPass = [];
+            document.querySelectorAll("[sort]").forEach(element => {
+
+                // Don't apply sort if not active
+                if(element.getAttribute("order")){
+                    sortFunctionsToPass.push({
+                        "function": window[element.getAttribute("sort")],
+                        "isAsc": element.getAttribute("order").toLowerCase() === SORT_ASC_INDICATOR.toLowerCase()
+                    });
+                }
+            });
+
+            // Get filtered and sorted recipes
+            const filteredRecipes = getRecipes(filterFunctionsToPass, sortFunctionsToPass);
+
+            // Render filtered recipes
+            filteredRecipes.forEach(recipe => {
+                const listItem = document.createElement('li');
+                listItem.className = 'recipe-list-item';
+
+                const servingsDisplay = recipe.servings ? `<h3>${getImageLabel('servings.svg', recipe.servings)}</h3>` : '';
+                const totalCookTimeDisplay = getTotalCookTime(recipe) ? `<h3>${formatTime(getTotalCookTime(recipe))}</h3>` : '';
+
+                listItem.innerHTML = `<div class='recipe-header'>
+                    <h2 class='recipe-title'>${formatTitle(recipe.title)}</h2>
+                    ${servingsDisplay}
+                    ${totalCookTimeDisplay}
+                </div>`
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'recipe-details';
+
+                const detailsHeaderDiv = document.createElement('div');
+                detailsHeaderDiv.className = 'recipe-details-header';
+                detailsDiv.appendChild(detailsHeaderDiv);
+                    
+                // Add cook times (if exist)
+                detailsHeaderDiv.innerHTML += (recipe.prep_time ? `<p><img src='prep_time.svg' style='width: 20%; height: 20%;'/>${formatTime(recipe.prep_time)}</p>` : '');
+                detailsHeaderDiv.innerHTML += (recipe.cook_time ? `<p><img src='cook_time.svg' style='width: 20%; height: 20%;'/>${formatTime(recipe.cook_time)}</p>` : '');
+
+
+                // Add ingredients (if exist)
+                detailsDiv.innerHTML += recipe.ingredients ? `<h4>Ingredients:</h4>
+                <ul>${recipe.ingredients.map(ingredient => ingredient ? `<li>${formatIngredient(ingredient)}</li>` : '').join('')}</ul>` : 
+                ''
+                
+                // Add instructions (if exist)
+                detailsDiv.innerHTML += recipe.instructions ? `<h4>Instructions:</h4>
+                <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>` : ''
+                
+                // Hide details in a toggle clickable dropdown
+                listItem.appendChild(detailsDiv);
+                listItem.addEventListener('click', () => {
+                    detailsDiv.style.display = detailsDiv.style.display === 'none' || !detailsDiv.style.display ? 'block' : 'none';
+                });
+
+                recipeList.appendChild(listItem);
+            });
+        };
+
+        // Populate ingredient dropdown with unique ingredients
+        const populateIngredientDropdown = () => {
+            getAllIngredients().forEach(ingredient => {
+                const option = document.createElement('option');
+                option.value = ingredient;
+                option.textContent = ingredient;
+                ingredientFilter.appendChild(option);
+            });
+        };
+
+        
+        // Add sort event listeners for all sort buttons
+        document.querySelectorAll('.sort-button').forEach(sortButton => {
+            sortButton.addEventListener('click', () => {
+                const prevSortOrder = event.target.getAttribute("order") === null ? '' : event.target.getAttribute("order"); // Null to empty string
+                const prevOrderIdx = sortOrderToggleSequence.indexOf(prevSortOrder);
+                const nextOrderIdx = (prevOrderIdx + 1 ) % sortOrderToggleSequence.length;
+
+                // Set new sort order
+                event.target.setAttribute("order", sortOrderToggleSequence[nextOrderIdx]);
+
+                // Change sort icon
+                event.target.getElementsByClassName('sort-icon')[0].textContent = sortOrderIcons[nextOrderIdx];
+
+                renderRecipes();
+            });
+        });
+        
+        // Refresh recipe list for all input text changes
+        document.querySelectorAll('input').forEach(element => {
+            element.addEventListener('input', () => {
+                renderRecipes();
+            });
+        });
+
+        // Refresh recipe list for all dropdown selection changes
+        document.querySelectorAll('select').forEach(element => {
+            element.addEventListener('change', () => {
+                renderRecipes();
+            });
+        });
+
+        // HTML Template generations
+        function getImageLabel(imageName, label) {
+            return `<div class="icon-label">
+                        <div class="icon-half">
+                            <img src='${imageName}'/>
+                        </div>
+                        <div class="label-half">
+                            ${label}
+                        </div>
+                    </div>`
+        }
+        
+        // Initial rendering and setup
+        populateIngredientDropdown();
+        renderRecipes();
+    </script>
+</body>
+</html>
