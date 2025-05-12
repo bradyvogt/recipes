@@ -22,6 +22,7 @@ const recipes = [
         "cook_time": 30,
         "rating": 7,
         "servings": 6,
+        "temperature": 350,
         "category": "main dish",
         "ingredients": [
             ["1 lb", "ground beef"],
@@ -59,7 +60,8 @@ const recipes = [
             ["1 tbsp", "vegetable oil"]
         ],
         "instructions": [
-            "Combine all ingredients (except chicken & oil) in a medium bowl. Refrigerate for 10-30 min.",
+            "Combine all ingredients (except chicken & oil) in a medium bowl.",
+            "Refrigerate for 10-30 min.",
             "Heat oil in skillet over medium heat",
             "Cook chicken & marinade until liquid evaporates"
         ]
@@ -69,6 +71,7 @@ const recipes = [
         "prep_time": 20,
         "cook_time": 30,
         "servings": 4,
+        "temperature": 425,
         "category": "main dish",
         "ingredients": [
             ["1 head", "broccoli"],
@@ -101,6 +104,7 @@ const recipes = [
         "cook_time": 40,
         "rating": 6.5,
         "servings": 4,
+        "temperature": 375,
         "category": "main dish",
         "ingredients": [
             ["6", "eggs"],
@@ -193,6 +197,7 @@ const recipes = [
         "prep_time": 40,
         "cook_time": 60,
         "servings": 10,
+        "temperature": 350,
         "ingredients": [
             ["8-10 oz", "lasagna noodles"],
             ["1/2 cup", "onion", "diced"],
@@ -226,6 +231,7 @@ const recipes = [
         "prep_time": 10,
         "cook_time": 15,
         "servings": 6,
+        "temperature": 350,
         "ingredients": [
             ["6", "Bagels"],
             ["1 can", "Pesto Sauce"],
@@ -248,6 +254,7 @@ const recipes = [
         "prep_time": 45,
         "cook_time": 60,
         "servings": 6,
+        "temperature": 400,
         "ingredients": [
             ["6", "Potatoes", "Medium-sized"],
             ["2 cups","ham", "cooked"],
@@ -270,6 +277,33 @@ const recipes = [
             "3rd Layer: Repeat but pour milk mixture on before cheese. Milk should almost cover potatoes.",
             "Bake covered for 30 min, then uncovered for another 30 min.",
             "Note: put a pan underneath in case of bubble over"
+        ]
+    },
+    {
+        "title": "Chicken Roll Ups",
+        "prep_time": 20,
+        "cook_time": 20,
+        "servings": 6,
+        "temperature": 350,
+        "ingredients": [
+            ["2 pkgs", "crescent rolls"],
+            ["2 cups", "chicken", "cooked"],
+            ["4 oz", "cream cheese"],
+            ["1 tsp", "lemon pepper"],
+            ["7 oz", "mushrooms"],
+            ["4 tsp", "butter"],
+            ["1 cup", "bread crumbs"],
+            ["2/3 cup", "pecans", "chopped"]
+        ],
+        "instructions": [
+            "Cook and dice chicken",
+            "Mix bread crumbs and pecans (Set aside)",
+            "Mix chicken, cheese, lemon pepper, mushrooms",
+            "Flatten crescent rolls into rectangles",
+            "Spoon chicken mixture on crescent rectangle",
+            "Roll up and dip in butter",
+            "Roll in bread crumbs and place on baking sheet",
+            "Bake at 350 for 20 min (golden brown)"
         ]
     }
 ];

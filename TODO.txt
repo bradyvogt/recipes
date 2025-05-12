@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+=======
+Make copy to clipboard it's own component with indicator that it correctly copied
+Add filters for category
+Add name search filter
+>>>>>>> 23f9fe4aa287c5919d51e1b14885dbba2ad79629
 Make ingredient dropdown searchable
-Add clear sort button [x]
-Color by recipeid on ingredient page
-Sort by ingredient name on ingredient page
-Popup with recipes that have similar ingredients
+Similar recipes sort by # of common ings
+Add sorting
