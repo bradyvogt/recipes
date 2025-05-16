@@ -220,6 +220,7 @@ const recipes = [
             "Brown pork sausage and mix with hamburger/onion",
             "Add garlic, oregano, basil, salt, tomato, tomato paste to meat",
             "Cook 8-10 oz of lasagna noodles",
+            "Cheese layer: Mix cottage, mozzarella, and parmesan cheeses with eggs and parsley",
             "Place a little tomato juice in 9x13 pan",
             "Layer noodles, cheese, meat sauce (x2)",
             "Sprinke parmesan on top",
