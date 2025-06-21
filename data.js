@@ -306,5 +306,33 @@ const recipes = [
             "Roll in bread crumbs and place on baking sheet",
             "Bake at 350 for 20 min (golden brown)"
         ]
+    },
+    {
+        "title": "Broccoli Salad",
+        "prep_time": 15,
+        "cook_time": 10,
+        "rating": 8,
+        "servings": 6,
+        "category": "salad",
+        "ingredients": [
+            ["6 slices", "bacon", "chopped"],
+            ["1 1/2 heads", "broccoli", "cut into florets"],
+            ["1", "onion", "chopped"],
+            ["1", "apple", "chopped"],
+            ["1 cup", "sunflower seeds", ""],
+            ["2/3 cup", "raisins", ""],
+            ["1/2 cup", "plain low-fat yogurt", ""],
+            ["1/4 cup", "light mayonnaise", ""],
+            ["1/4 cup", "lemon juice", ""],
+            ["1 tbsp", "sugar", ""],
+            ["", "pepper", "to taste"]
+        ],
+        "instructions": [
+            "Fry the bacon in a skillet over medium heat until cooked. Drain on a paper towel and set aside.",
+            "Clean and floret the broccoli.",
+            "Mix the bacon, broccoli, onion, apple, sunflower seeds and raisins in a large salad bowl.",
+            "To make the dressing, mix the mayonnaise, yogurt, lemon juice, sugar, and pepper in a small bowl.",
+            "Toss the salad with the dressing."
+        ]
     }
 ];
