@@ -334,5 +334,33 @@ const recipes = [
             "To make the dressing, mix the mayonnaise, yogurt, lemon juice, sugar, and pepper in a small bowl.",
             "Toss the salad with the dressing."
         ]
+    },
+    {
+        "title": "Fettuccine Carbonara",
+        "prep_time": 10,
+        "cook_time": 15,
+        "rating": 10,
+        "servings": 4,
+        "category": "main dish",
+        "ingredients": [
+            ["1 lb", "fettuccine", ""],
+            ["6 slices", "bacon", "chopped"],
+            ["1 tbsp", "olive oil", ""],
+            ["1 tsp", "garlic", "minced"],
+            ["4", "eggs", ""],
+            ["1/4 cup", "Parmesan cheese", ""],
+            ["2 tbsp", "parsley", "chopped"],
+            ["", "salt", "to taste"],
+            ["", "pepper", "to taste"]
+        ],
+        "instructions": [
+            "Cook the fettuccine al dente.",
+            "In a large pot, sauté the bacon over medium heat until crispy, about 6 minutes. Drain on paper towels.",
+            "Pour off all of the fat in the pan except for 1 tbsp and add 1 tbsp olive oil.",
+            "Add the garlic and sauté for 1 minute.",
+            "Beat the eggs. Add the bacon and pasta back to the pan. Toss with the eggs, whisking quickly until the eggs thicken and cook in the pasta.",
+            "Add the Parmesan and salt and pepper to taste.",
+            "Serve and garnish with parsley."
+        ]
     }
 ];
