@@ -362,5 +362,37 @@ const recipes = [
             "Add the Parmesan and salt and pepper to taste.",
             "Serve and garnish with parsley."
         ]
+    },
+    {
+        "title": "Meatballs with Sweet BBQ Sauce",
+        "prep_time": 25,
+        "cook_time": 60,
+        "rating": 9,
+        "servings": 6,
+        "category": "main dish",
+        "ingredients": [
+            ["2 lb", "hamburger", ""],
+            ["1 lb", "pork", ""],
+            ["2 cups", "oatmeal", ""],
+            ["1", "small onion", "chopped"],
+            ["1 can", "evaporated milk", ""],
+            ["1/2 tsp", "salt", ""],
+            ["1/2 tsp", "garlic salt", ""],
+            ["1/2 tsp", "chili powder", ""],
+            ["2", "eggs", ""],
+            ["2 cups", "ketchup", ""],
+            ["1 tbsp", "liquid smoke", ""],
+            ["1/2 tsp", "garlic salt", ""],
+            ["2 cups", "brown sugar", ""],
+            ["1 cup", "onions", "diced"]
+        ],
+        "instructions": [
+            "Preheat oven to 350°F.",
+            "Mix together hamburger, pork, oatmeal, chopped onion, evaporated milk, salt, garlic salt, chili powder, and eggs.",
+            "Form into meatballs and place in a baking dish.",
+            "In a saucepan, combine ketchup, liquid smoke, garlic salt, brown sugar, and diced onions. Cook to a boil.",
+            "Pour sauce over meatballs.",
+            "Bake uncovered at 350°F for 1 hour."
+        ]
     }
 ];
