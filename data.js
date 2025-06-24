@@ -394,5 +394,32 @@ const recipes = [
             "Pour sauce over meatballs.",
             "Bake uncovered at 350°F for 1 hour."
         ]
+    },
+    {
+        "title": "Buttermilk Pancakes",
+        "prep_time": 15,
+        "cook_time": 15,
+        "rating": 9,
+        "servings": 4,
+        "category": "breakfast",
+        "ingredients": [
+            ["3", "eggs", "separated"],
+            ["1 2/3 cups", "buttermilk", ""],
+            ["1 tsp", "baking soda", ""],
+            ["1 1/2 cups", "all-purpose flour", "sifted"],
+            ["1 tbsp", "sugar", ""],
+            ["1 tsp", "salt", ""],
+            ["1 tsp", "vanilla", ""],
+            ["3 tbsp", "butter", "melted"]
+        ],
+        "instructions": [
+            "Separate the eggs.",
+            "Beat egg whites until stiff; set aside.",
+            "Beat egg yolks in a large bowl.",
+            "Add buttermilk, baking soda, sifted flour, sugar, salt, vanilla, and melted butter to the egg yolks and mix well.",
+            "Fold in the beaten egg whites gently.",
+            "Let the batter sit for 10 minutes.",
+            "Cook on a hot griddle or pan until bubbles form and the edges are dry."
+        ]
     }
 ];
