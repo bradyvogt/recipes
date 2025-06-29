@@ -421,5 +421,60 @@ const recipes = [
             "Let the batter sit for 10 minutes.",
             "Cook on a hot griddle or pan until bubbles form and the edges are dry."
         ]
+    },
+    {
+        "title": "Mashed Turnips and Potatoes",
+        "prep_time": 10,
+        "cook_time": 25,
+        "rating": 8,
+        "servings": 6,
+        "category": "side dish",
+        "ingredients": [
+            ["1 1/2 pounds", "turnips", "peeled and diced"],
+            ["1 pound", "Yukon Gold potatoes", "peeled and diced"],
+            ["5 tbsp", "unsalted butter", "melted"],
+            ["1/2 cup", "milk", "hot"],
+            ["1/2 tbsp", "chopped fresh herbs", "finely chopped (thyme, rosemary, sage)"],
+            ["1/4 tsp", "garlic powder", ""],
+            ["", "salt", "to taste"],
+            ["", "pepper", "to taste"]
+        ],
+        "instructions": [
+            "In a medium sized pot, boil the diced turnips and diced potatoes until fork-tender. Drain well.",
+            "Mash the drained vegetables to your desired consistency.",
+            "Stir in the hot milk, melted butter and chopped herbs. Season with salt and pepper to your taste.",
+            "Serve warm and enjoy."
+        ]
+    },
+    {
+        "title": "Squash Soup",
+        "prep_time": 15,
+        "cook_time": 25,
+        "rating": 7,
+        "servings": 6,
+        "category": "soup",
+        "ingredients": [
+            ["1", "onion", ""],
+            ["1 stalk", "celery", ""],
+            ["2 tsp", "canola oil", ""],
+            ["1", "butternut squash", ""],
+            ["2", "apples", ""],
+            ["1", "potato", ""],
+            ["4 cups", "water", ""],
+            ["1 tsp", "ginger", ""],
+            ["1/2 tsp", "cinnamon", ""],
+            ["", "pepper", "to taste"],
+            ["2 tsp", "brown sugar", ""],
+            ["1 cup", "yogurt", "plain low-fat"],
+            ["1 cup", "pecans", "pieces"]
+        ],
+        "instructions": [
+            "Chop the onion and celery. Sauté them in the oil in a large saucepan over medium heat until tender.",
+            "Peel, core, seed and chop the butternut squash, apples and potato. Add to saucepan.",
+            "Add water, cinnamon, ginger and pepper to the saucepan. Bring to a boil.",
+            "Simmer for 12 minutes until the potato is tender. Remove from heat and blend until smooth in a blender.",
+            "Return the soup to the saucepan. Add brown sugar and bring to a boil. Remove from heat.",
+            "Top with yogurt and nuts."
+        ]
     }
 ];
