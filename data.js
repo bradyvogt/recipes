@@ -476,5 +476,33 @@ const recipes = [
             "Return the soup to the saucepan. Add brown sugar and bring to a boil. Remove from heat.",
             "Top with yogurt and nuts."
         ]
+    },
+    {
+        "title": "Tomato Penne",
+        "prep_time": 10,
+        "cook_time": 15,
+        "rating": 10,
+        "servings": 6,
+        "category": "main dish",
+        "ingredients": [
+            ["1 1/4 lbs", "penne", ""],
+            ["1 tbsp", "canola oil", ""],
+            ["2 tsp", "garlic", "minced"],
+            ["28 oz", "diced tomatoes", "canned"],
+            ["12", "black olives", "pitted"],
+            ["1/2 cup", "parsley", "chopped"],
+            ["1/4 cup", "basil", "torn"],
+            ["1 tsp", "thyme", ""],
+            ["6 oz", "feta cheese", ""],
+            ["1/2 cup", "parmesan", "grated"]
+        ],
+        "instructions": [
+            "Cook the penne in boiling water al dente.",
+            "In a large skillet, sauté the garlic in oil over medium heat for 2 minutes until soft.",
+            "Add the tomatoes and cook for 4 minutes.",
+            "Drain the cooked pasta. Set aside 1/3 of the pasta for Tuesday’s lunch.",
+            "Add the remaining penne to the pan. Toss the penne with the olives, the parsley, and the basil.",
+            "Sprinkle with thyme, feta, and Parmesan cheeses."
+        ]
     }
 ];
