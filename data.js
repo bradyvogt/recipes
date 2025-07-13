@@ -128,6 +128,7 @@ const recipes = [
         "prep_time": 10,
         "cook_time": 120,
         "servings": 1,
+        "category": "breakfast",
         "ingredients": [
             ["1/2 cup", "rolled oats"],
             ["1/2 cup", "milk"],
@@ -147,10 +148,15 @@ const recipes = [
         "prep_time": 15,
         "cook_time": 15,
         "servings": 4,
+        "temperature": 425,
+        "category": "main dish",
         "ingredients": [
             ["1", "pizza crust"],
             ["1/2 jar", "pizza sauce"],
             ["6 oz","Shredded cheese"]
+        ],
+        "instructions": [
+            "Follow instructions on pizza crust package"
         ]
     },
     {
@@ -158,33 +164,31 @@ const recipes = [
         "prep_time": 150,
         "cook_time": 15,
         "servings": 4,
-    },
-    {
-        "title": "Meatballs",
-         "prep_time": 30,
-        "cook_time": 60,
-        "servings": 10,
+        "temperature": 425,
+        "category": "main dish",
         "ingredients": [
-            ["2 lb", "ground beef"],
-            ["1 lb", "ground pork"],
-            ["2 cups", "oatmeal"],
-            ["1 small", "onion", "chopped"],
-            ["1 can", "evaporated milk"],
-            ["2", "eggs"],
-            ["1/2 tsp", "salt"],
-            ["1/2 tsp", "garlic salt"],
-            ["1 1/2 tsp", "chili powder"]
+            ["1 1/2 cups", "warm water"],
+            ["2 tsp", "sugar"],
+            ["2 tsp", "salt"],
+            ["1 tbsp", "olive oil"],
+            ["4 cups", "all-purpose flour"],
+            ["1 tbsp", "yeast"],
+            ["1/2 jar", "pizza sauce"],
+            ["6 oz","Shredded cheese"]
         ],
         "instructions": [
-            "Mix beef, pork, oatmeal, onion, evap. milk, eggs, and spices in large bowl.",
-            "Preheat oven to...",
+            "Mix warm water, sugar, salt, and yeast in a bowl. Let sit for 5 minutes.",
+            "Add olive oil and flour to the mixture. Knead until smooth.",
+            "Let dough rise for 1-2 hours until doubled in size.",
+            "Preheat oven to 425°F.",
+            "Roll out dough on a floured surface to desired thickness.",
+            "Place on a pizza stone or baking sheet.",
+            "Spread pizza sauce and sprinkle cheese on top.",
+            "Bake for 15 minutes or until crust is golden brown."
         ]
     },
     {
         "title": "Sheetpan sausage, potatoes & peppers",
-    },
-        {
-        "title": "Pancakes",
     },
     {
         "title": "Fried Rice",
@@ -364,8 +368,8 @@ const recipes = [
         ]
     },
     {
-        "title": "Meatballs with Sweet BBQ Sauce",
-        "prep_time": 25,
+        "title": "Meatloaf Meatballs",
+        "prep_time": 30,
         "cook_time": 60,
         "rating": 9,
         "servings": 6,
@@ -426,7 +430,7 @@ const recipes = [
         "title": "Mashed Turnips and Potatoes",
         "prep_time": 10,
         "cook_time": 25,
-        "rating": 8,
+        "rating": 6,
         "servings": 6,
         "category": "side dish",
         "ingredients": [
@@ -450,7 +454,7 @@ const recipes = [
         "title": "Squash Soup",
         "prep_time": 15,
         "cook_time": 25,
-        "rating": 7,
+        "rating": 3,
         "servings": 6,
         "category": "soup",
         "ingredients": [
