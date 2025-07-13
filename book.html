@@ -189,22 +189,59 @@
             );
         };
 
+        // PillBoxCategorySelector: pill-style radio button selector for categories
+        const PillBoxCategorySelector = ({ categories, selectedCategory, onSelect }) => {
+            return (
+                <div className="pill-box-container">
+                    <button
+                        type="button"
+                        className={selectedCategory === null ? 'pill-box selected' : 'pill-box'}
+                        onClick={() => onSelect(null)}
+                    >
+                        All
+                    </button>
+                    {categories.map((cat) => (
+                        <button
+                            key={cat}
+                            type="button"
+                            className={selectedCategory === cat ? 'pill-box selected' : 'pill-box'}
+                            onClick={() => onSelect(cat)}
+                        >
+                            {cat}
+                        </button>
+                    ))}
+                </div>
+            );
+        };
+
         // Main App Component - Manages state and displays recipes
         const App = () => {
             const [isPopupOpen, setIsPopupOpen] = useState(false);
             const [similarRecipes, setSimilarRecipes] = useState([]);
+            const [selectedCategory, setSelectedCategory] = useState(null);
+
+            // Get all unique categories from recipes
+            const allCategories = Array.from(new Set(reactRecipes.flatMap(r => r.categories || (r.category ? [r.category] : []))));
+
+            // Filter recipes by selected category
+            const filteredRecipes = selectedCategory
+                ? reactRecipes.filter(r => (r.categories || (r.category ? [r.category] : [])).includes(selectedCategory))
+                : reactRecipes;
 
             // When a recipe is clicked, display a popup with related recipes
             const handleRecipeSimilarClick = (recipe) => {
-                console.log('Clicked recipe:', recipe);
                 setSimilarRecipes(getSimilarRecipes(recipe));
-                console.log('Similar recipes:', similarRecipes);
                 setIsPopupOpen(true);
             };
 
             return (
                 <div>
-                    <RecipeList recipes={reactRecipes} onSimilarClick={handleRecipeSimilarClick} />
+                    <PillBoxCategorySelector
+                        categories={allCategories}
+                        selectedCategory={selectedCategory}
+                        onSelect={setSelectedCategory}
+                    />
+                    <RecipeList recipes={filteredRecipes} onSimilarClick={handleRecipeSimilarClick} />
                     <SimilarRecipePopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} title="Similar Recipes" recipes={similarRecipes} />
                 </div>
             );
