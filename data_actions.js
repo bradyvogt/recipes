@@ -136,3 +136,16 @@ var titleFilterFunction = (recipe, searchCriteria) => {
 var ingredientFilterFunction = (recipe, searchCriteria) => {
     return !searchCriteria || recipe.ingredients && recipe.ingredients.map(ingredient => getIngredientName(ingredient)).includes(searchCriteria);
 }
+
+// Add this function for category filtering
+var categoryFilterFunction = (recipe, searchCriteria) => {
+    // Support both 'category' (string) and 'categories' (array) fields
+    // This is for future-proofing in case we want to support multiple categories per recipe
+    if (Array.isArray(recipe.categories)) {
+        return recipe.categories.includes(searchCriteria);
+    }
+    if (typeof recipe.category === 'string') {
+        return recipe.category === searchCriteria;
+    }
+    return false;
+}

@@ -218,15 +218,22 @@
         const App = () => {
             const [isPopupOpen, setIsPopupOpen] = useState(false);
             const [similarRecipes, setSimilarRecipes] = useState([]);
+            const [search, setSearch] = useState('');
             const [selectedCategory, setSelectedCategory] = useState(null);
+            const [sortBy, setSortBy] = useState('title');
+            const [sortAsc, setSortAsc] = useState(true);
 
             // Get all unique categories from recipes
             const allCategories = Array.from(new Set(reactRecipes.flatMap(r => r.categories || (r.category ? [r.category] : []))));
 
+            const filterFunctions = [];
+            if (search) filterFunctions.push({ function: titleFilterFunction, parameter: search });
+            if (selectedCategory) filterFunctions.push({ function: categoryFilterFunction, parameter: selectedCategory });
+
+            const sortFunctions = [{ function: sortBy === 'title' ? titleSortFunction : ratingSortFunction, isAsc: sortAsc }];
+
             // Filter recipes by selected category
-            const filteredRecipes = selectedCategory
-                ? reactRecipes.filter(r => (r.categories || (r.category ? [r.category] : [])).includes(selectedCategory))
-                : reactRecipes;
+            const filteredRecipes = getRecipes(filterFunctions, sortFunctions);
 
             // When a recipe is clicked, display a popup with related recipes
             const handleRecipeSimilarClick = (recipe) => {
