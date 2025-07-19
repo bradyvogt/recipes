@@ -538,7 +538,7 @@ const recipes = [
             "Add garlic and vegetables to the skillet. Stir-fry for about 3 minutes until tender but still crisp.",
             "Return chicken to skillet. Add lemon juice, hot sauce, and Worcestershire sauce. Heat through.",
             "Serve with tortillas, guacamole, sour cream, salsa, queso, and lettuce."
-        ]
+        ],
         "note": "Don't be afraid to overcook the veggies. Add seasoning to rice. 
     },
     {
