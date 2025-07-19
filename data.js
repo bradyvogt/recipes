@@ -508,5 +508,71 @@ const recipes = [
             "Add the remaining penne to the pan. Toss the penne with the olives, the parsley, and the basil.",
             "Sprinkle with thyme, feta, and Parmesan cheeses."
         ]
+    },
+    {
+        "title": "Chicken Fajitas",
+        "prep_time": 10,
+        "cook_time": 10,
+        "rating": 0,
+        "servings": 4,
+        "category": "Dinner",
+        "ingredients": [
+            ["1 1/2 lbs", "Chicken breasts", "cut into 1/4 inch strips"],
+            ["1", "Red pepper", "sliced"],
+            ["1", "Green pepper", "sliced"],
+            ["1/2", "Red onion", "thinly sliced"],
+            ["1 tbsp", "Canola oil", ""],
+            ["1 tsp", "Chili powder", ""],
+            ["1 tsp", "Coriander", ""],
+            ["1 tsp", "Cumin", ""],
+            ["1 tsp", "Oregano", ""],
+            ["to taste", "Pepper", ""],
+            ["1 tsp", "Garlic", ""],
+            ["2 tsp", "Lemon juice", ""],
+            ["dash", "Hot sauce", ""],
+            ["dash", "Worcestershire sauce", ""]
+        ],
+        "instructions": [
+            "Cut the chicken into 1/4 inch strips.",
+            "Heat oil in a skillet over medium heat. Add chicken and spices. Stir-fry for 4–5 minutes until golden brown and no longer pink inside. Remove from heat, drain, and set aside.",
+            "Add garlic and vegetables to the skillet. Stir-fry for about 3 minutes until tender but still crisp.",
+            "Return chicken to skillet. Add lemon juice, hot sauce, and Worcestershire sauce. Heat through.",
+            "Serve with tortillas, guacamole, sour cream, salsa, queso, and lettuce."
+        ]
+        "note": "Don't be afraid to overcook the veggies. Add seasoning to rice. 
+    },
+    {
+        "title": "Feta Fusilli",
+        "prep_time": 15,
+        "cook_time": 15,
+        "rating": 0,
+        "servings": 4,
+        "category": "Dinner",
+        "ingredients": [
+            ["1 lb", "Whole grain fusilli", ""],
+            ["3 cups", "Green beans", "cut into bite-sized pieces"],
+            ["1/2 head", "Broccoli", "cut into bite-sized pieces"],
+            ["1", "Red pepper", "julienned"],
+            ["1/3 cup", "Olive oil", ""],
+            ["1/4 cup", "Red wine vinegar", ""],
+            ["2 tsp", "Lemon juice", ""],
+            ["2 tbsp", "Oregano", ""],
+            ["2 tbsp", "Parsley", "chopped fresh"],
+            ["8 oz", "Feta cheese", "crumbled"],
+            ["12", "Black olives", "pitted"],
+            ["4", "Tomatoes", "quartered"]
+        ],
+        "instructions": [
+            "Cook chicken and peppers together and let the peppers copk
+            "Cook the fusilli al dente.",
+            "Steam the green beans and broccoli until tender but crisp.",
+            "Add the beans, broccoli, and red pepper to the drained pasta.",
+            "Combine olive oil, red wine vinegar, lemon juice, oregano, and parsley in a bowl.",
+            "Toss the pasta and vegetables with the dressing.",
+            "Add feta cheese and olives. Serve with the quartered tomatoes."
+        ],
+        "note": "Add red wine vinegar separate. Rachel doesn't like it."
     }
+
+
 ];
