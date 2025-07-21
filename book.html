@@ -30,36 +30,36 @@
             if (!isOpen) return null;
 
             return (
-                <div className="modal show d-block" tabIndex="-1" role="dialog">
-                <div className="modal-dialog" role="document">
+                <div className="modal show d-block similar-popup" tabIndex="-1" role="dialog">
+                  <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                    <div className="modal-header">
+                      <div className="modal-header" style={{background:'#246231',color:'#fff'}}>
                         <h5 className="modal-title">{title}</h5>
-                        <button type="button" className="btn-close" onClick={onClose}>Close</button>
-                    </div>
-                    <div className="modal-body">
+                        <button type="button" className="btn-close" style={{color:'#fff',fontWeight:'bold'}} onClick={onClose}>×</button>
+                      </div>
+                      <div className="modal-body" style={{background:'#ecf8ef'}}>
                         <ul>
-                        {recipes.map((recipe) => (
-                            <li key={recipe.id}>
-                                <div className="row">
-                                    <div className="col-xs-8 text-left">
-                                        <p>{recipe.title}</p>
-                                    </div>
-                                    <div className="col-xs-4 text-right">
-                                        <p>Common Ingredients: {recipe.commonIngredients.join(", ")}</p>
-                                    </div>
+                          {recipes.map((recipe) => (
+                            <li key={recipe.id} style={{background:'#b6e2c6',margin:'10px 0',borderRadius:'6px',padding:'10px'}}>
+                              <div className="row">
+                                <div className="col-xs-8 text-left">
+                                  <p style={{margin:0,fontWeight:'bold',color:'#246231'}}>{recipe.title}</p>
                                 </div>
+                                <div className="col-xs-4 text-right">
+                                  <p style={{margin:0,color:'#246231'}}>Common Ingredients: {recipe.commonIngredients.join(", ")}</p>
+                                </div>
+                              </div>
                             </li>
-                        ))}
+                          ))}
                         </ul>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" onClick={onClose}>
-                        Close
+                      </div>
+                      <div className="modal-footer" style={{background:'#ecf8ef'}}>
+                        <button type="button" className="btn btn-similar-close" style={{background:'#246231',color:'#fff',border:'none',borderRadius:'4px',padding:'6px 18px'}} onClick={onClose}>
+                          Close
                         </button>
+                      </div>
                     </div>
-                    </div>
-                </div>
+                  </div>
                 </div>
             );
         };
@@ -155,8 +155,8 @@
                                         {recipe.cook_time > 0 && (
                                             <IconMetric icon={'cook_time.svg'} label={formatTime(recipe.cook_time)} />
                                         )}
-                                        <button className="btn btn-primary" onClick={() => onSimilarClick(recipe)}>
-                                            Similar
+                                        <button className="btn btn-similar" onClick={() => onSimilarClick(recipe)}>
+                                            <span style={{display:'inline-block',verticalAlign:'middle',marginRight:'6px'}}>&#128279;</span> <span>Similar</span>
                                         </button>
                                     </div>
 
@@ -190,7 +190,25 @@
         };
 
         // PillBoxCategorySelector: pill-style radio button selector for categories
-        const PillBoxCategorySelector = ({ categories, selectedCategory, onSelect }) => {
+        const PillBoxCategorySelector = ({ categories, selectedCategory, onSelect, recipes }) => {
+            // Count recipes per category
+            const categoryCounts = {};
+            recipes.forEach(r => {
+                (r.categories || (r.category ? [r.category] : [])).forEach(cat => {
+                    categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+                });
+            });
+
+            // Sort categories by count descending, then alphabetically
+            const sortedCategories = [...categories].sort((a, b) => {
+                const diff = (categoryCounts[b] || 0) - (categoryCounts[a] || 0);
+                if (diff !== 0) return diff;
+                return a.localeCompare(b);
+            });
+
+            // Count for 'All'
+            const allCount = recipes.length;
+
             return (
                 <div className="pill-box-container">
                     <button
@@ -198,16 +216,16 @@
                         className={selectedCategory === null ? 'pill-box selected' : 'pill-box'}
                         onClick={() => onSelect(null)}
                     >
-                        All
+                        All <span className="pill-count">({allCount})</span>
                     </button>
-                    {categories.map((cat) => (
+                    {sortedCategories.map((cat) => (
                         <button
                             key={cat}
                             type="button"
                             className={selectedCategory === cat ? 'pill-box selected' : 'pill-box'}
                             onClick={() => onSelect(cat)}
                         >
-                            {cat}
+                            {getProperCase(cat)} <span className="pill-count">({categoryCounts[cat] || 0})</span>
                         </button>
                     ))}
                 </div>
@@ -247,6 +265,7 @@
                         categories={allCategories}
                         selectedCategory={selectedCategory}
                         onSelect={setSelectedCategory}
+                        recipes={reactRecipes}
                     />
                     <RecipeList recipes={filteredRecipes} onSimilarClick={handleRecipeSimilarClick} />
                     <SimilarRecipePopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} title="Similar Recipes" recipes={similarRecipes} />

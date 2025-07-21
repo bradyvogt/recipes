@@ -23,7 +23,7 @@ const recipes = [
         "rating": 7,
         "servings": 6,
         "temperature": 350,
-        "category": "main dish",
+        "category": "mexican",
         "ingredients": [
             ["1 lb", "ground beef"],
             ["8", "tortillas"],
@@ -105,7 +105,7 @@ const recipes = [
         "rating": 6.5,
         "servings": 4,
         "temperature": 375,
-        "category": "main dish",
+        "category": "breakfast",
         "ingredients": [
             ["6", "eggs"],
             ["3/4 cup", "milk"],
@@ -149,7 +149,7 @@ const recipes = [
         "cook_time": 15,
         "servings": 4,
         "temperature": 425,
-        "category": "main dish",
+        "category": "italian",
         "ingredients": [
             ["1", "pizza crust"],
             ["1/2 jar", "pizza sauce"],
@@ -165,7 +165,7 @@ const recipes = [
         "cook_time": 15,
         "servings": 4,
         "temperature": 425,
-        "category": "main dish",
+        "category": "italian",
         "ingredients": [
             ["1 1/2 cups", "warm water"],
             ["2 tsp", "sugar"],
@@ -189,12 +189,14 @@ const recipes = [
     },
     {
         "title": "Sheetpan sausage, potatoes & peppers",
+        "category": "main dish"
     },
     {
         "title": "Fried Rice",
         "prep_time": 30,
         "cook_time": 0,
-        "servings": 10
+        "servings": 10,
+        "category": "main dish",
     },
     {
         "title": "Lasagna",
@@ -202,6 +204,7 @@ const recipes = [
         "cook_time": 60,
         "servings": 10,
         "temperature": 350,
+        "category": "italian",
         "ingredients": [
             ["8-10 oz", "lasagna noodles"],
             ["1/2 cup", "onion", "diced"],
@@ -237,6 +240,7 @@ const recipes = [
         "cook_time": 15,
         "servings": 6,
         "temperature": 350,
+        "category": "main dish",
         "ingredients": [
             ["6", "Bagels"],
             ["1 can", "Pesto Sauce"],
@@ -260,6 +264,7 @@ const recipes = [
         "cook_time": 60,
         "servings": 6,
         "temperature": 400,
+        "category": "main dish",
         "ingredients": [
             ["6", "Potatoes", "Medium-sized"],
             ["2 cups","ham", "cooked"],
@@ -290,6 +295,7 @@ const recipes = [
         "cook_time": 20,
         "servings": 6,
         "temperature": 350,
+        "category": "main dish",
         "ingredients": [
             ["2 pkgs", "crescent rolls"],
             ["2 cups", "chicken", "cooked"],
@@ -317,7 +323,7 @@ const recipes = [
         "cook_time": 10,
         "rating": 8,
         "servings": 6,
-        "category": "salad",
+        "category": "side dish",
         "ingredients": [
             ["6 slices", "bacon", "chopped"],
             ["1 1/2 heads", "broccoli", "cut into florets"],
@@ -345,7 +351,7 @@ const recipes = [
         "cook_time": 15,
         "rating": 10,
         "servings": 4,
-        "category": "main dish",
+        "category": "italian",
         "ingredients": [
             ["1 lb", "fettuccine", ""],
             ["6 slices", "bacon", "chopped"],
@@ -373,7 +379,7 @@ const recipes = [
         "cook_time": 60,
         "rating": 9,
         "servings": 6,
-        "category": "main dish",
+        "category": "italian",
         "ingredients": [
             ["2 lb", "hamburger", ""],
             ["1 lb", "pork", ""],
@@ -456,7 +462,7 @@ const recipes = [
         "cook_time": 25,
         "rating": 3,
         "servings": 6,
-        "category": "soup",
+        "category": "side dish",
         "ingredients": [
             ["1", "onion", ""],
             ["1 stalk", "celery", ""],
@@ -487,7 +493,7 @@ const recipes = [
         "cook_time": 15,
         "rating": 10,
         "servings": 6,
-        "category": "main dish",
+        "category": "italian",
         "ingredients": [
             ["1 1/4 lbs", "penne", ""],
             ["1 tbsp", "canola oil", ""],
@@ -515,7 +521,7 @@ const recipes = [
         "cook_time": 10,
         "rating": 0,
         "servings": 4,
-        "category": "Dinner",
+        "category": "mexican",
         "ingredients": [
             ["1 1/2 lbs", "Chicken breasts", "cut into 1/4 inch strips"],
             ["1", "Red pepper", "sliced"],
@@ -534,12 +540,12 @@ const recipes = [
         ],
         "instructions": [
             "Cut the chicken into 1/4 inch strips.",
-            "Heat oil in a skillet over medium heat. Add chicken and spices. Stir-fry for 4–5 minutes until golden brown and no longer pink inside. Remove from heat, drain, and set aside.",
+            "Heat oil in a skillet over medium heat. Add chicken and spices. Stir-fry for 4-5 minutes until golden brown and no longer pink inside. Remove from heat, drain, and set aside.",
             "Add garlic and vegetables to the skillet. Stir-fry for about 3 minutes until tender but still crisp.",
             "Return chicken to skillet. Add lemon juice, hot sauce, and Worcestershire sauce. Heat through.",
             "Serve with tortillas, guacamole, sour cream, salsa, queso, and lettuce."
         ],
-        "note": "Don't be afraid to overcook the veggies. Add seasoning to rice. 
+        "note": "Don't be afraid to overcook the veggies. Add seasoning to rice."
     },
     {
         "title": "Feta Fusilli",
@@ -547,7 +553,7 @@ const recipes = [
         "cook_time": 15,
         "rating": 0,
         "servings": 4,
-        "category": "Dinner",
+        "category": "italian",
         "ingredients": [
             ["1 lb", "Whole grain fusilli", ""],
             ["3 cups", "Green beans", "cut into bite-sized pieces"],
@@ -563,7 +569,7 @@ const recipes = [
             ["4", "Tomatoes", "quartered"]
         ],
         "instructions": [
-            "Cook chicken and peppers together and let the peppers copk
+            "Cook chicken and peppers together and let the peppers cook",
             "Cook the fusilli al dente.",
             "Steam the green beans and broccoli until tender but crisp.",
             "Add the beans, broccoli, and red pepper to the drained pasta.",

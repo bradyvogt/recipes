@@ -1,3 +1,32 @@
+.btn-similar {
+    background: #ecf8ef;
+    color: #000;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0 2px 8px 2px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.btn-similar:hover {
+    background: #b6e2c6;
+    color: #246231;
+}
+.btn-similar-close:hover {
+    background: #b6e2c6;
+    color: #246231;
+}
+.similar-popup .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(36,98,49,0.18);
+    border: 2px solid #246231;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
