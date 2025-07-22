@@ -578,7 +578,33 @@ const recipes = [
             "Add feta cheese and olives. Serve with the quartered tomatoes."
         ],
         "note": "Add red wine vinegar separate. Rachel doesn't like it."
+    },
+    {
+        "title": "Chicken Fingers",
+        "prep_time": 15,
+        "cook_time": 12,
+        "rating": 10,
+        "servings": 4,
+        "category": "main dish",
+        "ingredients": [
+            ["1 lb", "Chicken breasts", "skinned, deboned, sliced into 1-inch strips"],
+            ["1/2 cup", "Flour", ""],
+            ["2", "Eggs", "beaten"],
+            ["1 cup", "Breadcrumbs", ""],
+            ["2/3 cup", "Parmesan cheese", "grated"],
+            ["1 tbsp", "Oregano", ""],
+            ["1 tbsp", "Paprika", ""],
+            ["1 tbsp", "Basil", ""]
+        ],
+        "instructions": [
+            "Preheat oven to 450°F.",
+            "Set up 3 wide-mouthed bowls: one with flour, one with beaten eggs, and one with a mixture of breadcrumbs, Parmesan cheese, oregano, paprika, and basil.",
+            "Dip each chicken strip into the flour, then into the egg, and finally into the breadcrumb mixture to coat.",
+            "Lay the coated chicken strips on a slightly greased baking sheet.",
+            "Bake for 6 minutes on each side, until crisp and cooked through."
+        ]
     }
+
 
 
 ];
