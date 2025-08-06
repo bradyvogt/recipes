@@ -603,8 +603,33 @@ const recipes = [
             "Lay the coated chicken strips on a slightly greased baking sheet.",
             "Bake for 6 minutes on each side, until crisp and cooked through."
         ]
+    },
+    {
+        "title": "Pumpkin Chocolate Chip Muffins",
+        "prep_time": 10,
+        "cook_time": 20,
+        "rating": 0,
+        "servings": 12,
+        "category": "Breakfast",
+        "ingredients": [
+            ["1 cup", "Flour", ""],
+            ["2/3 cup", "Sugar", ""],
+            ["1/4 tsp", "Salt", ""],
+            ["3/4 tsp", "Baking Powder", ""],
+            ["3/4 tsp", "Baking Soda", ""],
+            ["1/4 tsp", "Cinnamon", ""],
+            ["2", "Large eggs", ""],
+            ["1/2 cup", "Oil", ""],
+            ["2/3 cup", "Pumpkin", ""],
+            ["2/3 cup", "Chocolate Chips", ""]
+        ],
+        "instructions": [
+            "In a mixing bowl, combine all dry ingredients.",
+            "In a separate bowl, combine all wet ingredients.",
+            "Combine dry and wet ingredients together.",
+            "Once mixed, fold in chocolate chips.",
+            "Portion muffin batter into muffin tins (about 1/4 cup per muffin).",
+            "Bake at 350°F for 18–20 minutes."
+        ]
     }
-
-
-
 ];
