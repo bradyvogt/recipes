@@ -631,5 +631,37 @@ const recipes = [
             "Portion muffin batter into muffin tins (about 1/4 cup per muffin).",
             "Bake at 350°F for 18–20 minutes."
         ]
+    },
+    {
+        "title": "Shepherd's Pie",
+        "prep_time": 20,
+        "cook_time": 25,
+        "rating": 0,
+        "servings": 4,
+        "category": "Main Dish",
+        "ingredients": [
+            ["5 large", "Yellow potatoes", ""],
+            ["1/4 cup", "Milk", ""],
+            ["1 tsp", "Garlic", "minced"],
+            ["1", "Onion", "finely chopped"],
+            ["1 lb", "Ground beef", ""],
+            ["1 can (14 oz)", "Cream Style Corn", ""],
+            ["1 cup", "Frozen corn niblets", ""],
+            ["to taste", "Worcestershire sauce", ""],
+            ["to taste", "Hot sauce", ""],
+            ["to taste", "Pepper", ""],
+            ["1 tsp", "Paprika", ""]
+        ],
+        "instructions": [
+            "Clean the potatoes and cook in boiling water until just done. Do not overcook.",
+            "Mash potatoes with milk and garlic. Set aside.",
+            "In a skillet, brown the meat with the onion and garlic until cooked. Season with salt and pepper.",
+            "Mix Worcestershire sauce and hot sauce together first, then add to the meat.",
+            "Lay the meat mixture in the bottom of a large baking dish.",
+            "Heat both corns in a small saucepan and spread over the meat.",
+            "Lay the mashed potatoes over the corn and sprinkle with paprika.",
+            "Brown under the broiler until golden."
+        ],
+        "note": "Mix sauces first, then put on meat."
     }
 ];
