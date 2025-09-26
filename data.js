@@ -610,7 +610,7 @@ const recipes = [
         "cook_time": 20,
         "rating": 0,
         "servings": 12,
-        "category": "Breakfast",
+        "category": "breakfast",
         "ingredients": [
             ["1 cup", "Flour", ""],
             ["2/3 cup", "Sugar", ""],
@@ -638,7 +638,7 @@ const recipes = [
         "cook_time": 25,
         "rating": 0,
         "servings": 4,
-        "category": "Main Dish",
+        "category": "main dish",
         "ingredients": [
             ["5 large", "Yellow potatoes", ""],
             ["1/4 cup", "Milk", ""],

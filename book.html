@@ -242,7 +242,7 @@
             const [sortAsc, setSortAsc] = useState(true);
 
             // Get all unique categories from recipes
-            const allCategories = Array.from(new Set(reactRecipes.flatMap(r => r.categories || (r.category ? [r.category] : []))));
+            const allCategories = Array.from(new Set(reactRecipes.flatMap(r => r.category.toLowerCase())));
 
             const filterFunctions = [];
             if (search) filterFunctions.push({ function: titleFilterFunction, parameter: search });
