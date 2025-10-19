@@ -4,6 +4,7 @@
     "prep_time": #, //minutes
     "cook_time": #, //minutes
     "rating": #, //out of 10
+    "temperature": #, //degrees F
     "servings": #,
     "category": "",
     "ingredients": [
@@ -11,7 +12,8 @@
     ],
     "instructions": [
         ""
-    ]
+    ],
+    "note": ""
 }
 */
 
@@ -374,7 +376,7 @@ const recipes = [
         ]
     },
     {
-        "title": "Meatloaf Meatballs",
+        "title": "Meatballs (Meatloaf Style)",
         "prep_time": 30,
         "cook_time": 60,
         "rating": 9,
@@ -663,5 +665,284 @@ const recipes = [
             "Brown under the broiler until golden."
         ],
         "note": "Mix sauces first, then put on meat."
+    },
+    {
+        "title": "Fruit Cobbler",
+        "prep_time": 10,
+        "cook_time": 45,
+        "temperate": 350,
+        "rating": 0,
+        "servings": 8,
+        "category": "dessert",
+        "ingredients": [
+            ["21 oz", "Fruit Filling", ""],
+            ["1 pkg", "Yellow Cake Mix", ""],
+            ["1/2 cup", "Butter", ""]
+        ],
+        "instructions": [
+            "Preheat to 350°F.",
+            "Spray 8x8 pan and pour pie filling in evenly.",
+            "In a bowl, combine butter and cake mix.",
+            "Spread cake mix over pie filling.",
+            "Bake for 45 min until top is golden brown."
+        ],
+        "note": "Serve with ice cream."
+    },
+    {
+        "title": "Pumpkin Roll",
+        "prep_time": 20,
+        "cook_time": 105,
+        "rating": 9,
+        "temperature": 350,
+        "servings": 8,
+        "category": "Dessert",
+        "ingredients": [
+            ["3/4 cup", "Flour", ""],
+            ["1/2 tsp", "Salt", ""],
+            ["1 tsp", "Baking soda", ""],
+            ["1 tsp", "Ground cinnamon", ""],
+            ["1 tsp", "Pumpkin pie spice", ""],
+            ["1 cup", "Granulated sugar", ""],
+            ["3", "eggs", "large"],
+            ["2/3 cup", "Canned pumpkin", ""],
+            ["1 tsp", "Vanilla extract", ""],
+            ["8 oz", "Cream cheese", "softened"],
+            ["2 tbsp", "Butter", "softened"],
+            ["1 tsp", "Vanilla extract", ""],
+            ["1 cup", "Powdered sugar", "plus more for dusting"]
+        ],
+        "instructions": [
+            "Preheat oven to 350°F.",
+            "Lightly grease a 10x15-inch jelly roll pan with nonstick spray. Line with parchment paper, leaving extra overhang on the long sides for lifting. Lightly grease the paper.",
+            "In a large bowl, whisk together flour, salt, baking soda, cinnamon, and pumpkin pie spice.",
+            "In a separate bowl, mix eggs, sugar, vanilla, and pumpkin until smooth.",
+            "Combine wet and dry ingredients, stirring until just blended and no dry streaks remain.",
+            "Spread batter evenly in the prepared pan and bake for 12-15 minutes, until a toothpick inserted in the center comes out clean.",
+            "Immediately lift the parchment paper and cake out of the pan. While hot, starting from a short end, gently roll the cake (with parchment) into a log. Cool completely on a wire rack.",
+            "Meanwhile, make frosting: beat cream cheese, butter, vanilla, and powdered sugar together until fluffy and smooth.",
+            "Once the cake is fully cooled, unroll gently and spread the frosting evenly, leaving a 1-inch border.",
+            "Roll the cake back up (without the parchment). Wrap in plastic and refrigerate for at least 1 hour.",
+            "Before serving, dust with powdered sugar, slice, and serve."
+        ]
+    },
+    {
+        "title": "Roasted Zucchini",
+        "prep_time": 5,
+        "cook_time": 10,
+        "rating": 7,
+        "temperature": 450,
+        "servings": 4,
+        "category": "Side Dish",
+        "ingredients": [
+            ["2 medium", "Zucchini", "cut into 1/2 inch thick rounds"],
+            ["2 tbsp", "olive oil", "extra-virgin"],
+            ["1/2 tsp", "salt", ""],
+            ["1/2 tsp", "black pepper", ""],
+            ["1 tsp", "garlic powder", ""],
+            ["1/2 cup", "Parmesan cheese", "grated"]
+        ],
+        "instructions": [
+            "Preheat oven to 450°F and position a rack in the center.",
+            "In a large bowl, toss zucchini with olive oil, salt, pepper, and garlic powder until evenly coated.",
+            "Arrange zucchini rounds on a rimmed sheet pan in a single layer.",
+            "Sprinkle evenly with Parmesan cheese.",
+            "Bake for 5 minutes, then switch the oven to broil on High.",
+            "Continue baking for 2-3 minutes, or until the cheese is golden brown and zucchini is tender.",
+            "Serve immediately, adding extra salt to taste if desired."
+        ]
+    },
+    {
+        "title": "Meatballs (oven-baked)",
+        "prep_time": 15,
+        "cook_time": 20,
+        "rating": 10,
+        "temperature": 400,
+        "servings": 5,
+        "category": "Main Dish",
+        "ingredients": [
+            ["1 lb", "Ground beef", "80% lean (or half pork)"],
+            ["1", "Large egg", "beaten"],
+            ["1/4 cup", "Breadcrumbs", ""],
+            ["1/4 cup", "Parmesan cheese", "grated"],
+            ["1/4 cup", "onion", "finely chopped"],
+            ["2 tsp", "garlic", "minced"],
+            ["3/4 tsp", "salt", ""],
+            ["1/4 tsp", "pepper", ""],
+            ["2 tbsp", "parsley", "optional"],
+            ["2 cups", "Marinara sauce", "optional, for serving"]
+        ],
+        "instructions": [
+            "Preheat oven to 400°F. Line a baking sheet with foil and spray with non-stick cooking spray.",
+            "In a large bowl, combine ground beef, egg, breadcrumbs, Parmesan cheese, onion, garlic, salt, pepper, and parsley (if using). Mix until just combined.",
+            "Use a medium cookie scoop or spoon to form 1 1/2-inch meatballs. Place them evenly on the prepared baking sheet.",
+            "Bake uncovered for 17-20 minutes, turning halfway through, until the meatballs are browned and no longer pink inside.",
+            "Serve with marinara sauce, noodles, and additional Parmesan, basil, or parsley if desired."
+        ]
+    },
+    {
+        "title": "Brownies",
+        "prep_time": 5,
+        "cook_time": 45,
+        "rating": 9,
+        "temperature": 325,
+        "servings": 16,
+        "category": "Dessert",
+        "ingredients": [
+            ["1 1/2 cups", "Granulated sugar", ""],
+            ["3/4 cup", "All-purpose flour", ""],
+            ["2/3 cup", "Cocoa powder", "sifted if lumpy"],
+            ["1/2 cup", "Powdered sugar", "sifted if lumpy"],
+            ["1/2 cup", "Dark chocolate chips", ""],
+            ["3/4 tsp", "Sea salt", ""],
+            ["2", "Large eggs", ""],
+            ["1/2 cup", "Canola oil or extra-virgin olive oil", ""],
+            ["2 tbsp", "Water", ""],
+            ["1/2 tsp", "Vanilla extract", ""]
+        ],
+        "instructions": [
+            "Preheat oven to 325°F.",
+            "Lightly spray an 8x8-inch baking dish with cooking spray and line it with parchment paper. Spray the parchment as well.",
+            "In a medium bowl, combine sugar, flour, cocoa powder, powdered sugar, chocolate chips, and salt.",
+            "In a large bowl, whisk together eggs, oil, water, and vanilla.",
+            "Sprinkle the dry mix over the wet mix and stir until just combined. Batter will be thick.",
+            "Pour batter into the prepared pan and smooth the top with a spatula.",
+            "Bake for 40–48 minutes, or until a toothpick inserted in the center comes out with only a few crumbs attached.",
+            "Allow to cool completely in the pan before cutting into 16 brownies."
+        ]
+    },
+    {
+        "title": "Blueberry Baked Oatmeal",
+        "prep_time": 10,
+        "cook_time": 45,
+        "rating": 9,
+        "temperature": 375,
+        "servings": 8,
+        "category": "Breakfast",
+        "ingredients": [
+            ["2/3 cup", "Pecans", "roughly chopped"],
+            ["2 cups", "oats", "old-fashioned"],
+            ["2 tsp", "Cinnamon", ""],
+            ["1 tsp", "Baking powder", ""],
+            ["3/4 tsp", "salt", ""],
+            ["1/4 tsp", "Nutmeg", ""],
+            ["1 3/4 cups", "Milk", ""],
+            ["1/3 cup", "Maple syrup", "or honey"],
+            ["2", "Large eggs", ""],
+            ["3 tbsp", "Unsalted butter", "or coconut oil, melted"],
+            ["2 tsp", "Vanilla extract", ""],
+            ["12 oz", "Blueberries", ""],
+            ["2 tsp", "Raw sugar", "optional for topping"],
+            ["", "Yogurt or whipped cream", "optional for serving"],
+            ["", "Maple syrup or honey", "optional for drizzling"],
+            ["", "Fresh fruit", "optional for serving"]
+        ],
+        "instructions": [
+            "Preheat oven to 375°F and grease a 9-inch square baking dish.",
+            "Once oven is preheated, spread pecans on a rimmed baking sheet and toast for 4–5 minutes, until fragrant.",
+            "In a medium bowl, whisk together oats, toasted pecans, cinnamon, baking powder, salt, and nutmeg.",
+            "In another bowl, whisk milk, maple syrup (or honey), eggs, half the melted butter (or coconut oil), and vanilla until blended.",
+            "Reserve about 1/2 cup of the berries for topping. Spread remaining berries evenly over the bottom of the baking dish.",
+            "Pour the dry oat mixture evenly over the fruit, then drizzle the wet mixture over the oats. Tilt or wiggle the dish to help the liquid absorb. Lightly press down any dry oats.",
+            "Scatter the reserved berries on top and sprinkle with raw sugar if desired.",
+            "Bake for 42–45 minutes (45–50 minutes if using frozen fruit) until golden and set.",
+            "Let cool for a few minutes, then drizzle remaining melted butter over the top before serving.",
+            "Serve warm, room temperature, or chilled with yogurt, syrup, or fruit as desired. Store covered in the refrigerator for up to 4–5 days."
+        ],
+        "note": "If using coconut oil, it may solidify when mixed with cold ingredients—microwave briefly until melted again. Keeps well in the fridge for up to 5 days."
+    },
+    {
+        "title": "Chocolate Chip Cookies",
+        "prep_time": 10,
+        "cook_time": 8,
+        "rating": 10,
+        "temperature": 375,
+        "servings": 36,
+        "category": "Dessert",
+        "ingredients": [
+            ["1 cup", "Salted butter", "softened"],
+            ["1 cup", "Granulated sugar", ""],
+            ["1 cup", "Light brown sugar", "packed"],
+            ["2 tsp", "Vanilla extract", "pure"],
+            ["2", "Large eggs", ""],
+            ["3 cups", "All-purpose flour", ""],
+            ["1 tsp", "Baking soda", ""],
+            ["1/2 tsp", "Baking powder", ""],
+            ["1 tsp", "Sea salt", ""],
+            ["2 cups", "Chocolate chips", "about 12 oz"]
+        ],
+        "instructions": [
+            "Preheat oven to 375°F. Line three baking sheets with parchment paper.",
+            "In a medium bowl, mix flour, baking soda, baking powder, and salt. Set aside.",
+            "In a large bowl, cream together butter and sugars until combined.",
+            "Beat in eggs and vanilla until light and fluffy, about 1 minute.",
+            "Gradually mix in dry ingredients until just combined.",
+            "Fold in chocolate chips until evenly distributed.",
+            "Roll 2 to 3 tablespoons of dough per cookie into balls and place evenly on prepared baking sheets.",
+            "Bake for 8 to 10 minutes, until cookies are just starting to brown at the edges.",
+            "Let cookies rest on the pan for 5 minutes before transferring to a cooling rack."
+        ],
+        "note": "For soft and chewy cookies, remove from oven while centers still look slightly underbaked—they'll finish cooking on the pan."
+    },
+    {
+        "title": "Pork Chops, Potatoes, and Broccoli",
+        "prep_time": 10,
+        "cook_time": 30,
+        "rating": 9,
+        "temperature": 425,
+        "servings": 4,
+        "category": "Main Dish",
+        "ingredients": [
+            ["4", "Boneless pork chops", "thick-cut"],
+            ["", "Salt and pepper", "to taste"],
+            ["1 tsp", "Garlic powder", ""],
+            ["1 tsp", "Italian herb seasoning", "or Herbs de Provence"],
+            ["1/2 tsp", "Smoked paprika", ""],
+            ["2 tsp", "Dry ranch seasoning", ""],
+            ["3 cups", "Broccoli florets", ""],
+            ["3 tbsp", "Olive oil", "1 tbsp for broccoli, 2 tbsp for potatoes"],
+            ["1 lb", "Baby gold or red potatoes", "cut in half"],
+            ["2 tsp", "Garlic powder", "for potatoes"],
+            ["1/3 cup", "Parmesan cheese", "grated, for potatoes"]
+        ],
+        "instructions": [
+            "Preheat oven to 425°F and grease a large baking sheet.",
+            "In a bowl, toss potatoes with olive oil, salt, pepper, garlic powder, and Parmesan. Spread on one-third of the pan and bake for 5-10 minutes.",
+            "Meanwhile, season pork chops on both sides with salt, pepper, garlic powder, Italian herbs, paprika, and ranch seasoning.",
+            "Add pork chops to the center third of the pan. Bake for 10 minutes.",
+            "While pork cooks, toss broccoli with olive oil, salt, and pepper. Add to the final third of the pan.",
+            "Bake another 10-15 minutes, until broccoli and potatoes are tender and pork reaches 145°F internally.",
+            "Let pork rest 3-5 minutes before serving with potatoes and broccoli."
+        ],
+        "note": "For best results, stagger baking times so each item cooks perfectly—potatoes first, then pork, then broccoli."
+    },
+    {
+        "title": "Chicken Chow Mein",
+        "prep_time": 10,
+        "cook_time": 25,
+        "rating": 8,
+        "servings": 4,
+        "category": "Main Dish",
+        "ingredients": [
+            ["2 tbsp", "Butter", "for sautéing"],
+            ["4 tbsp", "Minced onion", ""],
+            ["1 cup", "Whole button mushrooms", ""],
+            ["1 1/2 cups", "Shredded cooked chicken", ""],
+            ["1 cup", "Diced celery", ""],
+            ["1 1/2 cups", "Meat stock or water", ""],
+            ["2 tbsp", "Soy sauce", ""],
+            ["1 tbsp", "Sugar", ""],
+            ["1 1/2 tbsp", "Cornstarch", ""],
+            ["3 tbsp", "Cold water", ""],
+            ["", "Hot chow mein noodles", "for serving"]
+        ],
+        "instructions": [
+            "In a skillet, melt butter over medium heat. Add minced onion and mushrooms; brown lightly.",
+            "Add chicken, celery, stock or water, soy sauce, and sugar. Simmer for 15 minutes.",
+            "Blend cornstarch and cold water in a small bowl until smooth. Stir into the meat mixture.",
+            "Cook until slightly thickened and clear.",
+            "Serve hot over chow mein noodles."
+        ],
+        "note": "If the sauce thickens too much, add a splash of stock or water to adjust consistency before serving."
     }
+
 ];
