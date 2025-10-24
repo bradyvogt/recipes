@@ -62,7 +62,7 @@ const recipes = [
             ["1 tbsp", "vegetable oil"]
         ],
         "instructions": [
-            "Combine all ingredients (except chicken & oil) in a medium bowl.",
+            "Combine all ingredients (except oil) in a medium bowl.",
             "Refrigerate for 10-30 min.",
             "Heat oil in skillet over medium heat",
             "Cook chicken & marinade until liquid evaporates"
