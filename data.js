@@ -943,6 +943,33 @@ const recipes = [
             "Serve hot over chow mein noodles."
         ],
         "note": "If the sauce thickens too much, add a splash of stock or water to adjust consistency before serving."
+    },
+    {
+        "title": "Baked Chicken Parmesan",
+        "prep_time": 10,
+        "cook_time": 25,
+        "rating": 8,
+        "temperature": 450,
+        "servings": 4,
+        "category": "Main Dish",
+        "ingredients": [
+            ["1/4 cup", "Mayonnaise", ""],
+            ["1", "Egg", ""],
+            ["1 tbsp", "Seasoning blend", ""],
+            ["4", "Chicken cutlets", "about 1 lb"],
+            ["", "Panko breadcrumbs", "for coating"],
+            ["", "Marinara sauce", "for topping"],
+            ["", "Mozzarella cheese", "shredded, for topping"]
+        ],
+        "instructions": [
+            "Preheat oven to 450°F and line a sheet pan with a rack.",
+            "In a large bowl, mix mayonnaise, egg, and seasoning.",
+            "Add chicken cutlets and toss to coat.",
+            "Coat each cutlet in panko breadcrumbs and place on sheet pan.",
+            "Bake for 20 minutes.",
+            "Top cutlets with marinara and shredded mozzarella.",
+            "Bake an additional 5–7 minutes, until cheese is melted and lightly browned."
+        ],
+        "note": ""
     }
-
 ];
