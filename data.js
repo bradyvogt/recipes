@@ -1,41 +1,22 @@
-/* TEMPLATE
-{
-    "title": "", (REQUIRED)
-    "prep_time": #, //minutes
-    "cook_time": #, //minutes
-    "rating": #, //out of 10
-    "temperature": #, //degrees F
-    "servings": #,
-    "category": "",
-    "ingredients": [
-        ["Amount", "Ingredient", "Notes"]
-    ],
-    "instructions": [
-        ""
-    ],
-    "note": ""
-}
-*/
-
 const recipes = [
     {
-        "title": "Beef Enchiladas",
-        "prep_time": 30,
-        "cook_time": 30,
-        "rating": 7,
-        "servings": 6,
-        "temperature": 350,
-        "category": "mexican",
-        "ingredients": [
-            ["1 lb", "ground beef"],
-            ["8", "tortillas"],
-            ["1 can", "enchilada sauce"],
-            ["10 oz", "tomato soup"],
-            ["10 oz", "cream of chicken"],
-            ["1 pkg", "taco seasoning"],
-            ["16 oz", "shredded cheddar"]
+        title: "Beef Enchiladas",
+        prep_time: 30,
+        cook_time: 30,
+        rating: 7,
+        temperature: 350,
+        servings: 6,
+        categories: ["mexican"],
+        ingredients: [
+            { quantity: "1 lb", name: "ground beef" },
+            { quantity: "8", name: "tortillas" },
+            { quantity: "1 can", name: "enchilada sauce" },
+            { quantity: "10 oz", name: "tomato soup" },
+            { quantity: "10 oz", name: "cream of chicken" },
+            { quantity: "1 pkg", name: "taco seasoning" },
+            { quantity: "16 oz", name: "shredded cheddar" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 350 degrees",
             "Brown ground beef, drain grease, add water and taco seasoning",
             "In medium-sized bowl mix the enchilada sauce, tomato soup, cream of chicken",
@@ -44,50 +25,55 @@ const recipes = [
             "Add rolled tortillas to greased 9x13 pan",
             "Pour sauce mixture over the tortillas and sprinkle with cheese",
             "Bake at 350 degrees for 30 min"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Jamaican Jerk Chicken",
-        "prep_time": 40,
-        "cook_time": 20,
-        "servings": 6,
-        "category": "main dish",
-        "ingredients": [
-            ["1 lb", "chicken tenders"],
-            ["3 tbsp", "soy sauce"],
-            ["2", "green onions"],
-            ["1 tbsp", "apple cider vinegar"],
-            ["1 tbsp", "jamaican jerk rub"],
-            ["2 tbsp", "brown sugar"],
-            ["1 tbsp", "vegetable oil"]
+        title: "Jamaican Jerk Chicken",
+        prep_time: 40,
+        cook_time: 20,
+        rating: 0,
+        temperature: 0,
+        servings: 6,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "1 lb", name: "chicken tenders" },
+            { quantity: "3 tbsp", name: "soy sauce" },
+            { quantity: "2", name: "green onions" },
+            { quantity: "1 tbsp", name: "apple cider vinegar" },
+            { quantity: "1 tbsp", name: "jamaican jerk rub" },
+            { quantity: "2 tbsp", name: "brown sugar" },
+            { quantity: "1 tbsp", name: "vegetable oil" }
         ],
-        "instructions": [
+        instructions: [
             "Combine all ingredients (except oil) in a medium bowl.",
             "Refrigerate for 10-30 min.",
             "Heat oil in skillet over medium heat",
             "Cook chicken & marinade until liquid evaporates"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Apricot Chicken",
-        "prep_time": 20,
-        "cook_time": 30,
-        "servings": 4,
-        "temperature": 425,
-        "category": "main dish",
-        "ingredients": [
-            ["1 head", "broccoli"],
-            ["1 lb", "chicken breast"],
-            ["1/2 tsp", "garlic powder"],
-            ["3 tbsp", "flour"],
-            ["3 tbsp", "olive oil"],
-            ["3/4 cup", "apricot jam"],
-            ["1 clove", "garlic"],
-            ["2 tbsp", "soy sauce"],
-            ["1 1/2 tbsp", "brown sugar"],
-            ["1 cup", "rice"]
+        title: "Apricot Chicken",
+        prep_time: 20,
+        cook_time: 30,
+        rating: 0,
+        temperature: 425,
+        servings: 4,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "1 head", name: "broccoli" },
+            { quantity: "1 lb", name: "chicken breast" },
+            { quantity: "1/2 tsp", name: "garlic powder" },
+            { quantity: "3 tbsp", name: "flour" },
+            { quantity: "3 tbsp", name: "olive oil" },
+            { quantity: "3/4 cup", name: "apricot jam" },
+            { quantity: "1 clove", name: "garlic" },
+            { quantity: "2 tbsp", name: "soy sauce" },
+            { quantity: "1 1/2 tbsp", name: "brown sugar" },
+            { quantity: "1 cup", name: "rice" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 425",
             "Place broccoli on baking sheet and drizzle olive oil, salt, pepper",
             "Roast for 15 to 20 minutes (until charred)",
@@ -98,87 +84,95 @@ const recipes = [
             "Cook chicken 5-6 min per side",
             "Whisk together jam, minced garlic, soy sauce, brown sugar",
             "Have a wonderful dinner!"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Quiche",
-        "prep_time": 10,
-        "cook_time": 40,
-        "rating": 6.5,
-        "servings": 4,
-        "temperature": 375,
-        "category": "breakfast",
-        "ingredients": [
-            ["6", "eggs"],
-            ["3/4 cup", "milk"],
-            ["Some", "salt & pepper"],
-            ["1 cup", "cooked ham"],
-            ["1 1/2 cup", "shredded cheese"],
-            ["3 tbsp", "green onions"],
-            ["1", "pie crust", "refrigerated"],
+        title: "Quiche",
+        prep_time: 10,
+        cook_time: 40,
+        rating: 6.5,
+        temperature: 375,
+        servings: 4,
+        categories: ["breakfast"],
+        ingredients: [
+            { quantity: "6", name: "eggs" },
+            { quantity: "3/4 cup", name: "milk" },
+            { quantity: "Some", name: "salt & pepper" },
+            { quantity: "1 cup", name: "cooked ham" },
+            { quantity: "1 1/2 cup", name: "shredded cheese" },
+            { quantity: "3 tbsp", name: "green onions" },
+            { quantity: "1", name: "pie crust", notes: "refrigerated" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 375",
             "Unroll pie crust and press into 9 inch pie plate",
             "In large bowl, whisk eggs, milk, salt, pepper",
             "Sprinkle ham, cheese and green onions on pie crust. Pour egg mixture over and sprinkle more cheese on top.",
             "Bake 35-40 min (until eggs are set). Cool 5-10 min"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Overnight Oats",
-        "prep_time": 10,
-        "cook_time": 120,
-        "servings": 1,
-        "category": "breakfast",
-        "ingredients": [
-            ["1/2 cup", "rolled oats"],
-            ["1/2 cup", "milk"],
-            ["1/4 cup", "greek yogurt"],
-            ["1 tbsp", "chia seeds"],
-            ["1 tbsp", "honey"],
-            ["1/4 tsp", "vanilla extract"]
+        title: "Overnight Oats",
+        prep_time: 10,
+        cook_time: 120,
+        rating: 0,
+        temperature: 0,
+        servings: 1,
+        categories: ["breakfast"],
+        ingredients: [
+            { quantity: "1/2 cup", name: "rolled oats" },
+            { quantity: "1/2 cup", name: "milk" },
+            { quantity: "1/4 cup", name: "greek yogurt" },
+            { quantity: "1 tbsp", name: "chia seeds" },
+            { quantity: "1 tbsp", name: "honey" },
+            { quantity: "1/4 tsp", name: "vanilla extract" }
         ],
-        "instructions": [
+        instructions: [
             "Mix all ingredients in a glass container",
             "Cover glass and place in fridge for 2 hours to 5 days",
             "Uncover and enjoy!"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Pizza (store-bought crust)",
-        "prep_time": 15,
-        "cook_time": 15,
-        "servings": 4,
-        "temperature": 425,
-        "category": "italian",
-        "ingredients": [
-            ["1", "pizza crust"],
-            ["1/2 jar", "pizza sauce"],
-            ["6 oz","Shredded cheese"]
+        title: "Pizza (store-bought crust)",
+        prep_time: 15,
+        cook_time: 15,
+        rating: 0,
+        temperature: 425,
+        servings: 4,
+        categories: ["italian"],
+        ingredients: [
+            { quantity: "1", name: "pizza crust" },
+            { quantity: "1/2 jar", name: "pizza sauce" },
+            { quantity: "6 oz", name: "Shredded cheese" }
         ],
-        "instructions": [
+        instructions: [
             "Follow instructions on pizza crust package"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Pizza (homemade crust)",
-        "prep_time": 150,
-        "cook_time": 15,
-        "servings": 4,
-        "temperature": 425,
-        "category": "italian",
-        "ingredients": [
-            ["1 1/2 cups", "warm water"],
-            ["2 tsp", "sugar"],
-            ["2 tsp", "salt"],
-            ["1 tbsp", "olive oil"],
-            ["4 cups", "all-purpose flour"],
-            ["1 tbsp", "yeast"],
-            ["1/2 jar", "pizza sauce"],
-            ["6 oz","Shredded cheese"]
+        title: "Pizza (homemade crust)",
+        prep_time: 150,
+        cook_time: 15,
+        rating: 0,
+        temperature: 425,
+        servings: 4,
+        categories: ["italian"],
+        ingredients: [
+            { quantity: "1 1/2 cups", name: "warm water" },
+            { quantity: "2 tsp", name: "sugar" },
+            { quantity: "2 tsp", name: "salt" },
+            { quantity: "1 tbsp", name: "olive oil" },
+            { quantity: "4 cups", name: "all-purpose flour" },
+            { quantity: "1 tbsp", name: "yeast" },
+            { quantity: "1/2 jar", name: "pizza sauce" },
+            { quantity: "6 oz", name: "Shredded cheese" }
         ],
-        "instructions": [
+        instructions: [
             "Mix warm water, sugar, salt, and yeast in a bowl. Let sit for 5 minutes.",
             "Add olive oil and flour to the mixture. Knead until smooth.",
             "Let dough rise for 1-2 hours until doubled in size.",
@@ -187,44 +181,59 @@ const recipes = [
             "Place on a pizza stone or baking sheet.",
             "Spread pizza sauce and sprinkle cheese on top.",
             "Bake for 15 minutes or until crust is golden brown."
-        ]
-    },
-    {
-        "title": "Sheetpan sausage, potatoes & peppers",
-        "category": "main dish"
-    },
-    {
-        "title": "Fried Rice",
-        "prep_time": 30,
-        "cook_time": 0,
-        "servings": 10,
-        "category": "main dish",
-    },
-    {
-        "title": "Lasagna",
-        "prep_time": 40,
-        "cook_time": 60,
-        "servings": 10,
-        "temperature": 350,
-        "category": "italian",
-        "ingredients": [
-            ["8-10 oz", "lasagna noodles"],
-            ["1/2 cup", "onion", "diced"],
-            ["1 lb", "ground beef"],
-            ["1 lb", "pork sausage"],
-            ["1 clove", "garlic", "minced"],
-            ["1/2 tsp", "oregano"],
-            ["1/2 tsp", "basil"],
-            ["some", "salt and pepper"],
-            ["1 lb", "tomatoes"],
-            ["12 oz", "tomato paste"],
-            ["16 oz", "cottage cheese", "sm curd"],
-            ["1/2 cup", "parmesan cheese"],
-            ["8 oz", "mozzarella cheese"],
-            ["1 tsp", "parsley"],
-            ["2", "eggs"]
         ],
-        "instructions": [
+        note: ""
+    },
+    {
+        title: "Sheetpan sausage, potatoes & peppers",
+        prep_time: 0,
+        cook_time: 0,
+        rating: 0,
+        temperature: 0,
+        servings: 0,
+        categories: ["main dish"],
+        ingredients: [],
+        instructions: [],
+        note: ""
+    },
+    {
+        title: "Fried Rice",
+        prep_time: 30,
+        cook_time: 0,
+        rating: 0,
+        temperature: 0,
+        servings: 10,
+        categories: ["main dish"],
+        ingredients: [],
+        instructions: [],
+        note: ""
+    },
+    {
+        title: "Lasagna",
+        prep_time: 40,
+        cook_time: 60,
+        rating: 0,
+        temperature: 350,
+        servings: 10,
+        categories: ["italian"],
+        ingredients: [
+            { quantity: "8-10 oz", name: "lasagna noodles" },
+            { quantity: "1/2 cup", name: "onion", notes: "diced" },
+            { quantity: "1 lb", name: "ground beef" },
+            { quantity: "1 lb", name: "pork sausage" },
+            { quantity: "1 clove", name: "garlic", notes: "minced" },
+            { quantity: "1/2 tsp", name: "oregano" },
+            { quantity: "1/2 tsp", name: "basil" },
+            { quantity: "some", name: "salt and pepper" },
+            { quantity: "1 lb", name: "tomatoes" },
+            { quantity: "12 oz", name: "tomato paste" },
+            { quantity: "16 oz", name: "cottage cheese", notes: "sm curd" },
+            { quantity: "1/2 cup", name: "parmesan cheese" },
+            { quantity: "8 oz", name: "mozzarella cheese" },
+            { quantity: "1 tsp", name: "parsley" },
+            { quantity: "2", name: "eggs" }
+        ],
+        instructions: [
             "Brown hamburger and onion",
             "Brown pork sausage and mix with hamburger/onion",
             "Add garlic, oregano, basil, salt, tomato, tomato paste to meat",
@@ -234,23 +243,25 @@ const recipes = [
             "Layer noodles, cheese, meat sauce (x2)",
             "Sprinke parmesan on top",
             "Bake at 350 for 1 hour"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Chicken Pesto Bagels",
-        "prep_time": 10,
-        "cook_time": 15,
-        "servings": 6,
-        "temperature": 350,
-        "category": "main dish",
-        "ingredients": [
-            ["6", "Bagels"],
-            ["1 can", "Pesto Sauce"],
-            ["12", "chicken strips", "grilled"],
-            ["Some", "sundried tomatoes"],
-            ["8 oz", "mozzarella cheese"],
+        title: "Chicken Pesto Bagels",
+        prep_time: 10,
+        cook_time: 15,
+        rating: 0,
+        temperature: 350,
+        servings: 6,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "6", name: "Bagels" },
+            { quantity: "1 can", name: "Pesto Sauce" },
+            { quantity: "12", name: "chicken strips", notes: "grilled" },
+            { quantity: "Some", name: "sundried tomatoes" },
+            { quantity: "8 oz", name: "mozzarella cheese" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 350",
             "Cut bagel in ½ and place on cookie sheet",
             "Spread Pesto Sauce on bagel halves",
@@ -258,27 +269,29 @@ const recipes = [
             "Put sundried tomatoes on top of meat",
             "Put cheese on top of tomatoes",
             "Bake in oven for 10-15 minutes"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Scalloped Potatoes + Ham",
-        "prep_time": 45,
-        "cook_time": 60,
-        "servings": 6,
-        "temperature": 400,
-        "category": "main dish",
-        "ingredients": [
-            ["6", "Potatoes", "Medium-sized"],
-            ["2 cups","ham", "cooked"],
-            ["1 1/2 cup", "shredded cheese", "cheddar"],
-            ["1/4 cup", "flour"],
-            ["8 oz", "mozzarella cheese"],
-            ["3 cups", "milk"],
-            ["1 1/2 tsp", "salt"],
-            ["3/4 tsp", "pepper"],
-            ["3/4 tsp", "onion powder"]
+        title: "Scalloped Potatoes + Ham",
+        prep_time: 45,
+        cook_time: 60,
+        rating: 0,
+        temperature: 400,
+        servings: 6,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "6", name: "Potatoes", notes: "Medium-sized" },
+            { quantity: "2 cups", name: "ham", notes: "cooked" },
+            { quantity: "1 1/2 cup", name: "shredded cheese", notes: "cheddar" },
+            { quantity: "1/4 cup", name: "flour" },
+            { quantity: "8 oz", name: "mozzarella cheese" },
+            { quantity: "3 cups", name: "milk" },
+            { quantity: "1 1/2 tsp", name: "salt" },
+            { quantity: "3/4 tsp", name: "pepper" },
+            { quantity: "3/4 tsp", name: "onion powder" }
         ],
-        "instructions": [
+        instructions: [
             "Slice potatoes very thinly and cube ham into 1/2 inch pieces",
             "Grease 9x9 pan and preheat oven to 400",
             "Whisk milk and flour in medium bowl",
@@ -289,26 +302,28 @@ const recipes = [
             "3rd Layer: Repeat but pour milk mixture on before cheese. Milk should almost cover potatoes.",
             "Bake covered for 30 min, then uncovered for another 30 min.",
             "Note: put a pan underneath in case of bubble over"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Chicken Roll Ups",
-        "prep_time": 20,
-        "cook_time": 20,
-        "servings": 6,
-        "temperature": 350,
-        "category": "main dish",
-        "ingredients": [
-            ["2 pkgs", "crescent rolls"],
-            ["2 cups", "chicken", "cooked"],
-            ["4 oz", "cream cheese"],
-            ["2-3 tsp", "lemon pepper"],
-            ["7 oz", "mushrooms"],
-            ["4 tsp", "butter"],
-            ["1 cup", "bread crumbs"],
-            ["2/3 cup", "pecans", "chopped"]
+        title: "Chicken Roll Ups",
+        prep_time: 20,
+        cook_time: 20,
+        rating: 0,
+        temperature: 350,
+        servings: 6,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "2 pkgs", name: "crescent rolls" },
+            { quantity: "2 cups", name: "chicken", notes: "cooked" },
+            { quantity: "4 oz", name: "cream cheese" },
+            { quantity: "2-3 tsp", name: "lemon pepper" },
+            { quantity: "7 oz", name: "mushrooms" },
+            { quantity: "4 tsp", name: "butter" },
+            { quantity: "1 cup", name: "bread crumbs" },
+            { quantity: "2/3 cup", name: "pecans", notes: "chopped" }
         ],
-        "instructions": [
+        instructions: [
             "Cook and dice chicken",
             "Mix bread crumbs and pecans (Set aside)",
             "Mix chicken, cheese, lemon pepper, mushrooms",
@@ -317,55 +332,59 @@ const recipes = [
             "Roll up and dip in butter",
             "Roll in bread crumbs and place on baking sheet",
             "Bake at 350 for 20 min (golden brown)"
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Broccoli Salad",
-        "prep_time": 15,
-        "cook_time": 10,
-        "rating": 8,
-        "servings": 6,
-        "category": "side dish",
-        "ingredients": [
-            ["6 slices", "bacon", "chopped"],
-            ["1 1/2 heads", "broccoli", "cut into florets"],
-            ["1", "onion", "chopped"],
-            ["1", "apple", "chopped"],
-            ["1 cup", "sunflower seeds", ""],
-            ["2/3 cup", "raisins", ""],
-            ["1/2 cup", "plain low-fat yogurt", ""],
-            ["1/4 cup", "light mayonnaise", ""],
-            ["1/4 cup", "lemon juice", ""],
-            ["1 tbsp", "sugar", ""],
-            ["", "pepper", "to taste"]
+        title: "Broccoli Salad",
+        prep_time: 15,
+        cook_time: 10,
+        rating: 8,
+        temperature: 0,
+        servings: 6,
+        categories: ["side dish"],
+        ingredients: [
+            { quantity: "6 slices", name: "bacon", notes: "chopped" },
+            { quantity: "1 1/2 heads", name: "broccoli", notes: "cut into florets" },
+            { quantity: "1", name: "onion", notes: "chopped" },
+            { quantity: "1", name: "apple", notes: "chopped" },
+            { quantity: "1 cup", name: "sunflower seeds" },
+            { quantity: "2/3 cup", name: "raisins" },
+            { quantity: "1/2 cup", name: "plain low-fat yogurt" },
+            { quantity: "1/4 cup", name: "light mayonnaise" },
+            { quantity: "1/4 cup", name: "lemon juice" },
+            { quantity: "1 tbsp", name: "sugar" },
+            { quantity: "", name: "pepper", notes: "to taste" }
         ],
-        "instructions": [
+        instructions: [
             "Fry the bacon in a skillet over medium heat until cooked. Drain on a paper towel and set aside.",
             "Clean and floret the broccoli.",
             "Mix the bacon, broccoli, onion, apple, sunflower seeds and raisins in a large salad bowl.",
             "To make the dressing, mix the mayonnaise, yogurt, lemon juice, sugar, and pepper in a small bowl.",
             "Toss the salad with the dressing."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Fettuccine Carbonara",
-        "prep_time": 10,
-        "cook_time": 15,
-        "rating": 10,
-        "servings": 4,
-        "category": "italian",
-        "ingredients": [
-            ["1 lb", "fettuccine", ""],
-            ["6 slices", "bacon", "chopped"],
-            ["1 tbsp", "olive oil", ""],
-            ["1 tsp", "garlic", "minced"],
-            ["4", "eggs", ""],
-            ["1/4 cup", "Parmesan cheese", ""],
-            ["2 tbsp", "parsley", "chopped"],
-            ["", "salt", "to taste"],
-            ["", "pepper", "to taste"]
+        title: "Fettuccine Carbonara",
+        prep_time: 10,
+        cook_time: 15,
+        rating: 10,
+        temperature: 0,
+        servings: 4,
+        categories: ["italian"],
+        ingredients: [
+            { quantity: "1 lb", name: "fettuccine" },
+            { quantity: "6 slices", name: "bacon", notes: "chopped" },
+            { quantity: "1 tbsp", name: "olive oil" },
+            { quantity: "1 tsp", name: "garlic", notes: "minced" },
+            { quantity: "4", name: "eggs" },
+            { quantity: "1/4 cup", name: "Parmesan cheese" },
+            { quantity: "2 tbsp", name: "parsley", notes: "chopped" },
+            { quantity: "", name: "salt", notes: "to taste" },
+            { quantity: "", name: "pepper", notes: "to taste" }
         ],
-        "instructions": [
+        instructions: [
             "Cook the fettuccine al dente.",
             "In a large pot, sauté the bacon over medium heat until crispy, about 6 minutes. Drain on paper towels.",
             "Pour off all of the fat in the pan except for 1 tbsp and add 1 tbsp olive oil.",
@@ -373,58 +392,62 @@ const recipes = [
             "Beat the eggs. Add the bacon and pasta back to the pan. Toss with the eggs, whisking quickly until the eggs thicken and cook in the pasta.",
             "Add the Parmesan and salt and pepper to taste.",
             "Serve and garnish with parsley."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Meatballs (Meatloaf Style)",
-        "prep_time": 30,
-        "cook_time": 60,
-        "rating": 9,
-        "servings": 6,
-        "category": "italian",
-        "ingredients": [
-            ["2 lb", "hamburger", ""],
-            ["1 lb", "pork", ""],
-            ["2 cups", "oatmeal", ""],
-            ["1", "small onion", "chopped"],
-            ["1 can", "evaporated milk", ""],
-            ["1/2 tsp", "salt", ""],
-            ["1/2 tsp", "garlic salt", ""],
-            ["1/2 tsp", "chili powder", ""],
-            ["2", "eggs", ""],
-            ["2 cups", "ketchup", ""],
-            ["1 tbsp", "liquid smoke", ""],
-            ["1/2 tsp", "garlic salt", ""],
-            ["2 cups", "brown sugar", ""],
-            ["1 cup", "onions", "diced"]
+        title: "Meatballs (Meatloaf Style)",
+        prep_time: 30,
+        cook_time: 60,
+        rating: 9,
+        temperature: 0,
+        servings: 6,
+        categories: ["italian"],
+        ingredients: [
+            { quantity: "2 lb", name: "hamburger" },
+            { quantity: "1 lb", name: "pork" },
+            { quantity: "2 cups", name: "oatmeal" },
+            { quantity: "1", name: "small onion", notes: "chopped" },
+            { quantity: "1 can", name: "evaporated milk" },
+            { quantity: "1/2 tsp", name: "salt" },
+            { quantity: "1/2 tsp", name: "garlic salt" },
+            { quantity: "1/2 tsp", name: "chili powder" },
+            { quantity: "2", name: "eggs" },
+            { quantity: "2 cups", name: "ketchup" },
+            { quantity: "1 tbsp", name: "liquid smoke" },
+            { quantity: "1/2 tsp", name: "garlic salt" },
+            { quantity: "2 cups", name: "brown sugar" },
+            { quantity: "1 cup", name: "onions", notes: "diced" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 350°F.",
             "Mix together hamburger, pork, oatmeal, chopped onion, evaporated milk, salt, garlic salt, chili powder, and eggs.",
             "Form into meatballs and place in a baking dish.",
             "In a saucepan, combine ketchup, liquid smoke, garlic salt, brown sugar, and diced onions. Cook to a boil.",
             "Pour sauce over meatballs.",
             "Bake uncovered at 350°F for 1 hour."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Buttermilk Pancakes",
-        "prep_time": 15,
-        "cook_time": 15,
-        "rating": 9,
-        "servings": 4,
-        "category": "breakfast",
-        "ingredients": [
-            ["3", "eggs", "separated"],
-            ["1 2/3 cups", "buttermilk", ""],
-            ["1 tsp", "baking soda", ""],
-            ["1 1/2 cups", "all-purpose flour", "sifted"],
-            ["1 tbsp", "sugar", ""],
-            ["1 tsp", "salt", ""],
-            ["1 tsp", "vanilla", ""],
-            ["3 tbsp", "butter", "melted"]
+        title: "Buttermilk Pancakes",
+        prep_time: 15,
+        cook_time: 15,
+        rating: 9,
+        temperature: 0,
+        servings: 4,
+        categories: ["breakfast"],
+        ingredients: [
+            { quantity: "3", name: "eggs", notes: "separated" },
+            { quantity: "1 2/3 cups", name: "buttermilk" },
+            { quantity: "1 tsp", name: "baking soda" },
+            { quantity: "1 1/2 cups", name: "all-purpose flour", notes: "sifted" },
+            { quantity: "1 tbsp", name: "sugar" },
+            { quantity: "1 tsp", name: "salt" },
+            { quantity: "1 tsp", name: "vanilla" },
+            { quantity: "3 tbsp", name: "butter", notes: "melted" }
         ],
-        "instructions": [
+        instructions: [
             "Separate the eggs.",
             "Beat egg whites until stiff; set aside.",
             "Beat egg yolks in a large bowl.",
@@ -432,145 +455,154 @@ const recipes = [
             "Fold in the beaten egg whites gently.",
             "Let the batter sit for 10 minutes.",
             "Cook on a hot griddle or pan until bubbles form and the edges are dry."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Mashed Turnips and Potatoes",
-        "prep_time": 10,
-        "cook_time": 25,
-        "rating": 6,
-        "servings": 6,
-        "category": "side dish",
-        "ingredients": [
-            ["1 1/2 pounds", "turnips", "peeled and diced"],
-            ["1 pound", "Yukon Gold potatoes", "peeled and diced"],
-            ["5 tbsp", "unsalted butter", "melted"],
-            ["1/2 cup", "milk", "hot"],
-            ["1/2 tbsp", "chopped fresh herbs", "finely chopped (thyme, rosemary, sage)"],
-            ["1/4 tsp", "garlic powder", ""],
-            ["", "salt", "to taste"],
-            ["", "pepper", "to taste"]
+        title: "Mashed Turnips and Potatoes",
+        prep_time: 10,
+        cook_time: 25,
+        rating: 6,
+        temperature: 0,
+        servings: 6,
+        categories: ["side dish"],
+        ingredients: [
+            { quantity: "1 1/2 pounds", name: "turnips", notes: "peeled and diced" },
+            { quantity: "1 pound", name: "Yukon Gold potatoes", notes: "peeled and diced" },
+            { quantity: "5 tbsp", name: "unsalted butter", notes: "melted" },
+            { quantity: "1/2 cup", name: "milk", notes: "hot" },
+            { quantity: "1/2 tbsp", name: "chopped fresh herbs", notes: "finely chopped (thyme, rosemary, sage)" },
+            { quantity: "1/4 tsp", name: "garlic powder" },
+            { quantity: "", name: "salt", notes: "to taste" },
+            { quantity: "", name: "pepper", notes: "to taste" }
         ],
-        "instructions": [
+        instructions: [
             "In a medium sized pot, boil the diced turnips and diced potatoes until fork-tender. Drain well.",
             "Mash the drained vegetables to your desired consistency.",
             "Stir in the hot milk, melted butter and chopped herbs. Season with salt and pepper to your taste.",
             "Serve warm and enjoy."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Squash Soup",
-        "prep_time": 15,
-        "cook_time": 25,
-        "rating": 3,
-        "servings": 6,
-        "category": "side dish",
-        "ingredients": [
-            ["1", "onion", ""],
-            ["1 stalk", "celery", ""],
-            ["2 tsp", "canola oil", ""],
-            ["1", "butternut squash", ""],
-            ["2", "apples", ""],
-            ["1", "potato", ""],
-            ["4 cups", "water", ""],
-            ["1 tsp", "ginger", ""],
-            ["1/2 tsp", "cinnamon", ""],
-            ["", "pepper", "to taste"],
-            ["2 tsp", "brown sugar", ""],
-            ["1 cup", "yogurt", "plain low-fat"],
-            ["1 cup", "pecans", "pieces"]
+        title: "Squash Soup",
+        prep_time: 15,
+        cook_time: 25,
+        rating: 3,
+        temperature: 0,
+        servings: 6,
+        categories: ["side dish"],
+        ingredients: [
+            { quantity: "1", name: "onion" },
+            { quantity: "1 stalk", name: "celery" },
+            { quantity: "2 tsp", name: "canola oil" },
+            { quantity: "1", name: "butternut squash" },
+            { quantity: "2", name: "apples" },
+            { quantity: "1", name: "potato" },
+            { quantity: "4 cups", name: "water" },
+            { quantity: "1 tsp", name: "ginger" },
+            { quantity: "1/2 tsp", name: "cinnamon" },
+            { quantity: "", name: "pepper", notes: "to taste" },
+            { quantity: "2 tsp", name: "brown sugar" },
+            { quantity: "1 cup", name: "yogurt", notes: "plain low-fat" },
+            { quantity: "1 cup", name: "pecans", notes: "pieces" }
         ],
-        "instructions": [
+        instructions: [
             "Chop the onion and celery. Sauté them in the oil in a large saucepan over medium heat until tender.",
             "Peel, core, seed and chop the butternut squash, apples and potato. Add to saucepan.",
             "Add water, cinnamon, ginger and pepper to the saucepan. Bring to a boil.",
             "Simmer for 12 minutes until the potato is tender. Remove from heat and blend until smooth in a blender.",
             "Return the soup to the saucepan. Add brown sugar and bring to a boil. Remove from heat.",
             "Top with yogurt and nuts."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Tomato Penne",
-        "prep_time": 10,
-        "cook_time": 15,
-        "rating": 10,
-        "servings": 6,
-        "category": "italian",
-        "ingredients": [
-            ["1 1/4 lbs", "penne", ""],
-            ["1 tbsp", "canola oil", ""],
-            ["2 tsp", "garlic", "minced"],
-            ["28 oz", "diced tomatoes", "canned"],
-            ["12", "black olives", "pitted"],
-            ["1/2 cup", "parsley", "chopped"],
-            ["1/4 cup", "basil", "torn"],
-            ["1 tsp", "thyme", ""],
-            ["6 oz", "feta cheese", ""],
-            ["1/2 cup", "parmesan", "grated"]
+        title: "Tomato Penne",
+        prep_time: 10,
+        cook_time: 15,
+        rating: 10,
+        temperature: 0,
+        servings: 6,
+        categories: ["italian"],
+        ingredients: [
+            { quantity: "1 1/4 lbs", name: "penne" },
+            { quantity: "1 tbsp", name: "canola oil" },
+            { quantity: "2 tsp", name: "garlic", notes: "minced" },
+            { quantity: "28 oz", name: "diced tomatoes", notes: "canned" },
+            { quantity: "12", name: "black olives", notes: "pitted" },
+            { quantity: "1/2 cup", name: "parsley", notes: "chopped" },
+            { quantity: "1/4 cup", name: "basil", notes: "torn" },
+            { quantity: "1 tsp", name: "thyme" },
+            { quantity: "6 oz", name: "feta cheese" },
+            { quantity: "1/2 cup", name: "parmesan", notes: "grated" }
         ],
-        "instructions": [
+        instructions: [
             "Cook the penne in boiling water al dente.",
             "In a large skillet, sauté the garlic in oil over medium heat for 2 minutes until soft.",
             "Add the tomatoes and cook for 4 minutes.",
             "Drain the cooked pasta. Set aside 1/3 of the pasta for Tuesday’s lunch.",
             "Add the remaining penne to the pan. Toss the penne with the olives, the parsley, and the basil.",
             "Sprinkle with thyme, feta, and Parmesan cheeses."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Chicken Fajitas",
-        "prep_time": 10,
-        "cook_time": 10,
-        "rating": 0,
-        "servings": 4,
-        "category": "mexican",
-        "ingredients": [
-            ["1 1/2 lbs", "Chicken breasts", "cut into 1/4 inch strips"],
-            ["1", "Red pepper", "sliced"],
-            ["1", "Green pepper", "sliced"],
-            ["1/2", "Red onion", "thinly sliced"],
-            ["1 tbsp", "Canola oil", ""],
-            ["1 tsp", "Chili powder", ""],
-            ["1 tsp", "Coriander", ""],
-            ["1 tsp", "Cumin", ""],
-            ["1 tsp", "Oregano", ""],
-            ["to taste", "Pepper", ""],
-            ["1 tsp", "Garlic", ""],
-            ["2 tsp", "Lemon juice", ""],
-            ["dash", "Hot sauce", ""],
-            ["dash", "Worcestershire sauce", ""]
+        title: "Chicken Fajitas",
+        prep_time: 10,
+        cook_time: 10,
+        rating: 0,
+        temperature: 0,
+        servings: 4,
+        categories: ["mexican"],
+        ingredients: [
+            { quantity: "1 1/2 lbs", name: "Chicken breasts", notes: "cut into 1/4 inch strips" },
+            { quantity: "1", name: "Red pepper", notes: "sliced" },
+            { quantity: "1", name: "Green pepper", notes: "sliced" },
+            { quantity: "1/2", name: "Red onion", notes: "thinly sliced" },
+            { quantity: "1 tbsp", name: "Canola oil" },
+            { quantity: "1 tsp", name: "Chili powder" },
+            { quantity: "1 tsp", name: "Coriander" },
+            { quantity: "1 tsp", name: "Cumin" },
+            { quantity: "1 tsp", name: "Oregano" },
+            { quantity: "to taste", name: "Pepper" },
+            { quantity: "1 tsp", name: "Garlic" },
+            { quantity: "2 tsp", name: "Lemon juice" },
+            { quantity: "dash", name: "Hot sauce" },
+            { quantity: "dash", name: "Worcestershire sauce" }
         ],
-        "instructions": [
+        instructions: [
             "Cut the chicken into 1/4 inch strips.",
             "Heat oil in a skillet over medium heat. Add chicken and spices. Stir-fry for 4-5 minutes until golden brown and no longer pink inside. Remove from heat, drain, and set aside.",
             "Add garlic and vegetables to the skillet. Stir-fry for about 3 minutes until tender but still crisp.",
             "Return chicken to skillet. Add lemon juice, hot sauce, and Worcestershire sauce. Heat through.",
             "Serve with tortillas, guacamole, sour cream, salsa, queso, and lettuce."
         ],
-        "note": "Don't be afraid to overcook the veggies. Add seasoning to rice."
+        note: "Don't be afraid to overcook the veggies. Add seasoning to rice."
     },
     {
-        "title": "Feta Fusilli",
-        "prep_time": 15,
-        "cook_time": 15,
-        "rating": 0,
-        "servings": 4,
-        "category": "italian",
-        "ingredients": [
-            ["1 lb", "Whole grain fusilli", ""],
-            ["3 cups", "Green beans", "cut into bite-sized pieces"],
-            ["1/2 head", "Broccoli", "cut into bite-sized pieces"],
-            ["1", "Red pepper", "julienned"],
-            ["1/3 cup", "Olive oil", ""],
-            ["1/4 cup", "Red wine vinegar", ""],
-            ["2 tsp", "Lemon juice", ""],
-            ["2 tbsp", "Oregano", ""],
-            ["2 tbsp", "Parsley", "chopped fresh"],
-            ["8 oz", "Feta cheese", "crumbled"],
-            ["12", "Black olives", "pitted"],
-            ["4", "Tomatoes", "quartered"]
+        title: "Feta Fusilli",
+        prep_time: 15,
+        cook_time: 15,
+        rating: 0,
+        temperature: 0,
+        servings: 4,
+        categories: ["italian"],
+        ingredients: [
+            { quantity: "1 lb", name: "Whole grain fusilli" },
+            { quantity: "3 cups", name: "Green beans", notes: "cut into bite-sized pieces" },
+            { quantity: "1/2 head", name: "Broccoli", notes: "cut into bite-sized pieces" },
+            { quantity: "1", name: "Red pepper", notes: "julienned" },
+            { quantity: "1/3 cup", name: "Olive oil" },
+            { quantity: "1/4 cup", name: "Red wine vinegar" },
+            { quantity: "2 tsp", name: "Lemon juice" },
+            { quantity: "2 tbsp", name: "Oregano" },
+            { quantity: "2 tbsp", name: "Parsley", notes: "chopped fresh" },
+            { quantity: "8 oz", name: "Feta cheese", notes: "crumbled" },
+            { quantity: "12", name: "Black olives", notes: "pitted" },
+            { quantity: "4", name: "Tomatoes", notes: "quartered" }
         ],
-        "instructions": [
+        instructions: [
             "Cook chicken and peppers together and let the peppers cook",
             "Cook the fusilli al dente.",
             "Steam the green beans and broccoli until tender but crisp.",
@@ -579,82 +611,87 @@ const recipes = [
             "Toss the pasta and vegetables with the dressing.",
             "Add feta cheese and olives. Serve with the quartered tomatoes."
         ],
-        "note": "Add red wine vinegar separate. Rachel doesn't like it."
+        note: "Add red wine vinegar separate. Rachel doesn't like it."
     },
     {
-        "title": "Chicken Fingers",
-        "prep_time": 15,
-        "cook_time": 12,
-        "rating": 10,
-        "servings": 4,
-        "category": "main dish",
-        "ingredients": [
-            ["1 lb", "Chicken breasts", "skinned, deboned, sliced into 1-inch strips"],
-            ["1/2 cup", "Flour", ""],
-            ["2", "Eggs", "beaten"],
-            ["1 cup", "Breadcrumbs", ""],
-            ["2/3 cup", "Parmesan cheese", "grated"],
-            ["1 tbsp", "Oregano", ""],
-            ["1 tbsp", "Paprika", ""],
-            ["1 tbsp", "Basil", ""]
+        title: "Chicken Fingers",
+        prep_time: 15,
+        cook_time: 12,
+        rating: 10,
+        temperature: 0,
+        servings: 4,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "1 lb", name: "Chicken breasts", notes: "skinned, deboned, sliced into 1-inch strips" },
+            { quantity: "1/2 cup", name: "Flour" },
+            { quantity: "2", name: "Eggs", notes: "beaten" },
+            { quantity: "1 cup", name: "Breadcrumbs" },
+            { quantity: "2/3 cup", name: "Parmesan cheese", notes: "grated" },
+            { quantity: "1 tbsp", name: "Oregano" },
+            { quantity: "1 tbsp", name: "Paprika" },
+            { quantity: "1 tbsp", name: "Basil" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 450°F.",
             "Set up 3 wide-mouthed bowls: one with flour, one with beaten eggs, and one with a mixture of breadcrumbs, Parmesan cheese, oregano, paprika, and basil.",
             "Dip each chicken strip into the flour, then into the egg, and finally into the breadcrumb mixture to coat.",
             "Lay the coated chicken strips on a slightly greased baking sheet.",
             "Bake for 6 minutes on each side, until crisp and cooked through."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Pumpkin Chocolate Chip Muffins",
-        "prep_time": 10,
-        "cook_time": 20,
-        "rating": 0,
-        "servings": 12,
-        "category": "breakfast",
-        "ingredients": [
-            ["1 cup", "Flour", ""],
-            ["2/3 cup", "Sugar", ""],
-            ["1/4 tsp", "Salt", ""],
-            ["3/4 tsp", "Baking Powder", ""],
-            ["3/4 tsp", "Baking Soda", ""],
-            ["1/4 tsp", "Cinnamon", ""],
-            ["2", "Large eggs", ""],
-            ["1/2 cup", "Oil", ""],
-            ["2/3 cup", "Pumpkin", ""],
-            ["2/3 cup", "Chocolate Chips", ""]
+        title: "Pumpkin Chocolate Chip Muffins",
+        prep_time: 10,
+        cook_time: 20,
+        rating: 0,
+        temperature: 350,
+        servings: 12,
+        categories: ["breakfast"],
+        ingredients: [
+            { quantity: "1 cup", name: "Flour" },
+            { quantity: "2/3 cup", name: "Sugar" },
+            { quantity: "1/4 tsp", name: "Salt" },
+            { quantity: "3/4 tsp", name: "Baking Powder" },
+            { quantity: "3/4 tsp", name: "Baking Soda" },
+            { quantity: "1/4 tsp", name: "Cinnamon" },
+            { quantity: "2", name: "Large eggs" },
+            { quantity: "1/2 cup", name: "Oil" },
+            { quantity: "2/3 cup", name: "Pumpkin" },
+            { quantity: "2/3 cup", name: "Chocolate Chips" }
         ],
-        "instructions": [
+        instructions: [
             "In a mixing bowl, combine all dry ingredients.",
             "In a separate bowl, combine all wet ingredients.",
             "Combine dry and wet ingredients together.",
             "Once mixed, fold in chocolate chips.",
             "Portion muffin batter into muffin tins (about 1/4 cup per muffin).",
             "Bake at 350°F for 18–20 minutes."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Shepherd's Pie",
-        "prep_time": 20,
-        "cook_time": 25,
-        "rating": 0,
-        "servings": 4,
-        "category": "main dish",
-        "ingredients": [
-            ["5 large", "Yellow potatoes", ""],
-            ["1/4 cup", "Milk", ""],
-            ["1 tsp", "Garlic", "minced"],
-            ["1", "Onion", "finely chopped"],
-            ["1 lb", "Ground beef", ""],
-            ["1 can (14 oz)", "Cream Style Corn", ""],
-            ["1 cup", "Frozen corn niblets", ""],
-            ["to taste", "Worcestershire sauce", ""],
-            ["to taste", "Hot sauce", ""],
-            ["to taste", "Pepper", ""],
-            ["1 tsp", "Paprika", ""]
+        title: "Shepherd's Pie",
+        prep_time: 20,
+        cook_time: 25,
+        rating: 0,
+        temperature: 0,
+        servings: 4,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "5 large", name: "Yellow potatoes" },
+            { quantity: "1/4 cup", name: "Milk" },
+            { quantity: "1 tsp", name: "Garlic", notes: "minced" },
+            { quantity: "1", name: "Onion", notes: "finely chopped" },
+            { quantity: "1 lb", name: "Ground beef" },
+            { quantity: "1 can (14 oz)", name: "Cream Style Corn" },
+            { quantity: "1 cup", name: "Frozen corn niblets" },
+            { quantity: "to taste", name: "Worcestershire sauce" },
+            { quantity: "to taste", name: "Hot sauce" },
+            { quantity: "to taste", name: "Pepper" },
+            { quantity: "1 tsp", name: "Paprika" }
         ],
-        "instructions": [
+        instructions: [
             "Clean the potatoes and cook in boiling water until just done. Do not overcook.",
             "Mash potatoes with milk and garlic. Set aside.",
             "In a skillet, brown the meat with the onion and garlic until cooked. Season with salt and pepper.",
@@ -664,54 +701,54 @@ const recipes = [
             "Lay the mashed potatoes over the corn and sprinkle with paprika.",
             "Brown under the broiler until golden."
         ],
-        "note": "Mix sauces first, then put on meat."
+        note: "Mix sauces first, then put on meat."
     },
     {
-        "title": "Fruit Cobbler",
-        "prep_time": 10,
-        "cook_time": 45,
-        "temperate": 350,
-        "rating": 0,
-        "servings": 8,
-        "category": "dessert",
-        "ingredients": [
-            ["21 oz", "Fruit Filling", ""],
-            ["1 pkg", "Yellow Cake Mix", ""],
-            ["1/2 cup", "Butter", ""]
+        title: "Fruit Cobbler",
+        prep_time: 10,
+        cook_time: 45,
+        rating: 0,
+        temperature: 350,
+        servings: 8,
+        categories: ["dessert"],
+        ingredients: [
+            { quantity: "21 oz", name: "Fruit Filling" },
+            { quantity: "1 pkg", name: "Yellow Cake Mix" },
+            { quantity: "1/2 cup", name: "Butter" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat to 350°F.",
             "Spray 8x8 pan and pour pie filling in evenly.",
             "In a bowl, combine butter and cake mix.",
             "Spread cake mix over pie filling.",
             "Bake for 45 min until top is golden brown."
         ],
-        "note": "Serve with ice cream."
+        note: "Serve with ice cream."
     },
     {
-        "title": "Pumpkin Roll",
-        "prep_time": 20,
-        "cook_time": 105,
-        "rating": 9,
-        "temperature": 350,
-        "servings": 8,
-        "category": "Dessert",
-        "ingredients": [
-            ["3/4 cup", "Flour", ""],
-            ["1/2 tsp", "Salt", ""],
-            ["1 tsp", "Baking soda", ""],
-            ["1 tsp", "Ground cinnamon", ""],
-            ["1 tsp", "Pumpkin pie spice", ""],
-            ["1 cup", "Granulated sugar", ""],
-            ["3", "eggs", "large"],
-            ["2/3 cup", "Canned pumpkin", ""],
-            ["1 tsp", "Vanilla extract", ""],
-            ["8 oz", "Cream cheese", "softened"],
-            ["2 tbsp", "Butter", "softened"],
-            ["1 tsp", "Vanilla extract", ""],
-            ["1 cup", "Powdered sugar", "plus more for dusting"]
+        title: "Pumpkin Roll",
+        prep_time: 20,
+        cook_time: 105,
+        rating: 9,
+        temperature: 350,
+        servings: 8,
+        categories: ["dessert"],
+        ingredients: [
+            { quantity: "3/4 cup", name: "Flour" },
+            { quantity: "1/2 tsp", name: "Salt" },
+            { quantity: "1 tsp", name: "Baking soda" },
+            { quantity: "1 tsp", name: "Ground cinnamon" },
+            { quantity: "1 tsp", name: "Pumpkin pie spice" },
+            { quantity: "1 cup", name: "Granulated sugar" },
+            { quantity: "3", name: "eggs", notes: "large" },
+            { quantity: "2/3 cup", name: "Canned pumpkin" },
+            { quantity: "1 tsp", name: "Vanilla extract" },
+            { quantity: "8 oz", name: "Cream cheese", notes: "softened" },
+            { quantity: "2 tbsp", name: "Butter", notes: "softened" },
+            { quantity: "1 tsp", name: "Vanilla extract" },
+            { quantity: "1 cup", name: "Powdered sugar", notes: "plus more for dusting" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 350°F.",
             "Lightly grease a 10x15-inch jelly roll pan with nonstick spray. Line with parchment paper, leaving extra overhang on the long sides for lifting. Lightly grease the paper.",
             "In a large bowl, whisk together flour, salt, baking soda, cinnamon, and pumpkin pie spice.",
@@ -723,25 +760,26 @@ const recipes = [
             "Once the cake is fully cooled, unroll gently and spread the frosting evenly, leaving a 1-inch border.",
             "Roll the cake back up (without the parchment). Wrap in plastic and refrigerate for at least 1 hour.",
             "Before serving, dust with powdered sugar, slice, and serve."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Roasted Zucchini",
-        "prep_time": 5,
-        "cook_time": 10,
-        "rating": 7,
-        "temperature": 450,
-        "servings": 4,
-        "category": "Side Dish",
-        "ingredients": [
-            ["2 medium", "Zucchini", "cut into 1/2 inch thick rounds"],
-            ["2 tbsp", "olive oil", "extra-virgin"],
-            ["1/2 tsp", "salt", ""],
-            ["1/2 tsp", "black pepper", ""],
-            ["1 tsp", "garlic powder", ""],
-            ["1/2 cup", "Parmesan cheese", "grated"]
+        title: "Roasted Zucchini",
+        prep_time: 5,
+        cook_time: 10,
+        rating: 7,
+        temperature: 450,
+        servings: 4,
+        categories: ["side dish"],
+        ingredients: [
+            { quantity: "2 medium", name: "Zucchini", notes: "cut into 1/2 inch thick rounds" },
+            { quantity: "2 tbsp", name: "olive oil", notes: "extra-virgin" },
+            { quantity: "1/2 tsp", name: "salt" },
+            { quantity: "1/2 tsp", name: "black pepper" },
+            { quantity: "1 tsp", name: "garlic powder" },
+            { quantity: "1/2 cup", name: "Parmesan cheese", notes: "grated" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 450°F and position a rack in the center.",
             "In a large bowl, toss zucchini with olive oil, salt, pepper, and garlic powder until evenly coated.",
             "Arrange zucchini rounds on a rimmed sheet pan in a single layer.",
@@ -749,57 +787,59 @@ const recipes = [
             "Bake for 5 minutes, then switch the oven to broil on High.",
             "Continue baking for 2-3 minutes, or until the cheese is golden brown and zucchini is tender.",
             "Serve immediately, adding extra salt to taste if desired."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Meatballs (oven-baked)",
-        "prep_time": 15,
-        "cook_time": 20,
-        "rating": 10,
-        "temperature": 400,
-        "servings": 5,
-        "category": "Main Dish",
-        "ingredients": [
-            ["1 lb", "Ground beef", "80% lean (or half pork)"],
-            ["1", "Large egg", "beaten"],
-            ["1/4 cup", "Breadcrumbs", ""],
-            ["1/4 cup", "Parmesan cheese", "grated"],
-            ["1/4 cup", "onion", "finely chopped"],
-            ["2 tsp", "garlic", "minced"],
-            ["3/4 tsp", "salt", ""],
-            ["1/4 tsp", "pepper", ""],
-            ["2 tbsp", "parsley", "optional"],
-            ["2 cups", "Marinara sauce", "optional, for serving"]
+        title: "Meatballs (oven-baked)",
+        prep_time: 15,
+        cook_time: 20,
+        rating: 10,
+        temperature: 400,
+        servings: 5,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "1 lb", name: "Ground beef", notes: "80% lean (or half pork)" },
+            { quantity: "1", name: "Large egg", notes: "beaten" },
+            { quantity: "1/4 cup", name: "Breadcrumbs" },
+            { quantity: "1/4 cup", name: "Parmesan cheese", notes: "grated" },
+            { quantity: "1/4 cup", name: "onion", notes: "finely chopped" },
+            { quantity: "2 tsp", name: "garlic", notes: "minced" },
+            { quantity: "3/4 tsp", name: "salt" },
+            { quantity: "1/4 tsp", name: "pepper" },
+            { quantity: "2 tbsp", name: "parsley", notes: "optional" },
+            { quantity: "2 cups", name: "Marinara sauce", notes: "optional, for serving" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 400°F. Line a baking sheet with foil and spray with non-stick cooking spray.",
             "In a large bowl, combine ground beef, egg, breadcrumbs, Parmesan cheese, onion, garlic, salt, pepper, and parsley (if using). Mix until just combined.",
             "Use a medium cookie scoop or spoon to form 1 1/2-inch meatballs. Place them evenly on the prepared baking sheet.",
             "Bake uncovered for 17-20 minutes, turning halfway through, until the meatballs are browned and no longer pink inside.",
             "Serve with marinara sauce, noodles, and additional Parmesan, basil, or parsley if desired."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Brownies",
-        "prep_time": 5,
-        "cook_time": 45,
-        "rating": 9,
-        "temperature": 325,
-        "servings": 16,
-        "category": "Dessert",
-        "ingredients": [
-            ["1 1/2 cups", "Granulated sugar", ""],
-            ["3/4 cup", "All-purpose flour", ""],
-            ["2/3 cup", "Cocoa powder", "sifted if lumpy"],
-            ["1/2 cup", "Powdered sugar", "sifted if lumpy"],
-            ["1/2 cup", "Dark chocolate chips", ""],
-            ["3/4 tsp", "Sea salt", ""],
-            ["2", "Large eggs", ""],
-            ["1/2 cup", "Canola oil or extra-virgin olive oil", ""],
-            ["2 tbsp", "Water", ""],
-            ["1/2 tsp", "Vanilla extract", ""]
+        title: "Brownies",
+        prep_time: 5,
+        cook_time: 45,
+        rating: 9,
+        temperature: 325,
+        servings: 16,
+        categories: ["dessert"],
+        ingredients: [
+            { quantity: "1 1/2 cups", name: "Granulated sugar" },
+            { quantity: "3/4 cup", name: "All-purpose flour" },
+            { quantity: "2/3 cup", name: "Cocoa powder", notes: "sifted if lumpy" },
+            { quantity: "1/2 cup", name: "Powdered sugar", notes: "sifted if lumpy" },
+            { quantity: "1/2 cup", name: "Dark chocolate chips" },
+            { quantity: "3/4 tsp", name: "Sea salt" },
+            { quantity: "2", name: "Large eggs" },
+            { quantity: "1/2 cup", name: "Canola oil or extra-virgin olive oil" },
+            { quantity: "2 tbsp", name: "Water" },
+            { quantity: "1/2 tsp", name: "Vanilla extract" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 325°F.",
             "Lightly spray an 8x8-inch baking dish with cooking spray and line it with parchment paper. Spray the parchment as well.",
             "In a medium bowl, combine sugar, flour, cocoa powder, powdered sugar, chocolate chips, and salt.",
@@ -808,35 +848,36 @@ const recipes = [
             "Pour batter into the prepared pan and smooth the top with a spatula.",
             "Bake for 40–48 minutes, or until a toothpick inserted in the center comes out with only a few crumbs attached.",
             "Allow to cool completely in the pan before cutting into 16 brownies."
-        ]
+        ],
+        note: ""
     },
     {
-        "title": "Blueberry Baked Oatmeal",
-        "prep_time": 10,
-        "cook_time": 45,
-        "rating": 9,
-        "temperature": 375,
-        "servings": 8,
-        "category": "Breakfast",
-        "ingredients": [
-            ["2/3 cup", "Pecans", "roughly chopped"],
-            ["2 cups", "oats", "old-fashioned"],
-            ["2 tsp", "Cinnamon", ""],
-            ["1 tsp", "Baking powder", ""],
-            ["3/4 tsp", "salt", ""],
-            ["1/4 tsp", "Nutmeg", ""],
-            ["1 3/4 cups", "Milk", ""],
-            ["1/3 cup", "Maple syrup", "or honey"],
-            ["2", "Large eggs", ""],
-            ["3 tbsp", "Unsalted butter", "or coconut oil, melted"],
-            ["2 tsp", "Vanilla extract", ""],
-            ["12 oz", "Blueberries", ""],
-            ["2 tsp", "Raw sugar", "optional for topping"],
-            ["", "Yogurt or whipped cream", "optional for serving"],
-            ["", "Maple syrup or honey", "optional for drizzling"],
-            ["", "Fresh fruit", "optional for serving"]
+        title: "Blueberry Baked Oatmeal",
+        prep_time: 10,
+        cook_time: 45,
+        rating: 9,
+        temperature: 375,
+        servings: 8,
+        categories: ["breakfast"],
+        ingredients: [
+            { quantity: "2/3 cup", name: "Pecans", notes: "roughly chopped" },
+            { quantity: "2 cups", name: "oats", notes: "old-fashioned" },
+            { quantity: "2 tsp", name: "Cinnamon" },
+            { quantity: "1 tsp", name: "Baking powder" },
+            { quantity: "3/4 tsp", name: "salt" },
+            { quantity: "1/4 tsp", name: "Nutmeg" },
+            { quantity: "1 3/4 cups", name: "Milk" },
+            { quantity: "1/3 cup", name: "Maple syrup", notes: "or honey" },
+            { quantity: "2", name: "Large eggs" },
+            { quantity: "3 tbsp", name: "Unsalted butter", notes: "or coconut oil, melted" },
+            { quantity: "2 tsp", name: "Vanilla extract" },
+            { quantity: "12 oz", name: "Blueberries" },
+            { quantity: "2 tsp", name: "Raw sugar", notes: "optional for topping" },
+            { quantity: "", name: "Yogurt or whipped cream", notes: "optional for serving" },
+            { quantity: "", name: "Maple syrup or honey", notes: "optional for drizzling" },
+            { quantity: "", name: "Fresh fruit", notes: "optional for serving" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 375°F and grease a 9-inch square baking dish.",
             "Once oven is preheated, spread pecans on a rimmed baking sheet and toast for 4–5 minutes, until fragrant.",
             "In a medium bowl, whisk together oats, toasted pecans, cinnamon, baking powder, salt, and nutmeg.",
@@ -848,29 +889,29 @@ const recipes = [
             "Let cool for a few minutes, then drizzle remaining melted butter over the top before serving.",
             "Serve warm, room temperature, or chilled with yogurt, syrup, or fruit as desired. Store covered in the refrigerator for up to 4–5 days."
         ],
-        "note": "If using coconut oil, it may solidify when mixed with cold ingredients—microwave briefly until melted again. Keeps well in the fridge for up to 5 days."
+        note: "If using coconut oil, it may solidify when mixed with cold ingredients—microwave briefly until melted again. Keeps well in the fridge for up to 5 days."
     },
     {
-        "title": "Chocolate Chip Cookies",
-        "prep_time": 10,
-        "cook_time": 8,
-        "rating": 10,
-        "temperature": 375,
-        "servings": 36,
-        "category": "Dessert",
-        "ingredients": [
-            ["1 cup", "Salted butter", "softened"],
-            ["1 cup", "Granulated sugar", ""],
-            ["1 cup", "Light brown sugar", "packed"],
-            ["2 tsp", "Vanilla extract", "pure"],
-            ["2", "Large eggs", ""],
-            ["3 cups", "All-purpose flour", ""],
-            ["1 tsp", "Baking soda", ""],
-            ["1/2 tsp", "Baking powder", ""],
-            ["1 tsp", "Sea salt", ""],
-            ["2 cups", "Chocolate chips", "about 12 oz"]
+        title: "Chocolate Chip Cookies",
+        prep_time: 10,
+        cook_time: 8,
+        rating: 10,
+        temperature: 375,
+        servings: 36,
+        categories: ["dessert"],
+        ingredients: [
+            { quantity: "1 cup", name: "Salted butter", notes: "softened" },
+            { quantity: "1 cup", name: "Granulated sugar" },
+            { quantity: "1 cup", name: "Light brown sugar", notes: "packed" },
+            { quantity: "2 tsp", name: "Vanilla extract", notes: "pure" },
+            { quantity: "2", name: "Large eggs" },
+            { quantity: "3 cups", name: "All-purpose flour" },
+            { quantity: "1 tsp", name: "Baking soda" },
+            { quantity: "1/2 tsp", name: "Baking powder" },
+            { quantity: "1 tsp", name: "Sea salt" },
+            { quantity: "2 cups", name: "Chocolate chips", notes: "about 12 oz" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 375°F. Line three baking sheets with parchment paper.",
             "In a medium bowl, mix flour, baking soda, baking powder, and salt. Set aside.",
             "In a large bowl, cream together butter and sugars until combined.",
@@ -881,30 +922,30 @@ const recipes = [
             "Bake for 8 to 10 minutes, until cookies are just starting to brown at the edges.",
             "Let cookies rest on the pan for 5 minutes before transferring to a cooling rack."
         ],
-        "note": "For soft and chewy cookies, remove from oven while centers still look slightly underbaked—they'll finish cooking on the pan."
+        note: "For soft and chewy cookies, remove from oven while centers still look slightly underbaked—they'll finish cooking on the pan."
     },
     {
-        "title": "Pork Chops, Potatoes, and Broccoli",
-        "prep_time": 10,
-        "cook_time": 30,
-        "rating": 9,
-        "temperature": 425,
-        "servings": 4,
-        "category": "Main Dish",
-        "ingredients": [
-            ["4", "Boneless pork chops", "thick-cut"],
-            ["", "Salt and pepper", "to taste"],
-            ["1 tsp", "Garlic powder", ""],
-            ["1 tsp", "Italian herb seasoning", "or Herbs de Provence"],
-            ["1/2 tsp", "Smoked paprika", ""],
-            ["2 tsp", "Dry ranch seasoning", ""],
-            ["3 cups", "Broccoli florets", ""],
-            ["3 tbsp", "Olive oil", "1 tbsp for broccoli, 2 tbsp for potatoes"],
-            ["1 lb", "Baby gold or red potatoes", "cut in half"],
-            ["2 tsp", "Garlic powder", "for potatoes"],
-            ["1/3 cup", "Parmesan cheese", "grated, for potatoes"]
+        title: "Pork Chops, Potatoes, and Broccoli",
+        prep_time: 10,
+        cook_time: 30,
+        rating: 9,
+        temperature: 425,
+        servings: 4,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "4", name: "Boneless pork chops", notes: "thick-cut" },
+            { quantity: "", name: "Salt and pepper", notes: "to taste" },
+            { quantity: "1 tsp", name: "Garlic powder" },
+            { quantity: "1 tsp", name: "Italian herb seasoning", notes: "or Herbs de Provence" },
+            { quantity: "1/2 tsp", name: "Smoked paprika" },
+            { quantity: "2 tsp", name: "Dry ranch seasoning" },
+            { quantity: "3 cups", name: "Broccoli florets" },
+            { quantity: "3 tbsp", name: "Olive oil", notes: "1 tbsp for broccoli, 2 tbsp for potatoes" },
+            { quantity: "1 lb", name: "Baby gold or red potatoes", notes: "cut in half" },
+            { quantity: "2 tsp", name: "Garlic powder", notes: "for potatoes" },
+            { quantity: "1/3 cup", name: "Parmesan cheese", notes: "grated, for potatoes" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 425°F and grease a large baking sheet.",
             "In a bowl, toss potatoes with olive oil, salt, pepper, garlic powder, and Parmesan. Spread on one-third of the pan and bake for 5-10 minutes.",
             "Meanwhile, season pork chops on both sides with salt, pepper, garlic powder, Italian herbs, paprika, and ranch seasoning.",
@@ -913,63 +954,89 @@ const recipes = [
             "Bake another 10-15 minutes, until broccoli and potatoes are tender and pork reaches 145°F internally.",
             "Let pork rest 3-5 minutes before serving with potatoes and broccoli."
         ],
-        "note": "For best results, stagger baking times so each item cooks perfectly—potatoes first, then pork, then broccoli."
+        note: "For best results, stagger baking times so each item cooks perfectly—potatoes first, then pork, then broccoli."
     },
     {
-        "title": "Chicken Chow Mein",
-        "prep_time": 10,
-        "cook_time": 25,
-        "rating": 8,
-        "servings": 4,
-        "category": "Main Dish",
-        "ingredients": [
-            ["2 tbsp", "Butter", "for sautéing"],
-            ["4 tbsp", "Minced onion", ""],
-            ["1 cup", "Whole button mushrooms", ""],
-            ["1 1/2 cups", "Shredded cooked chicken", ""],
-            ["1 cup", "Diced celery", ""],
-            ["1 1/2 cups", "Meat stock or water", ""],
-            ["2 tbsp", "Soy sauce", ""],
-            ["1 tbsp", "Sugar", ""],
-            ["1 1/2 tbsp", "Cornstarch", ""],
-            ["3 tbsp", "Cold water", ""],
-            ["", "Hot chow mein noodles", "for serving"]
+        title: "Chicken Chow Mein",
+        prep_time: 10,
+        cook_time: 25,
+        rating: 8,
+        temperature: 0,
+        servings: 4,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "2 tbsp", name: "Butter", notes: "for sautéing" },
+            { quantity: "4 tbsp", name: "Minced onion" },
+            { quantity: "1 cup", name: "Whole button mushrooms" },
+            { quantity: "1 1/2 cups", name: "Shredded cooked chicken" },
+            { quantity: "1 cup", name: "Diced celery" },
+            { quantity: "1 1/2 cups", name: "Meat stock or water" },
+            { quantity: "2 tbsp", name: "Soy sauce" },
+            { quantity: "1 tbsp", name: "Sugar" },
+            { quantity: "1 1/2 tbsp", name: "Cornstarch" },
+            { quantity: "3 tbsp", name: "Cold water" },
+            { quantity: "", name: "Hot chow mein noodles", notes: "for serving" }
         ],
-        "instructions": [
+        instructions: [
             "In a skillet, melt butter over medium heat. Add minced onion and mushrooms; brown lightly.",
             "Add chicken, celery, stock or water, soy sauce, and sugar. Simmer for 15 minutes.",
             "Blend cornstarch and cold water in a small bowl until smooth. Stir into the meat mixture.",
             "Cook until slightly thickened and clear.",
             "Serve hot over chow mein noodles."
         ],
-        "note": "If the sauce thickens too much, add a splash of stock or water to adjust consistency before serving."
+        note: "If the sauce thickens too much, add a splash of stock or water to adjust consistency before serving."
     },
     {
-        "title": "Baked Chicken Parmesan",
-        "prep_time": 10,
-        "cook_time": 25,
-        "rating": 8,
-        "temperature": 450,
-        "servings": 4,
-        "category": "Main Dish",
-        "ingredients": [
-            ["1/4 cup", "Mayonnaise", ""],
-            ["1", "Egg", ""],
-            ["1 tbsp", "Seasoning blend", ""],
-            ["4", "Chicken cutlets", "about 1 lb"],
-            ["", "Panko breadcrumbs", "for coating"],
-            ["", "Marinara sauce", "for topping"],
-            ["", "Mozzarella cheese", "shredded, for topping"]
+        title: "Baked Chicken Parmesan",
+        prep_time: 10,
+        cook_time: 25,
+        rating: 8,
+        temperature: 450,
+        servings: 4,
+        categories: ["main dish"],
+        ingredients: [
+            { quantity: "1/4 cup", name: "Mayonnaise" },
+            { quantity: "1", name: "Egg" },
+            { quantity: "1 tbsp", name: "Seasoning blend" },
+            { quantity: "4", name: "Chicken cutlets", notes: "about 1 lb" },
+            { quantity: "", name: "Panko breadcrumbs", notes: "for coating" },
+            { quantity: "", name: "Marinara sauce", notes: "for topping" },
+            { quantity: "", name: "Mozzarella cheese", notes: "shredded, for topping" }
         ],
-        "instructions": [
+        instructions: [
             "Preheat oven to 450°F and line a sheet pan with a rack.",
             "In a large bowl, mix mayonnaise, egg, and seasoning.",
             "Add chicken cutlets and toss to coat.",
             "Coat each cutlet in panko breadcrumbs and place on sheet pan.",
             "Bake for 20 minutes.",
             "Top cutlets with marinara and shredded mozzarella.",
-            "Bake an additional 5–7 minutes, until cheese is melted and lightly browned."
+            "Bake an additional 5-7 minutes, until cheese is melted and lightly browned."
         ],
-        "note": ""
+        note: ""
+    },
+    {
+        title: "Corn Pudding",
+        prep_time: 10,
+        cook_time: 60,
+        rating: 8,
+        temperature: 325,
+        servings: 6,
+        categories: ["dessert", "side dish"],
+        ingredients: [
+            { quantity: "1 can", name: "corn" },
+            { quantity: "1 can", name: "crushed corn", notes: "cream style" },
+            { quantity: "1 can", name: "Carnation milk", notes: "evaporated" },
+            { quantity: "2 large or 3 small", name: "eggs" },
+            { quantity: "3/4 c.", name: "sugar" },
+            { quantity: "2 t.", name: "corn starch" },
+            { quantity: "2 t.", name: "butter", notes: "for topping" }
+        ],
+        instructions: [
+            "Cream all ingredients well (except the topping butter).",
+            "Pour mixture into a buttered casserole.",
+            "Put 2 teaspoons of butter on top.",
+            "Bake at 325 degrees Fahrenheit for 1 hour, or until firm."
+        ],
+        note: "Recipe from Mom, background by Helen Doss."
     }
 ];

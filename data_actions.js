@@ -1,17 +1,21 @@
 // Ingredient actions
 const formatIngredient = (ingredientObject) => {
-    return ingredientObject
-        .map(ing => (typeof ing === "string" ? getProperCase(ing) : ing))
-        .filter(ing => typeof ing === "string" && ing.length > 0) // Filter out empty ingredients
-        .join(" "); // Join with spaces
+    // Format as "quantity name (notes)" if notes exist
+    if (!ingredientObject) return "";
+    let str = `${ingredientObject.quantity} ${ingredientObject.name}`;
+    if (ingredientObject.notes && ingredientObject.notes.trim().length > 0) {
+        str += ` (${ingredientObject.notes})`;
+    }
+    return str.trim();
 }
 
 const getIngredientName = (ingredientObject) => {
-    return ingredientObject[1].toLowerCase().trim();
+    // Always use .name, lowercased and trimmed
+    return ingredientObject.name.toLowerCase().trim();
 }
 
-const getTotalCookTime = (ingredientObject) => {
-    return ingredientObject.prep_time + ingredientObject.cook_time;
+const getTotalCookTime = (recipe) => {
+    return (recipe.prep_time || 0) + (recipe.cook_time || 0);
 }
 
 // Format actions
@@ -20,21 +24,14 @@ const formatTitle = (title) => {
 }
 
 const formatTime = (minutes) => {
-
     minutes = Math.floor(minutes);
-
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
-
-    // Build formatted '2 hr 30 min'
-    //return `${hours ? `${hours} hr` : ''} ${remainingMinutes ? `${remainingMinutes} min` : ''}`.trim();
-    
-    // Build formatted '2:30'
     return `${hours}:${String(remainingMinutes).padStart(2, '0')}`;
-
 }
 
 const formatRating = (rating) => {
+    // Round to nearest 0.5 and format as X/10, or NR if no rating
     return rating && rating >= 0 ? `${Math.round(rating*2)/2}/10` : 'NR';
 }
 
@@ -47,12 +44,12 @@ const getProperCase = (string) => {
 }
 
 const formatCopyIngredients = (recipe) => {
-    // Safely access ingredients and format them
+    // Format each ingredient as a line
     return recipe?.ingredients?.map(formatIngredient).join("\n") || "";
 }
 
 const formatCopyInstructions = (recipe) => {
-    // Safely access instructions and format them
+    // Format each instruction as a line
     return recipe?.instructions?.join("\n") || "";
 }
 
@@ -62,14 +59,12 @@ const getSimilarRecipes = (recipe) => {
     // Filter out recipes with no ingredients or same recipe
     let commonIngredientRecipes = getRecipes().filter(r => r.id !== recipe.id && r.ingredients && r.ingredients.length > 0);
 
-    console.log("Current recipe ingredients: ", currentRecipeIngredients);
-    console.log("Common ingredient recipes: ", commonIngredientRecipes);
+    // console.log("Current recipe ingredients: ", currentRecipeIngredients);
+    // console.log("Common ingredient recipes: ", commonIngredientRecipes);
 
     // Add common ingredients with parameter recipe
     commonIngredientRecipes.forEach(r => {
-        r.commonIngredients = []; // Initialize common ingredients array
-
-        // Add common ingredients to recipe
+        r.commonIngredients = [];
         r.ingredients.forEach(ingredient => {
             const ingredientName = getIngredientName(ingredient);
             if (currentRecipeIngredients.includes(ingredientName)) {
@@ -115,10 +110,9 @@ const getAllIngredients = () => {
             });
         }
     });
-
     return uniqueIngredients;
 }
-            
+
 // Sort Functions (comparators)
 var titleSortFunction = (a, b) => {
     return a.title.localeCompare(b.title);
@@ -134,13 +128,10 @@ var titleFilterFunction = (recipe, searchCriteria) => {
 }
 
 var ingredientFilterFunction = (recipe, searchCriteria) => {
-    return !searchCriteria || recipe.ingredients && recipe.ingredients.map(ingredient => getIngredientName(ingredient)).includes(searchCriteria);
+    return !searchCriteria || (recipe.ingredients && recipe.ingredients.map(ingredient => getIngredientName(ingredient)).includes(searchCriteria));
 }
 
-// Add this function for category filtering
+// Categories is always an array of strings
 var categoryFilterFunction = (recipe, searchCriteria) => {
-    // Support both 'category' (string) and 'categories' (array) fields
-    // This is for future-proofing in case we want to support multiple categories per recipe
-
-    return recipe.category.toLowerCase() === searchCriteria.toLowerCase();
+    return Array.isArray(recipe.categories) && recipe.categories.some(cat => cat.toLowerCase() === searchCriteria.toLowerCase());
 }

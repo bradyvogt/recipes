@@ -101,8 +101,8 @@
             return (
                 <div className="recipe-header">
                     <h2 className="recipe-title">{recipe.title}</h2>
-                    {recipe.servings && (<IconMetric icon={ 'servings.svg' } label={ recipe.servings } />)}
-                    {getTotalCookTime(recipe) ? (<IconMetric icon={ 'clock.svg' } label={ formatTime(getTotalCookTime(recipe)) } />):''}
+                    {recipe.servings && (<IconMetric icon={ 'icons/servings.svg' } label={ recipe.servings } />)}
+                    {getTotalCookTime(recipe) ? (<IconMetric icon={ 'icons/clock.svg' } label={ formatTime(getTotalCookTime(recipe)) } />):''}
                 </div>
             );
         };
@@ -126,9 +126,9 @@
             return (
                 <img 
                     src={
-                        copyStatus === 'success' ? 'copy_success.svg' : 
-                        copyStatus === 'error' ? 'copy_error.svg' :
-                        'copy.svg'
+                        copyStatus === 'success' ? 'icons/copy_success.svg' : 
+                        copyStatus === 'error' ? 'icons/copy_error.svg' :
+                        'icons/copy.svg'
                     } 
                     onClick={() => handleCopyClick()}
                     alt="icon"
@@ -150,10 +150,10 @@
                                 <div>
                                     <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
                                         {recipe.prep_time > 0 && (
-                                            <IconMetric icon={'prep_time.svg'} label={formatTime(recipe.prep_time)} />
+                                            <IconMetric icon={'icons/prep_time.svg'} label={formatTime(recipe.prep_time)} />
                                         )}
                                         {recipe.cook_time > 0 && (
-                                            <IconMetric icon={'cook_time.svg'} label={formatTime(recipe.cook_time)} />
+                                            <IconMetric icon={'icons/cook_time.svg'} label={formatTime(recipe.cook_time)} />
                                         )}
                                         <button className="btn btn-similar" onClick={() => onSimilarClick(recipe)}>
                                             <span style={{display:'inline-block',verticalAlign:'middle',marginRight:'6px'}}>&#128279;</span> <span>Similar</span>
@@ -164,8 +164,8 @@
                                         <>
                                             <h4>Ingredients <CopyButton textToCopy={formatCopyIngredients(recipe)}/></h4>
                                             <ul>
-                                                {recipe.ingredients.map((ingredient) => (
-                                                    <li key={ingredient}>{formatIngredient(ingredient)}</li>
+                                                {recipe.ingredients.map((ingredient, idx) => (
+                                                    <li key={idx}>{formatIngredient(ingredient)}</li>
                                                 ))}
                                             </ul>
                                         </>
@@ -173,7 +173,7 @@
 
                                     {recipe.instructions && (
                                         <>
-                                            <h4>Ingredients <CopyButton textToCopy={formatCopyInstructions(recipe)}/></h4>
+                                            <h4>Instructions <CopyButton textToCopy={formatCopyInstructions(recipe)}/></h4>
                                             <ul>
                                                 {recipe.instructions.map((instruction, index) => (
                                                     <li key={index}>{instruction}</li>
@@ -194,7 +194,7 @@
             // Count recipes per category
             const categoryCounts = {};
             recipes.forEach(r => {
-                (r.categories || (r.category ? [r.category] : [])).forEach(cat => {
+                (r.categories || []).forEach(cat => {
                     categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
                 });
             });
@@ -241,8 +241,8 @@
             const [sortBy, setSortBy] = useState('title');
             const [sortAsc, setSortAsc] = useState(true);
 
-            // Get all unique categories from recipes
-            const allCategories = Array.from(new Set(reactRecipes.flatMap(r => r.category.toLowerCase())));
+            // Get all unique categories from recipes (flattened)
+            const allCategories = Array.from(new Set(reactRecipes.flatMap(r => Array.isArray(r.categories) ? r.categories.map(c => c.toLowerCase()) : [])));
 
             const filterFunctions = [];
             if (search) filterFunctions.push({ function: titleFilterFunction, parameter: search });
