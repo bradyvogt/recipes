@@ -2159,5 +2159,41 @@ const recipes = [
             "Bake at 325°F for 1 hour or until firm."
         ],
         "note": "Best served warm."
+    },
+    {
+        "title": "One-Pot Enchilada",
+        "prep_time": 5,
+        "cook_time": 20,
+        "rating": 9,
+        "servings": 8,
+        "categories": [
+            "mexican",
+            "main dish"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 lb",
+                "name": "ground beef"
+            },
+            {
+                "quantity": "1/2 cup",
+                "name": "salsa"
+            },
+            {
+                "quantity": "1/4 cup",
+                "name": "water"
+            },
+            {
+                "quantity": "10oz can",
+                "name": "enchilada sauce"
+            }
+        ],
+        "instructions": [
+            "Begin cooking rice to serve with enchilada.",
+            "Brown ground beef in pot over medium heat.",
+            "Drain the grease, and add salsa, enchilada sauce, water.",
+            "Cook until sauce has thickened (about the same time as rice is done)."
+        ],
+        "note": ""
     }
 ];
