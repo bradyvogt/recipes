@@ -556,17 +556,16 @@ const recipes = [
         ],
         "instructions": [
             "Slice potatoes very thinly and cube ham into 1/2 inch pieces",
-            "Grease 9x9 pan and preheat oven to 400",
+            "Grease 9x13 pan and preheat oven to 400",
             "Whisk milk and flour in medium bowl",
             "Mix salt, pepper, onion powder together",
-            "Lay 1/3 of potatoes on greased pan shingle style",
-            "Put 1/3 seasonings, 1/3 ham, and 1/3 cheese on top",
-            "2nd Layer: Repeat last two steps",
-            "3rd Layer: Repeat but pour milk mixture on before cheese. Milk should almost cover potatoes.",
+            "1st Layer (bottom to top): 1/3 potatoes, 1/3 seasonings, 1/3 ham, and 1/3 cheese",
+            "2nd Layer: same dang thing",
+            "3rd Layer: same dang thing but pour milk mixture on before cheese. Milk should almost cover potatoes.",
             "Bake covered for 30 min, then uncovered for another 30 min.",
             "Note: put a pan underneath in case of bubble over"
         ],
-        "note": ""
+        "note": "put a pan underneath in case of bubble over"
     },
     {
         "title": "Chicken Roll Ups",
