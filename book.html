@@ -189,6 +189,21 @@
             );
         };
 
+        // SearchBar: simple search input for filtering recipes
+        const SearchBar = ({ searchValue, onSearchChange }) => {
+            return (
+                <div className="search-bar-container">
+                    <input
+                        type="text"
+                        className="search-bar-input"
+                        placeholder="Search recipes by name..."
+                        value={searchValue}
+                        onChange={(e) => onSearchChange(e.target.value)}
+                    />
+                </div>
+            );
+        };
+
         // PillBoxCategorySelector: pill-style radio button selector for categories
         const PillBoxCategorySelector = ({ categories, selectedCategory, onSelect, recipes }) => {
             // Count recipes per category
@@ -261,6 +276,7 @@
 
             return (
                 <div>
+                    <SearchBar searchValue={search} onSearchChange={setSearch} />
                     <PillBoxCategorySelector
                         categories={allCategories}
                         selectedCategory={selectedCategory}
