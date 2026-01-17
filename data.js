@@ -2631,5 +2631,65 @@ const recipes = [
             "Stir in the butter, if you'd like, and season to taste."
         ],
         "note": "No additional notes provided."
+    },
+    {
+        "title": "Banana Bread",
+        "prep_time": 20,
+        "cook_time": 65,
+        "rating": 9,
+        "temperature": 350,
+        "servings": 16,
+        "categories": [
+            "Quick Bread",
+            "Dessert",
+            "Baking"
+        ],
+        "ingredients": [
+            {
+                "quantity": "2 Cups",
+                "name": "flour"
+            },
+            {
+                "quantity": "1 tsp",
+                "name": "baking soda"
+            },
+            {
+                "quantity": "1 tsp",
+                "name": "salt"
+            },
+            {
+                "quantity": "1 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2",
+                "name": "eggs"
+            },
+            {
+                "quantity": "1/2 Cup",
+                "name": "shortening"
+            },
+            {
+                "quantity": "1 Cup",
+                "name": "mashed ripe bananas",
+                "notes": "2-3 bananas"
+            },
+            {
+                "quantity": "1/2 Cup",
+                "name": "buttermilk",
+                "notes": "or sour milk"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "chopped nuts"
+            }
+        ],
+        "instructions": [
+            "Mix shortening and sugar together.",
+            "Add eggs and bananas.",
+            "Add dry ingredients and buttermilk.",
+            "Bake at 350 degrees Fahrenheit for 60-70 minutes."
+        ],
+        "note": "This recipe makes 2 loaf pans."
     }
 ];
