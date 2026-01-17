@@ -2194,5 +2194,354 @@ const recipes = [
             "Cook until sauce has thickened (about the same time as rice is done)."
         ],
         "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8,
+        "temperature": 325,
+        "servings": 8,
+        "categories": [
+            "dessert",
+            "side dish",
+            "casserole"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "whole kernel corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "creamed corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large or 3 small",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Cream all ingredients (except the butter for topping) together well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Put 2 tsp butter on top of the mixture in the casserole.",
+            "Bake at 325°F for 1 hour, or until firm."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8,
+        "temperature": 325,
+        "servings": 8,
+        "categories": [
+            "dessert",
+            "side dish",
+            "casserole"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "whole kernel corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "creamed corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large or 3 small",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Cream all ingredients (except the butter for topping) together well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Put 2 tsp butter on top of the mixture in the casserole.",
+            "Bake at 325°F for 1 hour, or until firm."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8,
+        "temperature": 325,
+        "servings": 8,
+        "categories": [
+            "dessert",
+            "side dish",
+            "casserole"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "whole kernel corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "creamed corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large or 3 small",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Cream all ingredients (except the butter for topping) together well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Put 2 tsp butter on top of the mixture in the casserole.",
+            "Bake at 325°F for 1 hour, or until firm."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8,
+        "temperature": 325,
+        "servings": 8,
+        "categories": [
+            "dessert",
+            "side dish",
+            "casserole"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "whole kernel corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "creamed corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large or 3 small",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Cream all ingredients (except the butter for topping) together well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Put 2 tsp butter on top of the mixture in the casserole.",
+            "Bake at 325°F for 1 hour, or until firm."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8,
+        "temperature": 325,
+        "servings": 8,
+        "categories": [
+            "dessert",
+            "side dish",
+            "casserole"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "whole kernel corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "creamed corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large or 3 small",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Cream all ingredients (except the butter for topping) together well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Put 2 tsp butter on top of the mixture in the casserole.",
+            "Bake at 325°F for 1 hour, or until firm."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8,
+        "temperature": 325,
+        "servings": 8,
+        "categories": [
+            "dessert",
+            "side dish",
+            "casserole"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "whole kernel corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "creamed corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large or 3 small",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Cream all ingredients (except the butter for topping) together well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Put 2 tsp butter on top of the mixture in the casserole.",
+            "Bake at 325°F for 1 hour, or until firm."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 15,
+        "cook_time": 60,
+        "rating": 8,
+        "temperature": 325,
+        "servings": 6,
+        "categories": [
+            "side dish",
+            "American"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "creamed corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large or 3 small",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "cornstarch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Combine all ingredients (except the 2 tsp butter) and cream well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Dot the top with the 2 tsp of butter.",
+            "Bake at 325°F for 1 hour or until firm."
+        ],
+        "note": ""
     }
 ];
