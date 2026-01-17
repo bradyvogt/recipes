@@ -2543,5 +2543,58 @@ const recipes = [
             "Bake at 325°F for 1 hour or until firm."
         ],
         "note": ""
+    },
+    {
+        "title": "Baked Chicken Parmesan",
+        "prep_time": 10,
+        "cook_time": 27,
+        "rating": 8.5,
+        "temperature": 450,
+        "servings": 4,
+        "categories": [
+            "main dish",
+            "Italian",
+            "chicken"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1/4 cup",
+                "name": "mayonnaise"
+            },
+            {
+                "quantity": "1",
+                "name": "egg"
+            },
+            {
+                "quantity": "1 tbsp",
+                "name": "seasoning"
+            },
+            {
+                "quantity": "1 lb",
+                "name": "chicken cutlets",
+                "notes": "about 4 cutlets"
+            },
+            {
+                "quantity": "as needed",
+                "name": "panko breadcrumbs"
+            },
+            {
+                "quantity": "as needed",
+                "name": "marinara"
+            },
+            {
+                "quantity": "as needed",
+                "name": "shredded mozzarella cheese"
+            }
+        ],
+        "instructions": [
+            "Combine 1/4 cup mayonnaise, 1 egg, and 1 tbsp seasoning in a large bowl.",
+            "Add chicken cutlets and toss to combine.",
+            "Coat the cutlets in panko breadcrumbs and place them on a sheet pan lined with a rack.",
+            "Bake at 450°F for 20 minutes.",
+            "Top with marinara and shredded mozzarella cheese.",
+            "Bake for an additional 5-7 minutes."
+        ],
+        "note": ""
     }
 ];
