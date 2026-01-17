@@ -2596,5 +2596,40 @@ const recipes = [
             "Bake for an additional 5-7 minutes."
         ],
         "note": ""
+    },
+    {
+        "title": "Indian-Style Rice",
+        "prep_time": 5,
+        "cook_time": 11,
+        "rating": 7,
+        "temperature": 212,
+        "servings": 6,
+        "categories": [
+            "Indian",
+            "Side Dish",
+            "Rice"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 2/3 cups",
+                "name": "water"
+            },
+            {
+                "quantity": "1 pkg",
+                "name": "rice mix"
+            },
+            {
+                "quantity": "2 tbsp",
+                "name": "butter",
+                "notes": "optional"
+            }
+        ],
+        "instructions": [
+            "Bring the water to a boil in a medium saucepan.",
+            "Stir in the rice mix and reduce the heat to low. Cover and allow it to simmer for 3 minutes.",
+            "Remove the rice from the heat and let it stand for 8 minutes, covered, before fluffing with a fork.",
+            "Stir in the butter, if you'd like, and season to taste."
+        ],
+        "note": "No additional notes provided."
     }
 ];
