@@ -2194,5 +2194,215 @@ const recipes = [
             "Cook until sauce has thickened (about the same time as rice is done)."
         ],
         "note": ""
+    },
+    {
+        "title": "Slow Cooker Pulled Pork",
+        "prep_time": 10,
+        "cook_time": 540,
+        "rating": 8,
+        "temperature": 0,
+        "servings": 8,
+        "categories": [
+            "main dish"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1.5 cup",
+                "name": "Ketchup"
+            },
+            {
+                "quantity": "0.25 cup",
+                "name": "Brown Sugar"
+            },
+            {
+                "quantity": "0.25 cup",
+                "name": "BBQ Sauce"
+            },
+            {
+                "quantity": "2 tbsp",
+                "name": "Worcestershire Sauce"
+            },
+            {
+                "quantity": "2 tbsp",
+                "name": "Dijon Mustard"
+            },
+            {
+                "quantity": "1 tsp",
+                "name": "Liquid Smoke"
+            },
+            {
+                "quantity": "0.5 tsp",
+                "name": "salt"
+            },
+            {
+                "quantity": "0.25 tsp",
+                "name": "garlic powder"
+            },
+            {
+                "quantity": "0.25 tsp",
+                "name": "black pepper"
+            },
+            {
+                "quantity": "3.5 lb",
+                "name": "pork shoulder roast"
+            }
+        ],
+        "instructions": [
+            "Place the pork roast in a large Crockpot.",
+            "Mix the remaining ingredients in a medium sized bowl with a whisk until smooth.",
+            "Pour the marinade over the meat. Push it underneath and on all sides of the pork.",
+            "Cover a cook on LOW for 8-10 hours or on HIGH for 4-5 hours.",
+            "When finished cooking, use two forks to shred the Crockpot pork shoulder.",
+            "Eat as is or serve inside rolls for sandwiches."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Baked Chicken Parmesan",
+        "prep_time": 15,
+        "cook_time": 26,
+        "rating": 8,
+        "temperature": 450,
+        "servings": 4,
+        "categories": [
+            "main dish",
+            "italian"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1/4 cup",
+                "name": "mayonnaise"
+            },
+            {
+                "quantity": "1 egg",
+                "name": "egg"
+            },
+            {
+                "quantity": "1 tbsp",
+                "name": "seasoning"
+            },
+            {
+                "quantity": "1 lb",
+                "name": "chicken cutlets",
+                "notes": "4 pieces"
+            },
+            {
+                "quantity": "1 cup",
+                "name": "panko breadcrumbs"
+            },
+            {
+                "quantity": "1 cup",
+                "name": "marinara"
+            },
+            {
+                "quantity": "1 cup",
+                "name": "shredded mozzarella cheese"
+            }
+        ],
+        "instructions": [
+            "Combine 1/4 cup of mayonnaise, 1 egg, and 1 tbsp of seasoning in a large bowl.",
+            "Add chicken cutlets and toss to combine.",
+            "Coat the cutlets in panko breadcrumbs and place them on a sheet pan lined with a rack.",
+            "Bake at 450°F for 20 minutes.",
+            "Top with marinara and shredded mozzarella cheese.",
+            "Bake for an additional 5-7 minutes."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8.5,
+        "temperature": 325,
+        "servings": 6,
+        "categories": [
+            "side dish"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "cream-style corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Combine corn, cream-style corn, evaporated milk, eggs, sugar, and corn starch in a bowl and mix well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Place 2 tsp of butter on top of the mixture.",
+            "Bake at 325 degrees Fahrenheit for 1 hour, or until firm."
+        ],
+        "note": ""
+    },
+    {
+        "title": "Corn Pudding",
+        "prep_time": 10,
+        "cook_time": 60,
+        "rating": 8.5,
+        "temperature": 325,
+        "servings": 6,
+        "categories": [
+            "side dish"
+        ],
+        "ingredients": [
+            {
+                "quantity": "1 can",
+                "name": "corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "cream-style corn"
+            },
+            {
+                "quantity": "1 can",
+                "name": "evaporated milk"
+            },
+            {
+                "quantity": "2 large",
+                "name": "eggs"
+            },
+            {
+                "quantity": "3/4 cup",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "corn starch"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Combine corn, cream-style corn, evaporated milk, eggs, sugar, and corn starch in a bowl and mix well.",
+            "Pour the mixture into a buttered casserole dish.",
+            "Place 2 tsp of butter on top of the mixture.",
+            "Bake at 325 degrees Fahrenheit for 1 hour, or until firm."
+        ],
+        "note": ""
     }
 ];
