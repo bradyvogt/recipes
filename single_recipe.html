@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Viewer</title>
+    <link rel="stylesheet" href="common.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background: #246231;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .back-button:hover {
+            background: #1a4622;
+            color: #fff;
+            text-decoration: none;
+        }
+        .single-recipe-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .recipe-not-found {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        .recipe-not-found h2 {
+            color: #246231;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Viewer</h1>
+    </header>
+
+    <div class="single-recipe-container">
+        <a href="book.html" class="back-button">← Back to Recipes</a>
+        <div id="reactRoot"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="data_actions.js"></script>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // Get recipe from query parameter
+        const getRecipeFromQueryParam = () => {
+            const params = new URLSearchParams(window.location.search);
+            const recipeName = params.get('recipe');
+            if (!recipeName) return null;
+
+            const allRecipes = getRecipes();
+            const recipe = allRecipes.find(r => r.title.toLowerCase() === recipeName.toLowerCase());
+            return recipe || null;
+        };
+
+        // Generic popup component
+        const SimilarRecipePopup = ({ isOpen, onClose, title, recipes }) => {
+            if (!isOpen) return null;
+
+            return (
+                <div className="modal show d-block similar-popup" tabIndex="-1" role="dialog">
+                  <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                      <div className="modal-header" style={{background:'#246231',color:'#fff'}}>
+                        <h5 className="modal-title">{title}</h5>
+                        <button type="button" className="btn-close" style={{color:'#fff',fontWeight:'bold'}} onClick={onClose}>×</button>
+                      </div>
+                      <div className="modal-body" style={{background:'#ecf8ef'}}>
+                        <ul>
+                          {recipes.map((recipe) => (
+                            <li key={recipe.id} style={{background:'#b6e2c6',margin:'10px 0',borderRadius:'6px',padding:'10px'}}>
+                              <div className="row">
+                                <div className="col-xs-8 text-left">
+                                  <p style={{margin:0,fontWeight:'bold',color:'#246231'}}>{recipe.title}</p>
+                                </div>
+                                <div className="col-xs-4 text-right">
+                                  <p style={{margin:0,color:'#246231'}}>Common Ingredients: {recipe.commonIngredients.join(", ")}</p>
+                                </div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="modal-footer" style={{background:'#ecf8ef'}}>
+                        <button type="button" className="btn btn-similar-close" style={{background:'#246231',color:'#fff',border:'none',borderRadius:'4px',padding:'6px 18px'}} onClick={onClose}>
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            );
+        };
+
+        const IconMetric = ({ icon, label }) => {
+            return (
+                <div className="icon-label" style={{ display: 'flex', alignItems: 'center', gap: '5px'}}>
+                    <div className="icon-half">
+                        <img src={icon} alt="icon" style={{ width: '30px', height: '30px' }} />
+                    </div>
+                    <div className="label-half">
+                        <h4 style={{margin: '0'}}>{label}</h4>
+                    </div>
+                </div>
+            );
+        };
+
+        const CopyButton = ({ textToCopy }) => {
+            const [copyStatus, setCopyStatus] = useState(""); // '', 'success', 'error'
+
+            const handleCopyClick = async () => {
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    setCopyStatus("success");
+                } catch (err) {
+                    setCopyStatus("error");
+                }
+
+                setTimeout(() => {
+                    setCopyStatus("");
+                }, 2000); // Hide the indicator after 2 seconds
+            };
+
+            return (
+                <img 
+                    src={
+                        copyStatus === 'success' ? 'icons/copy_success.svg' : 
+                        copyStatus === 'error' ? 'icons/copy_error.svg' :
+                        'icons/copy.svg'
+                    } 
+                    onClick={() => handleCopyClick()}
+                    alt="icon"
+                    style={{ width: '20px', height: '20px', cursor: 'pointer' }}
+                />
+            );
+        };
+
+        const SingleRecipeView = ({ recipe }) => {
+            const [isPopupOpen, setIsPopupOpen] = useState(false);
+            const [similarRecipes, setSimilarRecipes] = useState([]);
+            const [shareStatus, setShareStatus] = useState('');
+
+            const handleSimilarClick = () => {
+                setSimilarRecipes(getSimilarRecipes(recipe));
+                setIsPopupOpen(true);
+            };
+
+            const handleShareClick = async () => {
+                try {
+                    const url = `${window.location.origin}${window.location.pathname}?recipe=${encodeURIComponent(recipe.title)}`;
+                    await navigator.clipboard.writeText(url);
+                    setShareStatus('success');
+                } catch (err) {
+                    setShareStatus('error');
+                }
+
+                setTimeout(() => {
+                    setShareStatus('');
+                }, 2000);
+            };
+
+            return (
+                <div>
+                    <div className="recipe-header">
+                        <h2 className="recipe-title">{recipe.title}</h2>
+                        <button 
+                            onClick={handleShareClick}
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0', display: 'flex', alignItems: 'center' }}
+                            title={shareStatus === 'success' ? 'Link copied!' : 'Copy share link'}
+                        >
+                            <img 
+                                src={shareStatus === 'success' ? 'icons/copy_success.svg' : 'icons/share_link.svg'} 
+                                alt="icon" 
+                                style={{ width: '30px', height: '30px' }} 
+                            />
+                        </button>
+                        {recipe.servings && (<IconMetric icon={ 'icons/servings.svg' } label={ recipe.servings } />)}
+                        {getTotalCookTime(recipe) ? (<IconMetric icon={ 'icons/clock.svg' } label={ formatTime(getTotalCookTime(recipe)) } />):''}
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', margin: '20px 0' }}>
+                        {recipe.prep_time > 0 && (
+                            <IconMetric icon={'icons/prep_time.svg'} label={formatTime(recipe.prep_time)} />
+                        )}
+                        {recipe.cook_time > 0 && (
+                            <IconMetric icon={'icons/cook_time.svg'} label={formatTime(recipe.cook_time)} />
+                        )}
+                        <button className="btn btn-similar" onClick={() => handleSimilarClick()}>
+                            <span style={{display:'inline-block',verticalAlign:'middle',marginRight:'6px'}}>&#128279;</span> <span>Similar</span>
+                        </button>
+                    </div>
+
+                    {recipe.ingredients && (
+                        <>
+                            <h4>Ingredients <CopyButton textToCopy={formatCopyIngredients(recipe)}/></h4>
+                            <ul>
+                                {recipe.ingredients.map((ingredient, idx) => (
+                                    <li key={idx}>{formatIngredient(ingredient)}</li>
+                                ))}
+                            </ul>
+                        </>
+                    )}
+
+                    {recipe.instructions && (
+                        <>
+                            <h4>Instructions <CopyButton textToCopy={formatCopyInstructions(recipe)}/></h4>
+                            <ul>
+                                {recipe.instructions.map((instruction, index) => (
+                                    <li key={index}>{instruction}</li>
+                                ))}
+                            </ul>
+                        </>
+                    )}
+
+                    <SimilarRecipePopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} title="Similar Recipes" recipes={similarRecipes} />
+                </div>
+            );
+        };
+
+        const RecipeNotFound = ({ recipeName }) => {
+            return (
+                <div className="recipe-not-found">
+                    <h2>Recipe Not Found</h2>
+                    <p>Could not find a recipe named "{recipeName}"</p>
+                    <p><a href="book.html">← Back to all recipes</a></p>
+                </div>
+            );
+        };
+
+        // Main App Component
+        const App = () => {
+            const recipe = getRecipeFromQueryParam();
+            const params = new URLSearchParams(window.location.search);
+            const recipeName = params.get('recipe');
+
+            if (!recipe) {
+                return <RecipeNotFound recipeName={recipeName || 'Unknown'} />;
+            }
+
+            return <SingleRecipeView recipe={recipe} />;
+        };
+
+        // render at the root
+        const container = document.getElementById('reactRoot');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+
+  </body>
+</html>

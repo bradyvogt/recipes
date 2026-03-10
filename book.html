@@ -101,6 +101,9 @@
             return (
                 <div className="recipe-header">
                     <h2 className="recipe-title">{recipe.title}</h2>
+                    <a href={`single_recipe.html?recipe=${encodeURIComponent(recipe.title)}`} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+                        <img src={'icons/open_new_tab.svg'} alt="icon" style={{ width: '30px', height: '30px', cursor: 'pointer' }} />
+                    </a>
                     {recipe.servings && (<IconMetric icon={ 'icons/servings.svg' } label={ recipe.servings } />)}
                     {getTotalCookTime(recipe) ? (<IconMetric icon={ 'icons/clock.svg' } label={ formatTime(getTotalCookTime(recipe)) } />):''}
                 </div>
