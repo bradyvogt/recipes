@@ -49,7 +49,7 @@
 </head>
 <body>
     <header>
-        <h1>Recipe Viewer</h1>
+        <h1></h1>
     </header>
 
     <div class="single-recipe-container">
@@ -253,6 +253,14 @@
             const recipe = getRecipeFromQueryParam();
             const params = new URLSearchParams(window.location.search);
             const recipeName = params.get('recipe');
+
+            React.useEffect(() => {
+                if (recipe) {
+                    document.title = recipe.title;
+                } else {
+                    document.title = 'Recipe Not Found';
+                }
+            }, [recipe]);
 
             if (!recipe) {
                 return <RecipeNotFound recipeName={recipeName || 'Unknown'} />;
