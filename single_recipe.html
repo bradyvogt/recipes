@@ -49,7 +49,7 @@
 </head>
 <body>
     <header>
-        <h1></h1>
+        <h1>Recipe Viewer</h1>
     </header>
 
     <div class="single-recipe-container">
@@ -255,8 +255,42 @@
             const recipeName = params.get('recipe');
 
             React.useEffect(() => {
+                // Remove existing OG tags
+                const existingOgTags = document.querySelectorAll('meta[property^="og:"]');
+                existingOgTags.forEach(tag => tag.remove());
+
                 if (recipe) {
                     document.title = recipe.title;
+
+                    // Add Open Graph tags
+                    const ogTitle = document.createElement('meta');
+                    ogTitle.setAttribute('property', 'og:title');
+                    ogTitle.setAttribute('content', recipe.title);
+                    document.head.appendChild(ogTitle);
+
+                    const ogDescription = document.createElement('meta');
+                    ogDescription.setAttribute('property', 'og:description');
+                    const description = recipe.instructions && recipe.instructions.length > 0
+                        ? `Recipe: ${recipe.instructions[0].substring(0, 100)}...`
+                        : `View the ${recipe.title} recipe`;
+                    ogDescription.setAttribute('content', description);
+                    document.head.appendChild(ogDescription);
+
+                    const ogUrl = document.createElement('meta');
+                    ogUrl.setAttribute('property', 'og:url');
+                    ogUrl.setAttribute('content', window.location.href);
+                    document.head.appendChild(ogUrl);
+
+                    const ogType = document.createElement('meta');
+                    ogType.setAttribute('property', 'og:type');
+                    ogType.setAttribute('content', 'article');
+                    document.head.appendChild(ogType);
+
+                    // Optional: Add a default image if available
+                    // const ogImage = document.createElement('meta');
+                    // ogImage.setAttribute('property', 'og:image');
+                    // ogImage.setAttribute('content', 'path/to/default/recipe/image.jpg');
+                    // document.head.appendChild(ogImage);
                 } else {
                     document.title = 'Recipe Not Found';
                 }
