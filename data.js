@@ -2256,5 +2256,110 @@ const recipes = [
             "Eat as is or serve inside rolls for sandwiches."
         ],
         "note": ""
-    }
+    },
+    {
+        "title": "Drunken Noodles",
+        "prep_time": 30,
+        "cook_time": 10,
+        "rating": 9,
+        "temperature": 0,
+        "servings": 4,
+        "categories": [
+            "main dish"
+        ],
+        "ingredients": [
+            {
+            "quantity": "1 cup",
+            "name": "noodles",
+            "notes": "cooked per packet directions"
+            },
+            {
+            "quantity": "2 tbsp",
+            "name": "oil"
+            },
+            {
+            "quantity": "3 cloves",
+            "name": "garlic",
+            "notes": "minced"
+            },
+            {
+            "quantity": "2",
+            "name": "Thai chillies",
+            "notes": "diced and deseeded"
+            },
+            {
+            "quantity": "1/2",
+            "name": "onion",
+            "notes": "diced"
+            },
+            {
+            "quantity": "1 cup",
+            "name": "chicken thighs",
+            "notes": "diced"
+            },
+            {
+            "quantity": "1 tsp",
+            "name": "soy sauce",
+            "notes": "or fish sauce"
+            },
+            {
+            "quantity": "2",
+            "name": "green onion",
+            "notes": "chopped"
+            },
+            {
+            "quantity": "1/4 cup",
+            "name": "fresh basil",
+            "notes": "chopped"
+            }
+        ],
+        "instructions": [
+            "Prepare noodles per packet directions.",
+            "Mix Sauce in a small bowl.",
+            "Heat oil in wok over high heat.",
+            "Add garlic and chilli and cook for 10 seconds. Don't inhale as the chilli will make you cough!",
+            "Add onion, cook for 1 minute.",
+            "Add chicken and soy/fish sauce, and fry until cooked (around 2 minutes).",
+            "Add green onion, noodles and sauce and cook for 1 minute until the sauce reduces and coats the noodles.",
+            "Remove from heat and immediately add basil, toss until just wilted, then serve immediately.",
+            "Top with peanuts and extra chillis."
+        ],
+        "note": "Substitute thai chillis for chilli crisps. If you add too much soy sauce rinse the noodles."
+    },
+    {
+        "title": "Garlic Bread",
+        "prep_time": 5,
+        "cook_time": 10,
+        "rating": 8,
+        "temperature": 400,
+        "servings": 4,
+        "categories": [
+            "side dish"
+        ],
+        "ingredients": [
+            {
+            "quantity": "1 loaf",
+            "name": "italian bread",
+            "notes": "sliced"
+            },
+            {
+            "quantity": "2 tbsp",
+            "name": "Butter",
+            "notes": "melted"
+            },
+            {
+            "quantity": "1 tsp",
+            "name": "seasoning",
+            "notes": "garlic and herb"
+            }
+        ],
+        "instructions": [
+            "Preheat oven to 400°F.",
+            "Lay bread slices on a baking sheet.",
+            "Melt butter and spread evenly over bread.",
+            "Sprinkle the seasoning on bread.",
+            "Bake in the preheated oven for 8 to 12 minutes, or until golden brown and heated through."
+        ],
+        "note": ""
+    }    
 ];
