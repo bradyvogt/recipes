@@ -2361,5 +2361,73 @@ const recipes = [
             "Bake in the preheated oven for 8 to 12 minutes, or until golden brown and heated through."
         ],
         "note": ""
-    }    
+    },
+    {
+        "title": "Bran Muffins",
+        "prep_time": 30,
+        "cook_time": 20,
+        "rating": 8,
+        "temperature": 350,
+        "servings": 12,
+        "categories": [
+            "breakfast"
+        ],
+        "ingredients": [
+            {
+            "quantity": "3 cups",
+            "name": "Bran Cereal"
+            },
+            {
+            "quantity": "1 cup",
+            "name": "Boiling Water"
+            },
+            {
+            "quantity": "2 cups",
+            "name": "Buttermilk"
+            },
+            {
+            "quantity": "1 1/2 cups",
+            "name": "Sugar"
+            },
+            {
+            "quantity": "1/2 cup",
+            "name": "Margarine",
+            "notes": "softened"
+            },
+            {
+            "quantity": "2",
+            "name": "Eggs"
+            },
+            {
+            "quantity": "2 1/2 cups",
+            "name": "Flour"
+            },
+            {
+            "quantity": "2 1/2 tsp",
+            "name": "Baking Soda"
+            },
+            {
+            "quantity": "optional",
+            "name": "Raisins",
+            "notes": "if desired"
+            },
+            {
+            "quantity": "optional",
+            "name": "Chocolate Chips",
+            "notes": "if desired"
+            }
+        ],
+        "instructions": [
+            "Combine bran cereal and boiling water in a bowl. Stir in buttermilk and let cool completely.",
+            "In a separate bowl, cream together sugar and margarine until light and fluffy.",
+            "Add eggs to the creamed mixture, mixing well after each addition.",
+            "Add the creamed egg mixture to the cooled cereal mixture and stir to combine.",
+            "In a small bowl, whisk together flour and baking soda.",
+            "Gradually add the dry ingredient mixture to the wet mixture, stirring with a spoon just until dampened and combined. Do not overmix.",
+            "Fold in raisins or chocolate chips, if desired.",
+            "Spoon batter into prepared muffin tins.",
+            "Bake at 350°F for approximately 20 minutes."
+        ],
+        "note": "Store any leftover muffins or batter in the refrigerator. The batter keeps for up to 3 weeks if tightly closed."
+    }
 ];
