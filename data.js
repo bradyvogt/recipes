@@ -2429,5 +2429,101 @@ const recipes = [
             "Bake at 350°F for approximately 20 minutes."
         ],
         "note": "Store any leftover muffins or batter in the refrigerator. The batter keeps for up to 3 weeks if tightly closed."
+    },
+    {
+        "title": "Blueberry Muffins",
+        "prep_time": 15,
+        "cook_time": 20,
+        "rating": 8,
+        "temperature": 400,
+        "servings": 12,
+        "categories": [
+            "breakfast"
+        ],
+        "ingredients": [
+            {
+            "quantity": "2 cups",
+            "name": "flour"
+            },
+            {
+            "quantity": "1 cup",
+            "name": "sugar"
+            },
+            {
+            "quantity": "2 tsp",
+            "name": "baking powder"
+            },
+            {
+            "quantity": "1/2 tsp",
+            "name": "salt"
+            },
+            {
+            "quantity": "1/2 cup",
+            "name": "butter",
+            "notes": "softened"
+            },
+            {
+            "quantity": "2",
+            "name": "Eggs"
+            },
+            {
+            "quantity": "1/2 cup",
+            "name": "milk"
+            },
+            {
+            "quantity": "1 tsp",
+            "name": "vanilla extract"
+            },
+            {
+            "quantity": "2 cups",
+            "name": "blueberries",
+            "notes": "fresh or thawed if frozen"
+            },
+            {
+            "quantity": "1/4 cup",
+            "name": "flour",
+            "notes": ""
+            },
+            {
+            "quantity": "2 tbsp",
+            "name": "brown sugar",
+            "notes": ""
+            },
+            {
+            "quantity": "2 tbsp",
+            "name": "sugar",
+            "notes": ""
+            },
+            {
+            "quantity": "1/4 tsp",
+            "name": "ground cinnamon",
+            "notes": ""
+            },
+            {
+            "quantity": "1/4 cup",
+            "name": "flour",
+            "notes": ""
+            },
+            {
+            "quantity": "1/8 tsp",
+            "name": "salt",
+            "notes": ""
+            },
+            {
+            "quantity": "2 tbsp",
+            "name": "butter",
+            "notes": "cold"
+            }
+        ],
+        "instructions": [
+            "Preheat oven to 400 degrees. Prepare a muffin pan with cupcake liners.",
+            "In a large bowl, sift together 2 cups flour, 1 cup sugar, baking powder, and ½ teaspoon salt. Set aside.",
+            "In a medium bowl, whisk eggs until smooth. Add the ½ cup melted butter, milk, and vanilla, and whisk until combined.",
+            "Add egg mixture to flour mixture and stir until combined. (Dough will be lumpy.) Fold in blueberries.",
+            "To prepare the streusel topping, in a medium bowl combine ¼ cup flour, 2 tablespoons brown sugar, 2 tablespoons granulated sugar, cinnamon, and ⅛ teaspoon salt. Using a pastry cutter, cut in butter until topping is crumbly and coarse.",
+            "Fill prepared muffin cups with batter. Top each muffin with streusel topping, about 1 tablespoon each. Bake until a toothpick inserted in the center of a muffin comes out clean with a few crumbs attached, about 18 to 22 minutes. Cool muffins on a rack for several minutes before removing from pan.",
+            "Cool completely and store in an airtight container, up to 4 days."
+        ],
+        "note": "Store any leftover muffins or batter in the refrigerator. The batter keeps for up to 3 weeks if tightly closed."
     }
 ];
