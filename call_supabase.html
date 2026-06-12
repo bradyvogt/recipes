@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call Supabase Test Function</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: #f7f8fb;
+      color: #222;
+    }
+    header {
+      background: #003b5c;
+      color: #fff;
+      padding: 18px 24px;
+      text-align: center;
+    }
+    main {
+      max-width: 760px;
+      margin: 24px auto;
+      padding: 0 20px 40px;
+    }
+    .panel {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .email-input {
+      min-width: 240px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 1rem;
+      color: #1f2937;
+      background: #fbfbff;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    button:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+    .primary {
+      background: #0065ff;
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(0, 101, 255, 0.18);
+    }
+    .secondary {
+      background: #f0f4ff;
+      color: #1f2937;
+    }
+    .status {
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 10px;
+      background: #eef2ff;
+      color: #1f2937;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .hint {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+    a {
+      color: #0065ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Supabase OAuth + Edge Function Demo</h1>
+  </header>
+  <main>
+    <div class="panel">
+      <p class="hint">This page demonstrates signing in with Google via Supabase and calling a secured edge function at <code>https://fibqkucbquxzsmzjmgyx.supabase.co/functions/v1/test-function</code>.</p>
+      <div class="buttons">
+        <input id="email-input" class="email-input" type="email" placeholder="Email for magic link" />
+        <button id="sign-in-email" class="secondary">Sign in with Email</button>
+        <button id="sign-in" class="primary">Sign in with Google</button>
+        <button id="call-function" class="secondary" disabled>Call test-function</button>
+        <button id="sign-out" class="secondary" disabled>Sign out</button>
+      </div>
+      <div class="status" id="status">Initializing...</div>
+    </div>
+    <div class="panel">
+      <h2>Last response</h2>
+      <pre id="response">No call made yet.</pre>
+    </div>
+  </main>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const SUPABASE_URL = 'https://fibqkucbquxzsmzjmgyx.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_KLID7d9e5MWcLeLKpr-VQA_zidMe2MZ';
+    const FUNCTION_URL = `${SUPABASE_URL}/functions/v1/test-function`;
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const emailInput = document.getElementById('email-input');
+    const signInEmailBtn = document.getElementById('sign-in-email');
+    const signInBtn = document.getElementById('sign-in');
+    const callBtn = document.getElementById('call-function');
+    const signOutBtn = document.getElementById('sign-out');
+    const status = document.getElementById('status');
+    const response = document.getElementById('response');
+
+    let currentSession = null;
+
+    const setStatus = (message) => {
+      status.textContent = message;
+    };
+
+    const setResponse = (value) => {
+      response.textContent = value;
+    };
+
+    const updateButtons = () => {
+      const signedIn = Boolean(currentSession?.access_token);
+      signInBtn.disabled = false;
+      callBtn.disabled = !signedIn;
+      signOutBtn.disabled = !signedIn;
+    };
+
+    const handleAuthChange = ({ session }) => {
+      currentSession = session ?? null;
+      if (session) {
+        setStatus(`Signed in as ${session.user.email || 'unknown email'}`);
+      } else {
+        setStatus('Not signed in. Click "Sign in with Google" to authenticate.');
+      }
+      updateButtons();
+    };
+
+    const initAuth = async () => {
+      const { data, error } = await supabase.auth.getSession();
+      if (error) {
+        setStatus(`Unable to get session: ${error.message}`);
+        return;
+      }
+      currentSession = data.session ?? null;
+      handleAuthChange({ session: currentSession });
+    };
+
+    signInEmailBtn.addEventListener('click', async () => {
+      const email = emailInput.value.trim();
+      if (!email) {
+        setStatus('Please enter a valid email address before signing in.');
+        return;
+      }
+      setStatus('Sending email magic link...');
+      const { data, error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: window.location.href,
+        },
+      });
+      if (error) {
+        setStatus(`Email sign-in failed: ${error.message}`);
+        return;
+      }
+      setStatus(`Magic link sent to ${email}. Check your inbox and click the link to complete sign-in.`);
+      setResponse(JSON.stringify(data, null, 2));
+    });
+
+    signInBtn.addEventListener('click', async () => {
+      setStatus('Redirecting to Google for sign-in...');
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.href,
+        },
+      });
+      if (error) {
+        setStatus(`OAuth error: ${error.message}`);
+      }
+    });
+
+    signOutBtn.addEventListener('click', async () => {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        setStatus(`Sign out failed: ${error.message}`);
+        return;
+      }
+      currentSession = null;
+      handleAuthChange({ session: null });
+      setResponse('Signed out.');
+    });
+
+    callBtn.addEventListener('click', async () => {
+      if (!currentSession?.access_token) {
+        setStatus('No active session. Please sign in first.');
+        return;
+      }
+      setStatus('Calling edge function...');
+      try {
+        const res = await fetch(FUNCTION_URL, {
+          headers: {
+            Authorization: `Bearer ${currentSession.access_token}`,
+          },
+        });
+        const payload = await res.text();
+        setResponse(`HTTP ${res.status} ${res.statusText}\n\n${payload}`);
+        setStatus('Function call complete.');
+      } catch (err) {
+        setStatus(`Function call failed: ${err.message}`);
+        setResponse(err.stack || String(err));
+      }
+    });
+
+    supabase.auth.onAuthStateChange((event, session) => {
+      currentSession = session;
+      handleAuthChange({ session });
+    });
+
+    initAuth();
+  </script>
+</body>
+</html>
