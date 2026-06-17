@@ -1,0 +1,19 @@
+/* TEMPLATE
+{
+    "title": "", (REQUIRED)
+    "prep_time": #, //minutes
+    "cook_time": #, //minutes
+    "rating": #, //out of 10
+    "temperature": #, //degrees Fahrenheit
+    "servings": #,
+    "categories": ["", ""], //tags like "italian", "mexican", "breakfast", "dessert", etc.
+    "ingredients": [
+        {"quantity": "", "name": "", "notes": ""} //notes is optional
+    ],
+    "instructions": [
+        "",
+        ""
+    ],
+    "note": ""
+}
+*/
