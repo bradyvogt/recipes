@@ -1,5 +1,0 @@
-Add filters for category
-Add name search filter
-Make ingredient dropdown searchable
-Similar recipes sort by # of common ings
-Add sorting
