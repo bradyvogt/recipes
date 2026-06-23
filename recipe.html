@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Recipe</title>
+  <link rel="stylesheet" href="common.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0 0 60px;
+    }
+
+    header {
+      background-color: #ecf8ef;
+      color: #246231;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #b6e2c6;
+    }
+    header a {
+      color: #246231;
+      text-decoration: none;
+      font-size: 1.1rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    header a:hover { color: #1a4a24; }
+    header h1 {
+      font-size: 1.1rem;
+      margin: 0;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #auth-chip {
+      font-size: 0.75rem;
+      background: #b6e2c6;
+      color: #246231;
+      border-radius: 999px;
+      padding: 4px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      max-width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ── Card ── */
+    .card {
+      max-width: 720px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 24px 20px;
+    }
+
+    /* ── Loading / error states ── */
+    .state-block {
+      text-align: center;
+      padding: 40px 20px;
+      color: #888;
+      font-size: 1rem;
+    }
+    .state-block.error { color: #c0392b; }
+
+    /* ── Recipe view ── */
+    .recipe-name {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #246231;
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .recipe-description {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin: 8px 0 16px;
+    }
+
+    /* Meta pills row */
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .meta-pill {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #ecf8ef;
+      border: 1px solid #b6e2c6;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      color: #246231;
+    }
+    .meta-pill .pill-label { color: #888; margin-right: 2px; }
+
+    /* Section headings */
+    .section-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #246231;
+      margin: 20px 0 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #b6e2c6;
+    }
+
+    /* Ingredients */
+    .ingredients-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ingredients-list li {
+      background: #f9fdf9;
+      border: 1px solid #e0f0e6;
+      margin: 6px 0;
+      padding: 9px 13px;
+      border-radius: 6px;
+      font-size: 0.93rem;
+      color: #333;
+      cursor: default;
+      box-shadow: none;
+      transition: background 0.2s;
+    }
+    .ingredients-list li:hover { background: #ecf8ef; }
+
+    /* Instructions */
+    .instructions-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: steps;
+    }
+    .instructions-list li {
+      display: flex;
+      gap: 12px;
+      margin: 10px 0;
+      padding: 12px 14px;
+      background: #f9fdf9;
+      border: 1px solid #e0f0e6;
+      border-radius: 6px;
+      font-size: 0.93rem;
+      line-height: 1.55;
+      color: #333;
+      cursor: default;
+      box-shadow: none;
+      counter-increment: steps;
+    }
+    .instructions-list li:hover { background: #ecf8ef; }
+    .step-num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #246231;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* Nutrition table */
+    .nutrition-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .nutrition-item {
+      background: #ecf8ef;
+      border: 1px solid #b6e2c6;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.82rem;
+    }
+    .nutrition-item .n-label { color: #888; display: block; }
+    .nutrition-item .n-value { color: #246231; font-weight: bold; }
+
+    /* ── Edit section ── */
+    #edit-section { margin-top: 28px; border-top: 2px solid #ecf8ef; padding-top: 20px; }
+    #edit-section h2 { font-size: 1rem; color: #246231; margin: 0 0 14px; font-weight: bold; }
+
+    /* Edit mode toggle */
+    .mode-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #f4f4f9;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 18px;
+    }
+    .mode-btn {
+      border: none;
+      background: transparent;
+      color: #246231;
+      padding: 9px 8px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+      text-align: center;
+    }
+    .mode-btn.active { background: #246231; color: #fff; }
+    .mode-btn:hover:not(.active) { background: #b6e2c6; }
+
+    .edit-panel { display: none; }
+    .edit-panel.active { display: block; }
+
+    /* Freeform textarea */
+    .freeform-textarea {
+      width: 100%;
+      background: #fff;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      color: #333;
+      font-size: 0.93rem;
+      font-family: Arial, sans-serif;
+      padding: 12px 13px;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      min-height: 110px;
+    }
+    .freeform-textarea:focus {
+      border-color: #b6e2c6;
+      box-shadow: 0 2px 8px rgba(36,98,49,0.1);
+    }
+    .freeform-textarea::placeholder { color: #aaa; }
+
+    .hint-block {
+      background: #ecf8ef;
+      border: 1px solid #b6e2c6;
+      border-radius: 6px;
+      padding: 10px 13px;
+      font-size: 0.82rem;
+      color: #4a8a5e;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    /* JSON field editor */
+    .field-editor { display: flex; flex-direction: column; gap: 10px; }
+
+    .field-row { display: flex; flex-direction: column; gap: 4px; }
+    .field-row label {
+      font-size: 0.75rem;
+      color: #246231;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .field-row input,
+    .field-row textarea,
+    .field-row select {
+      width: 100%;
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      color: #333;
+      font-size: 0.9rem;
+      font-family: Arial, sans-serif;
+      padding: 8px 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field-row input:focus,
+    .field-row textarea:focus,
+    .field-row select:focus { border-color: #246231; }
+    .field-row textarea { resize: vertical; min-height: 70px; }
+
+    /* Dynamic list editor (ingredients / instruction steps) */
+    .list-editor { display: flex; flex-direction: column; gap: 6px; }
+    .list-item-row {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .list-item-row input,
+    .list-item-row textarea {
+      flex: 1;
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      color: #333;
+      font-size: 0.88rem;
+      font-family: Arial, sans-serif;
+      padding: 7px 9px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .list-item-row input:focus,
+    .list-item-row textarea:focus { border-color: #246231; }
+    .btn-remove-item {
+      flex-shrink: 0;
+      border: none;
+      background: #fdecea;
+      color: #c0392b;
+      border-radius: 6px;
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 5px;
+      transition: background 0.15s;
+    }
+    .btn-remove-item:hover { background: #f5b7b1; }
+    .btn-add-item {
+      align-self: flex-start;
+      border: 1px dashed #246231;
+      background: transparent;
+      color: #246231;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      margin-top: 2px;
+      transition: background 0.15s;
+    }
+    .btn-add-item:hover { background: #ecf8ef; }
+
+    /* Save button */
+    .btn-save {
+      width: 100%;
+      padding: 13px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #246231;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-save:hover:not(:disabled) { background: #1a4a24; }
+    .btn-save:active { transform: scale(0.98); }
+    .btn-save:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #fff;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      padding: 11px 20px;
+      font-size: 0.88rem;
+      max-width: calc(100vw - 40px);
+      opacity: 0;
+      transition: opacity 0.25s, transform 0.25s;
+      z-index: 200;
+      text-align: center;
+      color: #246231;
+      box-shadow: 0 4px 12px rgba(36,98,49,0.15);
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #toast.error { border-color: #c0392b; color: #c0392b; }
+
+    .spinner {
+      display: inline-block; width: 15px; height: 15px;
+      border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
+      border-radius: 50%; animation: spin 0.7s linear infinite;
+      vertical-align: middle; margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .sign-in-nudge {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      padding: 14px;
+      border: 1px dashed #b6e2c6;
+      border-radius: 8px;
+      margin-top: 28px;
+    }
+    .sign-in-nudge a { color: #246231; font-weight: bold; text-decoration: none; }
+    .sign-in-nudge a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" title="Back to recipes">&#8592;</a>
+  <h1 id="header-title">Recipe</h1>
+  <div id="auth-chip">Checking…</div>
+</header>
+
+<div id="main-content">
+  <div class="card">
+    <div class="state-block" id="loading-state">Loading recipe…</div>
+    <div class="state-block error" id="error-state" style="display:none"></div>
+
+    <!-- Recipe view -->
+    <div id="recipe-view" style="display:none">
+      <h1 class="recipe-name" id="r-name"></h1>
+      <p class="recipe-description" id="r-description"></p>
+
+      <div class="meta-row" id="r-meta"></div>
+
+      <div id="r-ingredients-section">
+        <div class="section-title">Ingredients</div>
+        <ul class="ingredients-list" id="r-ingredients"></ul>
+      </div>
+
+      <div id="r-instructions-section">
+        <div class="section-title">Instructions</div>
+        <ol class="instructions-list" id="r-instructions"></ol>
+      </div>
+
+      <div id="r-nutrition-section" style="display:none">
+        <div class="section-title">Nutrition</div>
+        <div class="nutrition-grid" id="r-nutrition"></div>
+      </div>
+
+      <!-- Edit section — shown only when signed in -->
+      <div id="edit-section" style="display:none">
+        <h2>✏️ Edit this recipe</h2>
+
+        <div class="mode-strip">
+          <button class="mode-btn active" data-mode="freeform">💬 Natural language</button>
+          <button class="mode-btn" data-mode="form">🛠️ Field editor</button>
+        </div>
+
+        <!-- Freeform edit -->
+        <div class="edit-panel active" id="panel-freeform">
+          <div class="hint-block">Describe the changes in plain English — e.g. "double the servings", "replace butter with olive oil", "add a note about gluten-free substitutions".</div>
+          <textarea class="freeform-textarea" id="freeform-input" rows="5" placeholder="e.g. Add a tip about resting the dough overnight before baking."></textarea>
+          <button class="btn-save" id="freeform-save">Save changes</button>
+        </div>
+
+        <!-- Form / field editor -->
+        <div class="edit-panel" id="panel-form">
+          <div class="hint-block">Edit individual fields directly. Click "Save changes" to overwrite the stored recipe with your edits.</div>
+          <div class="field-editor" id="field-editor">
+            <!-- populated by JS -->
+          </div>
+          <button class="btn-save" id="form-save">Save changes</button>
+        </div>
+      </div>
+
+      <!-- Signed-out nudge -->
+      <div class="sign-in-nudge" id="signin-nudge" style="display:none">
+        <a href="recipe-add.html">Sign in</a> to edit this recipe.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  // ── Config ──────────────────────────────────────────────────────────────────
+  const SUPABASE_URL = 'https://fibqkucbquxzsmzjmgyx.supabase.co';
+  const ANON_KEY     = 'sb_publishable_KLID7d9e5MWcLeLKpr-VQA_zidMe2MZ';
+  const BASE         = `${SUPABASE_URL}/functions/v1/recipe-ingest`;
+  const BUCKET       = 'recipe_storage';
+  const OBJECT_PATH  = 'recipes.json';
+
+  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+
+  // ── Slug helpers (mirrors edge function) ────────────────────────────────────
+  function toSlug(name) {
+    return name.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  // ── State ───────────────────────────────────────────────────────────────────
+  let session     = null;
+  let recipe      = null;
+  let slug        = '';
+  let toastTimer;
+
+  // ── DOM ─────────────────────────────────────────────────────────────────────
+  const authChip       = document.getElementById('auth-chip');
+  const headerTitle    = document.getElementById('header-title');
+  const loadingState   = document.getElementById('loading-state');
+  const errorState     = document.getElementById('error-state');
+  const recipeView     = document.getElementById('recipe-view');
+  const editSection    = document.getElementById('edit-section');
+  const signinNudge    = document.getElementById('signin-nudge');
+  const toast          = document.getElementById('toast');
+
+  // ── Toast ────────────────────────────────────────────────────────────────────
+  function showToast(msg, type = 'success') {
+    toast.textContent = msg;
+    toast.className = `show ${type}`;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { toast.className = ''; }, 3500);
+  }
+
+  // ── Auth ─────────────────────────────────────────────────────────────────────
+  function applySession(s) {
+    session = s;
+    if (s) {
+      const label = s.user.email || s.user.id.slice(0, 8);
+      authChip.textContent = label;
+      authChip.title = label;
+      if (recipe) showEditSection();
+    } else {
+      authChip.textContent = 'Not signed in';
+      editSection.style.display   = 'none';
+      signinNudge.style.display   = 'block';
+    }
+  }
+
+  supabase.auth.onAuthStateChange((_, s) => applySession(s));
+  supabase.auth.getSession().then(({ data }) => applySession(data.session));
+
+  // ── Load recipe ──────────────────────────────────────────────────────────────
+  const params = new URLSearchParams(window.location.search);
+  slug = params.get('slug') || '';
+
+  if (!slug) {
+    showError('No recipe slug provided. Add ?slug=recipe-name to the URL.');
+  } else {
+    loadRecipe();
+  }
+
+  async function loadRecipe() {
+    try {
+      const { data, error } = await supabase.storage.from(BUCKET).download(OBJECT_PATH);
+      if (error) throw new Error(error.message);
+      const text = await new Response(data).text();
+      const all  = JSON.parse(text);
+      if (!Array.isArray(all)) throw new Error('recipes.json is not an array');
+
+      recipe = all.find(r => toSlug(r.name) === slug) || null;
+      if (!recipe) throw new Error(`No recipe found with slug "${slug}"`);
+
+      renderRecipe(recipe);
+      headerTitle.textContent = recipe.name;
+      document.title = recipe.name;
+
+      loadingState.style.display = 'none';
+      recipeView.style.display   = 'block';
+
+      if (session) showEditSection();
+      else         signinNudge.style.display = 'block';
+
+    } catch (err) {
+      showError(err.message);
+    }
+  }
+
+  function showError(msg) {
+    loadingState.style.display = 'none';
+    errorState.style.display   = 'block';
+    errorState.textContent     = '⚠️ ' + msg;
+  }
+
+  // ── ISO 8601 duration → human readable ───────────────────────────────────────
+  function formatDuration(iso) {
+    if (!iso) return null;
+    const m = iso.match(/P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?/);
+    if (!m) return iso;
+    const days = parseInt(m[1] || 0), hrs = parseInt(m[2] || 0), mins = parseInt(m[3] || 0);
+    const parts = [];
+    if (days) parts.push(`${days}d`);
+    if (hrs)  parts.push(`${hrs}h`);
+    if (mins) parts.push(`${mins} min`);
+    return parts.join(' ') || null;
+  }
+
+  // ── Extract instruction text from HowToStep or plain string ─────────────────
+  function extractStepText(step) {
+    if (typeof step === 'string') return step;
+    if (step && typeof step === 'object') return step.text || step.name || JSON.stringify(step);
+    return String(step);
+  }
+
+  // ── Render recipe view ───────────────────────────────────────────────────────
+  function renderRecipe(r) {
+    document.getElementById('r-name').textContent = r.name || 'Untitled Recipe';
+
+    const desc = document.getElementById('r-description');
+    if (r.description) { desc.textContent = r.description; }
+    else { desc.style.display = 'none'; }
+
+    // Meta pills
+    const metaRow = document.getElementById('r-meta');
+    const metas = [
+      { label: 'Yield',     val: typeof r.recipeYield === 'string' ? r.recipeYield : (Array.isArray(r.recipeYield) ? r.recipeYield[0] : null) },
+      { label: 'Prep',      val: formatDuration(r.prepTime) },
+      { label: 'Cook',      val: formatDuration(r.cookTime) },
+      { label: 'Total',     val: formatDuration(r.totalTime) },
+      { label: 'Category',  val: r.recipeCategory },
+      { label: 'Cuisine',   val: r.recipeCuisine },
+    ];
+    metas.forEach(({ label, val }) => {
+      if (!val) return;
+      const pill = document.createElement('div');
+      pill.className = 'meta-pill';
+      pill.innerHTML = `<span class="pill-label">${label}</span>${val}`;
+      metaRow.appendChild(pill);
+    });
+    if (!metaRow.children.length) metaRow.style.display = 'none';
+
+    // Ingredients
+    const ingList = document.getElementById('r-ingredients');
+    const ingredients = r.recipeIngredient || [];
+    if (ingredients.length) {
+      ingredients.forEach(ing => {
+        const li = document.createElement('li');
+        li.textContent = ing;
+        ingList.appendChild(li);
+      });
+    } else {
+      document.getElementById('r-ingredients-section').style.display = 'none';
+    }
+
+    // Instructions
+    const instList = document.getElementById('r-instructions');
+    const instructions = r.recipeInstructions || [];
+    if (instructions.length) {
+      instructions.forEach(step => {
+        const li = document.createElement('li');
+        const num = document.createElement('span');
+        num.className = 'step-num';
+        num.textContent = instList.children.length + 1;
+        const txt = document.createElement('span');
+        txt.textContent = extractStepText(step);
+        li.appendChild(num);
+        li.appendChild(txt);
+        instList.appendChild(li);
+      });
+    } else {
+      document.getElementById('r-instructions-section').style.display = 'none';
+    }
+
+    // Nutrition
+    const nutr = r.nutrition;
+    if (nutr && typeof nutr === 'object') {
+      const SKIP = ['@type', '@context'];
+      const LABELS = {
+        calories: 'Calories', fatContent: 'Fat',
+        saturatedFatContent: 'Saturated Fat', unsaturatedFatContent: 'Unsaturated Fat',
+        transFatContent: 'Trans Fat', carbohydrateContent: 'Carbs',
+        sugarContent: 'Sugar', fiberContent: 'Fiber',
+        proteinContent: 'Protein', sodiumContent: 'Sodium',
+        cholesterolContent: 'Cholesterol',
+      };
+      const grid = document.getElementById('r-nutrition');
+      let any = false;
+      Object.entries(nutr).forEach(([k, v]) => {
+        if (SKIP.includes(k) || !v) return;
+        any = true;
+        const item = document.createElement('div');
+        item.className = 'nutrition-item';
+        item.innerHTML = `<span class="n-label">${LABELS[k] || k}</span><span class="n-value">${v}</span>`;
+        grid.appendChild(item);
+      });
+      if (any) document.getElementById('r-nutrition-section').style.display = 'block';
+    }
+  }
+
+  // ── Edit section ─────────────────────────────────────────────────────────────
+  function showEditSection() {
+    editSection.style.display  = 'block';
+    signinNudge.style.display  = 'none';
+    buildFieldEditor(recipe);
+  }
+
+  // Mode toggle
+  document.querySelector('.mode-strip').addEventListener('click', e => {
+    const btn = e.target.closest('.mode-btn');
+    if (!btn) return;
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.edit-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`panel-${btn.dataset.mode}`).classList.add('active');
+  });
+
+  // ── Freeform save ────────────────────────────────────────────────────────────
+  document.getElementById('freeform-save').addEventListener('click', async () => {
+    const text = document.getElementById('freeform-input').value.trim();
+    if (!text) { showToast('Describe what to change first.', 'error'); return; }
+    const btn = document.getElementById('freeform-save');
+    setLoading(btn, true);
+    try {
+      const res = await fetch(`${BASE}/freeform-text/${encodeURIComponent(slug)}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text }),
+      });
+      const data = await res.json().catch(() => ({}));
+      setLoading(btn, false);
+      if (res.ok && data.ok) {
+        showToast('✓ Recipe updated!');
+        document.getElementById('freeform-input').value = '';
+        recipe = data.recipe;
+        reRenderRecipe(recipe);
+      } else {
+        showToast(data.error || `Error ${res.status}`, 'error');
+      }
+    } catch (err) {
+      setLoading(btn, false);
+      showToast(err.message, 'error');
+    }
+  });
+
+  // ── Form / field editor ───────────────────────────────────────────────────────
+
+  // Schema.org Recipe fields we expose in the form editor
+  const FORM_FIELDS = [
+    { key: 'name',               label: 'Name',             type: 'text' },
+    { key: 'description',        label: 'Description',      type: 'textarea' },
+    { key: 'prepTime',           label: 'Prep time (ISO)',  type: 'text',     placeholder: 'PT15M' },
+    { key: 'cookTime',           label: 'Cook time (ISO)',  type: 'text',     placeholder: 'PT30M' },
+    { key: 'totalTime',          label: 'Total time (ISO)', type: 'text',     placeholder: 'PT45M' },
+    { key: 'recipeYield',        label: 'Yield / servings', type: 'text',     placeholder: '4 servings' },
+    { key: 'recipeCategory',     label: 'Category',         type: 'text',     placeholder: 'Dessert' },
+    { key: 'recipeCuisine',      label: 'Cuisine',          type: 'text',     placeholder: 'Italian' },
+    { key: 'recipeIngredient',   label: 'Ingredients',      type: 'list-text' },
+    { key: 'recipeInstructions', label: 'Instructions',     type: 'list-steps' },
+  ];
+
+  function buildFieldEditor(r) {
+    const container = document.getElementById('field-editor');
+    container.innerHTML = '';
+
+    FORM_FIELDS.forEach(field => {
+      const row = document.createElement('div');
+      row.className = 'field-row';
+
+      const lbl = document.createElement('label');
+      lbl.textContent = field.label;
+      row.appendChild(lbl);
+
+      if (field.type === 'text') {
+        const inp = document.createElement('input');
+        inp.type = 'text';
+        inp.id   = `fe-${field.key}`;
+        inp.value = r[field.key] || '';
+        if (field.placeholder) inp.placeholder = field.placeholder;
+        row.appendChild(inp);
+      } else if (field.type === 'textarea') {
+        const ta = document.createElement('textarea');
+        ta.id    = `fe-${field.key}`;
+        ta.rows  = 3;
+        ta.value = r[field.key] || '';
+        row.appendChild(ta);
+      } else if (field.type === 'list-text') {
+        const listEl = buildListEditor(`fe-${field.key}`, (r[field.key] || []).map(v => String(v)), false);
+        row.appendChild(listEl);
+      } else if (field.type === 'list-steps') {
+        const steps = (r[field.key] || []).map(s => extractStepText(s));
+        const listEl = buildListEditor(`fe-${field.key}`, steps, true);
+        row.appendChild(listEl);
+      }
+
+      container.appendChild(row);
+    });
+  }
+
+  function buildListEditor(id, items, multiline) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'list-editor';
+    wrapper.id = id;
+
+    function addRow(value) {
+      const row = document.createElement('div');
+      row.className = 'list-item-row';
+
+      const inp = multiline ? document.createElement('textarea') : document.createElement('input');
+      if (!multiline) inp.type = 'text';
+      if (multiline) inp.rows = 2;
+      inp.value = value;
+      inp.placeholder = multiline ? 'Step description…' : 'Ingredient…';
+      inp.className = 'list-item-input';
+
+      const rmBtn = document.createElement('button');
+      rmBtn.className = 'btn-remove-item';
+      rmBtn.title = 'Remove';
+      rmBtn.textContent = '×';
+      rmBtn.type = 'button';
+      rmBtn.addEventListener('click', () => row.remove());
+
+      row.appendChild(inp);
+      row.appendChild(rmBtn);
+      wrapper.insertBefore(row, addBtn);
+    }
+
+    const addBtn = document.createElement('button');
+    addBtn.className = 'btn-add-item';
+    addBtn.type = 'button';
+    addBtn.textContent = multiline ? '+ Add step' : '+ Add ingredient';
+    addBtn.addEventListener('click', () => addRow(''));
+
+    wrapper.appendChild(addBtn);
+    items.forEach(v => addRow(v));
+
+    return wrapper;
+  }
+
+  function readListEditor(id) {
+    const wrapper = document.getElementById(id);
+    if (!wrapper) return [];
+    return Array.from(wrapper.querySelectorAll('.list-item-input'))
+      .map(el => el.value.trim())
+      .filter(Boolean);
+  }
+
+  // ── Form save (PUT /:slug) ────────────────────────────────────────────────────
+  document.getElementById('form-save').addEventListener('click', async () => {
+    const btn = document.getElementById('form-save');
+
+    // Build the updated recipe object
+    const updated = { ...recipe };
+
+    FORM_FIELDS.forEach(field => {
+      if (field.type === 'text' || field.type === 'textarea') {
+        const el = document.getElementById(`fe-${field.key}`);
+        if (el) updated[field.key] = el.value.trim() || undefined;
+      } else if (field.type === 'list-text') {
+        updated[field.key] = readListEditor(`fe-${field.key}`);
+      } else if (field.type === 'list-steps') {
+        // Convert plain strings back to HowToStep objects to preserve schema.org format
+        updated[field.key] = readListEditor(`fe-${field.key}`)
+          .map(text => ({ '@type': 'HowToStep', text }));
+      }
+    });
+
+    // Always keep schema.org fields
+    updated['@context'] = 'https://schema.org';
+    updated['@type']    = 'Recipe';
+
+    if (!updated.name) { showToast('Name is required.', 'error'); return; }
+
+    setLoading(btn, true);
+    try {
+      const res = await fetch(`${BASE}/${encodeURIComponent(slug)}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updated),
+      });
+      const data = await res.json().catch(() => ({}));
+      setLoading(btn, false);
+      if (res.ok && data.ok) {
+        showToast('✓ Recipe saved!');
+        recipe = data.recipe;
+        reRenderRecipe(recipe);
+        // Rebuild field editor with fresh data
+        buildFieldEditor(recipe);
+      } else {
+        showToast(data.error || `Error ${res.status}`, 'error');
+      }
+    } catch (err) {
+      setLoading(btn, false);
+      showToast(err.message, 'error');
+    }
+  });
+
+  // ── Re-render recipe view in place (after edit) ───────────────────────────────
+  function reRenderRecipe(r) {
+    // Clear mutable sections and re-render
+    document.getElementById('r-name').textContent        = r.name || '';
+    document.getElementById('r-description').textContent = r.description || '';
+    if (!r.description) document.getElementById('r-description').style.display = 'none';
+    else                document.getElementById('r-description').style.display = '';
+
+    // Meta pills
+    const metaRow = document.getElementById('r-meta');
+    metaRow.innerHTML = '';
+    metaRow.style.display = '';
+    const metas = [
+      { label: 'Yield',    val: typeof r.recipeYield === 'string' ? r.recipeYield : (Array.isArray(r.recipeYield) ? r.recipeYield[0] : null) },
+      { label: 'Prep',     val: formatDuration(r.prepTime) },
+      { label: 'Cook',     val: formatDuration(r.cookTime) },
+      { label: 'Total',    val: formatDuration(r.totalTime) },
+      { label: 'Category', val: r.recipeCategory },
+      { label: 'Cuisine',  val: r.recipeCuisine },
+    ];
+    metas.forEach(({ label, val }) => {
+      if (!val) return;
+      const pill = document.createElement('div');
+      pill.className = 'meta-pill';
+      pill.innerHTML = `<span class="pill-label">${label}</span>${val}`;
+      metaRow.appendChild(pill);
+    });
+    if (!metaRow.children.length) metaRow.style.display = 'none';
+
+    // Ingredients
+    const ingList = document.getElementById('r-ingredients');
+    ingList.innerHTML = '';
+    const ingredients = r.recipeIngredient || [];
+    if (ingredients.length) {
+      document.getElementById('r-ingredients-section').style.display = '';
+      ingredients.forEach(ing => {
+        const li = document.createElement('li'); li.textContent = ing; ingList.appendChild(li);
+      });
+    } else {
+      document.getElementById('r-ingredients-section').style.display = 'none';
+    }
+
+    // Instructions
+    const instList = document.getElementById('r-instructions');
+    instList.innerHTML = '';
+    const instructions = r.recipeInstructions || [];
+    if (instructions.length) {
+      document.getElementById('r-instructions-section').style.display = '';
+      instructions.forEach(step => {
+        const li = document.createElement('li');
+        const num = document.createElement('span');
+        num.className = 'step-num';
+        num.textContent = instList.children.length + 1;
+        const txt = document.createElement('span');
+        txt.textContent = extractStepText(step);
+        li.appendChild(num); li.appendChild(txt); instList.appendChild(li);
+      });
+    } else {
+      document.getElementById('r-instructions-section').style.display = 'none';
+    }
+
+    // Update page title and header
+    headerTitle.textContent = r.name;
+    document.title          = r.name;
+  }
+
+  // ── Loading helper ────────────────────────────────────────────────────────────
+  function setLoading(btn, loading) {
+    if (loading) {
+      btn.dataset.label = btn.textContent;
+      btn.innerHTML = '<span class="spinner"></span>Saving…';
+      btn.disabled  = true;
+    } else {
+      btn.textContent = btn.dataset.label || 'Save changes';
+      btn.disabled    = false;
+    }
+  }
+</script>
+</body>
+</html>
