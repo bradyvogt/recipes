@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Add Recipe</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      min-height: 100dvh;
+      padding: 0 0 48px;
+    }
+
+    header {
+      background-color: #ecf8ef;
+      color: #246231;
+      padding: 14px 20px 10px;
+      text-align: center;
+      border-bottom: 1px solid #b6e2c6;
+    }
+    header h1 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+    #auth-status {
+      font-size: 0.78rem;
+      color: #4a8a5e;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ── Auth wall ── */
+    #auth-wall {
+      max-width: 420px;
+      margin: 32px auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    #auth-wall h2 {
+      font-size: 1.1rem;
+      color: #246231;
+      margin-bottom: 6px;
+    }
+    #auth-wall p {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Google button */
+    .btn-google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 12px 16px;
+      background: #fff;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      color: #246231;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: 16px;
+    }
+    .btn-google:hover {
+      background: #ecf8ef;
+    }
+    .btn-google svg { flex-shrink: 0; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 4px 0 16px;
+      color: #aaa;
+      font-size: 0.8rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .email-row {
+      display: flex;
+      gap: 8px;
+    }
+    #email-input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #333;
+      outline: none;
+      min-width: 0;
+    }
+    #email-input:focus { border-color: #b6e2c6; box-shadow: 0 2px 8px rgba(36,98,49,0.1); }
+    #email-input::placeholder { color: #999; }
+
+    /* ── Generic buttons ── */
+    .btn {
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-primary { background: #246231; color: #fff; font-weight: bold; }
+    .btn-primary:hover:not(:disabled) { background: #1a4a24; }
+    .btn-danger  { background: transparent; color: #c0392b; border: 1px solid #c0392b; font-size: 0.82rem; padding: 7px 14px; border-radius: 999px; }
+    .btn-danger:hover { background: #fdecea; }
+    .btn-full { width: 100%; padding: 13px; font-size: 1rem; border-radius: 8px; }
+
+    /* ── Main content area ── */
+    main {
+      max-width: 560px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    #signout-row {
+      display: none;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+    #signout-row.visible { display: flex; }
+
+    /* ── Tabs ── */
+    .tab-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #f4f4f9;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      border: none;
+      background: transparent;
+      color: #246231;
+      padding: 9px 4px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      text-align: center;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+    .tab-btn.active {
+      background: #246231;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(36,98,49,0.2);
+    }
+    .tab-btn:hover:not(.active) { background: #b6e2c6; }
+    .tab-btn .icon { display: block; font-size: 1.3rem; margin-bottom: 2px; }
+
+    /* ── Panels ── */
+    .panel { display: none; animation: fadeIn 0.2s ease; }
+    .panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── Fields ── */
+    .field { margin-bottom: 16px; }
+    label {
+      display: block;
+      font-size: 0.78rem;
+      color: #246231;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    input[type="url"], textarea {
+      width: 100%;
+      background: #fff;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      color: #333;
+      font-size: 0.95rem;
+      font-family: Arial, sans-serif;
+      padding: 11px 13px;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input[type="url"]::placeholder, textarea::placeholder { color: #999; }
+    input[type="url"]:focus, textarea:focus {
+      border-color: #b6e2c6;
+      box-shadow: 0 2px 8px rgba(36,98,49,0.12);
+    }
+
+    .hint-block {
+      background: #ecf8ef;
+      border: 1px solid #b6e2c6;
+      border-radius: 6px;
+      padding: 11px 13px;
+      font-size: 0.83rem;
+      color: #4a8a5e;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    /* ── Image upload zone ── */
+    .drop-zone {
+      border: 2px dashed #246231;
+      border-radius: 8px;
+      padding: 28px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      background: #f9fdf9;
+    }
+    .drop-zone:hover, .drop-zone.dragover {
+      border-color: #4a8a5e;
+      background: #ecf8ef;
+    }
+    .drop-zone input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer;
+    }
+    .drop-zone .dz-icon  { font-size: 2.2rem; margin-bottom: 8px; }
+    .drop-zone .dz-label { font-size: 0.9rem; color: #246231; font-weight: 500; }
+    .drop-zone .dz-hint  { font-size: 0.75rem; color: #999; margin-top: 4px; }
+
+    .image-previews { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .image-preview {
+      position: relative; width: 80px; height: 80px;
+      border-radius: 6px; overflow: hidden; border: 2px solid #b6e2c6;
+    }
+    .image-preview img { width: 100%; height: 100%; object-fit: cover; }
+    .image-preview .remove-img {
+      position: absolute; top: 2px; right: 2px;
+      background: rgba(36,98,49,0.85); color: #fff;
+      border: none; border-radius: 50%; width: 20px; height: 20px;
+      font-size: 0.65rem; cursor: pointer; line-height: 20px; text-align: center; padding: 0;
+    }
+
+    /* ── Toast ── */
+    #toast {
+      position: fixed;
+      bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: #fff;
+      border: 2px solid #246231;
+      border-radius: 8px;
+      padding: 11px 20px;
+      font-size: 0.88rem;
+      max-width: calc(100vw - 40px);
+      opacity: 0;
+      transition: opacity 0.25s, transform 0.25s;
+      z-index: 200;
+      text-align: center;
+      color: #246231;
+      box-shadow: 0 4px 12px rgba(36,98,49,0.15);
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #toast.error { border-color: #c0392b; color: #c0392b; }
+
+    /* ── Spinner ── */
+    .spinner {
+      display: inline-block; width: 15px; height: 15px;
+      border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
+      border-radius: 50%; animation: spin 0.7s linear infinite;
+      vertical-align: middle; margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌿 Add a Recipe</h1>
+  <div id="auth-status">Checking sign-in…</div>
+</header>
+
+<!-- AUTH WALL (shown when signed out) -->
+<div id="auth-wall">
+  <h2>Sign in to save recipes</h2>
+  <p>Your recipes are stored privately. Sign in to get started.</p>
+
+  <button class="btn-google" id="google-btn">
+    <svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      <path fill="none" d="M0 0h48v48H0z"/>
+    </svg>
+    Continue with Google
+  </button>
+
+  <div class="divider">or use a magic link</div>
+
+  <div class="email-row">
+    <input id="email-input" type="email" placeholder="your@email.com" />
+    <button class="btn btn-primary" id="magic-link-btn">Send link</button>
+  </div>
+</div>
+
+<!-- MAIN APP (shown when signed in) -->
+<main id="app" style="display:none">
+  <div id="signout-row">
+    <button class="btn btn-danger" id="sign-out-btn">Sign out</button>
+  </div>
+
+  <div class="tab-strip" id="tab-strip">
+    <button class="tab-btn active" data-panel="url">
+      <span class="icon">🔗</span>From URL
+    </button>
+    <button class="tab-btn" data-panel="text">
+      <span class="icon">✏️</span>Free text
+    </button>
+    <button class="tab-btn" data-panel="image">
+      <span class="icon">📷</span>Photo
+    </button>
+  </div>
+
+  <!-- URL panel -->
+  <div class="panel active" id="panel-url">
+    <div class="hint-block">Paste a recipe page URL — we'll pull the structured recipe data automatically.</div>
+    <div class="field">
+      <label>Recipe URL</label>
+      <input type="url" id="url-input" placeholder="https://example.com/chocolate-chip-cookies" />
+    </div>
+    <button class="btn btn-primary btn-full" id="url-submit">Save recipe</button>
+  </div>
+
+  <!-- Free text panel -->
+  <div class="panel" id="panel-text">
+    <div class="hint-block">Paste ingredients, jot down steps, or describe a dish — even a message from grandma works.</div>
+    <div class="field">
+      <label>Recipe text</label>
+      <textarea id="text-input" rows="10" placeholder="2 cups flour, 1 cup butter…&#10;&#10;Mix together, bake at 350 °F for 20 min."></textarea>
+    </div>
+    <button class="btn btn-primary btn-full" id="text-submit">Save recipe</button>
+  </div>
+
+  <!-- Image panel -->
+  <div class="panel" id="panel-image">
+    <div class="hint-block">Upload up to 3 photos — a printed card, a screenshot, or a handwritten note.</div>
+    <div class="drop-zone" id="drop-zone">
+      <input type="file" id="image-input" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple />
+      <div class="dz-icon">🖼️</div>
+      <div class="dz-label">Tap to choose photos</div>
+      <div class="dz-hint">JPEG · PNG · WEBP · HEIC — up to 3</div>
+    </div>
+    <div class="image-previews" id="image-previews"></div>
+    <button class="btn btn-primary btn-full" id="image-submit" style="margin-top:16px">Save recipe</button>
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const SUPABASE_URL = 'https://fibqkucbquxzsmzjmgyx.supabase.co';
+  const ANON_KEY     = 'sb_publishable_KLID7d9e5MWcLeLKpr-VQA_zidMe2MZ';
+  const BASE         = `${SUPABASE_URL}/functions/v1/recipe-ingest`;
+
+  const supabase = createClient(SUPABASE_URL, ANON_KEY);
+
+  const authWall    = document.getElementById('auth-wall');
+  const appEl       = document.getElementById('app');
+  const authStatus  = document.getElementById('auth-status');
+  const emailInput  = document.getElementById('email-input');
+  const magicBtn    = document.getElementById('magic-link-btn');
+  const googleBtn   = document.getElementById('google-btn');
+  const signOutBtn  = document.getElementById('sign-out-btn');
+  const signOutRow  = document.getElementById('signout-row');
+  const toast       = document.getElementById('toast');
+
+  let session = null;
+  let toastTimer;
+
+  // ── Toast ──
+  function showToast(msg, type = 'success') {
+    toast.textContent = msg;
+    toast.className = `show ${type}`;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { toast.className = ''; }, 3500);
+  }
+
+  // ── Auth state ──
+  function applySession(s) {
+    session = s;
+    if (s) {
+      authStatus.textContent = `Signed in as ${s.user.email || s.user.id}`;
+      authWall.style.display = 'none';
+      appEl.style.display    = 'block';
+      signOutRow.classList.add('visible');
+    } else {
+      authStatus.textContent = 'Not signed in';
+      authWall.style.display = 'block';
+      appEl.style.display    = 'none';
+      signOutRow.classList.remove('visible');
+    }
+  }
+
+  supabase.auth.onAuthStateChange((_, s) => applySession(s));
+  supabase.auth.getSession().then(({ data }) => applySession(data.session));
+
+  // ── Google OAuth ──
+  googleBtn.addEventListener('click', async () => {
+    googleBtn.disabled = true;
+    googleBtn.innerHTML = `<span class="spinner" style="border-top-color:#246231;border-color:rgba(36,98,49,0.2)"></span> Redirecting…`;
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.href }
+    });
+    if (error) {
+      showToast(error.message, 'error');
+      googleBtn.disabled = false;
+      googleBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg> Continue with Google`;
+    }
+  });
+
+  // ── Magic link ──
+  magicBtn.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email) { showToast('Enter an email first.', 'error'); return; }
+    magicBtn.disabled = true;
+    magicBtn.innerHTML = '<span class="spinner"></span>';
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: window.location.href }
+    });
+    magicBtn.disabled = false;
+    magicBtn.textContent = 'Send link';
+    if (error) showToast(error.message, 'error');
+    else        showToast(`Link sent to ${email} — check your inbox.`);
+  });
+
+  signOutBtn.addEventListener('click', async () => {
+    await supabase.auth.signOut();
+    showToast('Signed out.');
+  });
+
+  // ── Auth guard ──
+  function getToken() {
+    if (!session?.access_token) { showToast('Sign in first.', 'error'); return null; }
+    return session.access_token;
+  }
+
+  // ── Tabs ──
+  document.getElementById('tab-strip').addEventListener('click', e => {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`panel-${btn.dataset.panel}`).classList.add('active');
+  });
+
+  // ── Loading helpers ──
+  function setLoading(btn, loading) {
+    if (loading) {
+      btn.dataset.label = btn.textContent;
+      btn.innerHTML = '<span class="spinner"></span>Saving…';
+      btn.disabled = true;
+    } else {
+      btn.textContent = btn.dataset.label || 'Save recipe';
+      btn.disabled = false;
+    }
+  }
+
+  async function handleResponse(res, btn) {
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); } catch { data = { error: text }; }
+    setLoading(btn, false);
+    if (res.ok && data.ok) {
+      showToast(`✓ Saved: ${data.recipe?.name || 'Recipe'}`);
+    } else {
+      showToast(data.error || `Error ${res.status}`, 'error');
+    }
+  }
+
+  // ── URL submit ──
+  document.getElementById('url-submit').addEventListener('click', async () => {
+    const token = getToken(); if (!token) return;
+    const url = document.getElementById('url-input').value.trim();
+    if (!url) { showToast('Paste a URL first.', 'error'); return; }
+    const btn = document.getElementById('url-submit');
+    setLoading(btn, true);
+    try {
+      const res = await fetch(`${BASE}/url`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+      });
+      await handleResponse(res, btn);
+    } catch(err) { setLoading(btn, false); showToast(err.message, 'error'); }
+  });
+
+  // ── Free text submit ──
+  document.getElementById('text-submit').addEventListener('click', async () => {
+    const token = getToken(); if (!token) return;
+    const text = document.getElementById('text-input').value.trim();
+    if (!text) { showToast('Write something first.', 'error'); return; }
+    const btn = document.getElementById('text-submit');
+    setLoading(btn, true);
+    try {
+      const res = await fetch(`${BASE}/freeform-text`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      await handleResponse(res, btn);
+    } catch(err) { setLoading(btn, false); showToast(err.message, 'error'); }
+  });
+
+  // ── Image logic ──
+  let selectedFiles = [];
+
+  function renderPreviews() {
+    const container = document.getElementById('image-previews');
+    container.innerHTML = '';
+    selectedFiles.forEach((file, i) => {
+      const url = URL.createObjectURL(file);
+      const wrap = document.createElement('div');
+      wrap.className = 'image-preview';
+      wrap.innerHTML = `<img src="${url}" alt="preview" /><button class="remove-img" data-i="${i}">✕</button>`;
+      container.appendChild(wrap);
+    });
+    container.querySelectorAll('.remove-img').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        selectedFiles.splice(+btn.dataset.i, 1);
+        renderPreviews();
+      });
+    });
+  }
+
+  document.getElementById('image-input').addEventListener('change', e => {
+    const files = Array.from(e.target.files || []);
+    selectedFiles = [...selectedFiles, ...files].slice(0, 3);
+    renderPreviews();
+    e.target.value = '';
+  });
+
+  const dropZone = document.getElementById('drop-zone');
+  dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+    selectedFiles = [...selectedFiles, ...files].slice(0, 3);
+    renderPreviews();
+  });
+
+  document.getElementById('image-submit').addEventListener('click', async () => {
+    const token = getToken(); if (!token) return;
+    if (!selectedFiles.length) { showToast('Choose at least one photo.', 'error'); return; }
+    const btn = document.getElementById('image-submit');
+    setLoading(btn, true);
+    try {
+      const form = new FormData();
+      selectedFiles.forEach(f => form.append('images', f));
+      const res = await fetch(`${BASE}/image`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` },
+        body: form
+      });
+      await handleResponse(res, btn);
+      if (res.ok) { selectedFiles = []; renderPreviews(); }
+    } catch(err) { setLoading(btn, false); showToast(err.message, 'error'); }
+  });
+</script>
+</body>
+</html>
