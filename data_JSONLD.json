@@ -1,0 +1,1306 @@
+[
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Beef Enchiladas",
+        "recipeCategory": "Mexican",
+        "recipeYield": "6 servings",
+        "prepTime": "PT30M",
+        "cookTime": "PT30M",
+        "totalTime": "PT1H",
+        "recipeIngredient": [
+            "1 lb ground beef",
+            "8 tortillas",
+            "1 can enchilada sauce",
+            "10 oz tomato soup",
+            "10 oz cream of chicken",
+            "1 pkg taco seasoning",
+            "16 oz shredded cheddar"
+        ],
+        "recipeInstructions": [
+            {
+                "@type": "HowToStep",
+                "text": "Preheat oven to 350 degrees"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Brown ground beef, drain grease, add water and taco seasoning"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "In medium-sized bowl mix the enchilada sauce, tomato soup, cream of chicken"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Let ground beef simmer until water has absorbed"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Add taco meat and cheese to each tortilla"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Add rolled tortillas to greased 9x13 pan"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Pour sauce mixture over the tortillas and sprinkle with cheese"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Bake at 350 degrees for 30 min"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Jamaican Jerk Chicken",
+        "recipeCategory": "main dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT40M",
+        "cookTime": "PT20M",
+        "recipeIngredient": [
+            "1 lb chicken tenders",
+            "3 tbsp soy sauce",
+            "2 green onions",
+            "1 tbsp apple cider vinegar",
+            "1 tbsp jamaican jerk rub",
+            "2 tbsp brown sugar",
+            "1 tbsp vegetable oil"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Combine all ingredients (except oil) in a medium bowl." },
+            { "@type": "HowToStep", "text": "Refrigerate for 10-30 minutes." },
+            { "@type": "HowToStep", "text": "Heat oil in skillet over medium heat." },
+            { "@type": "HowToStep", "text": "Cook chicken and marinade until liquid evaporates." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Apricot Chicken",
+        "recipeCategory": "main dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT20M",
+        "cookTime": "PT30M",
+        "recipeIngredient": [
+            "1 head broccoli",
+            "1 lb chicken breast",
+            "1/2 tsp garlic powder",
+            "3 tbsp flour",
+            "3 tbsp olive oil",
+            "3/4 cup apricot jam",
+            "1 clove garlic",
+            "2 tbsp soy sauce",
+            "1 1/2 tbsp brown sugar",
+            "1 cup rice"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 425°F." },
+            { "@type": "HowToStep", "text": "Place broccoli on baking sheet and drizzle with olive oil, salt, and pepper." },
+            { "@type": "HowToStep", "text": "Roast broccoli for 15 to 20 minutes until charred." },
+            { "@type": "HowToStep", "text": "Season chicken with salt, pepper, and garlic powder." },
+            { "@type": "HowToStep", "text": "Coat chicken with flour." },
+            { "@type": "HowToStep", "text": "Cook rice according to package directions." },
+            { "@type": "HowToStep", "text": "Heat oil in a large skillet over medium heat." },
+            { "@type": "HowToStep", "text": "Cook chicken 5-6 minutes per side." },
+            { "@type": "HowToStep", "text": "Whisk together jam, minced garlic, soy sauce, and brown sugar." },
+            { "@type": "HowToStep", "text": "Serve chicken with roasted broccoli and rice." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Quiche",
+        "recipeCategory": "breakfast",
+        "recipeYield": "4 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT40M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 6.5
+        },
+        "recipeIngredient": [
+            "6 eggs",
+            "3/4 cup milk",
+            "Salt and pepper",
+            "1 cup cooked ham",
+            "1 1/2 cups shredded cheese",
+            "3 tbsp green onions",
+            "1 refrigerated pie crust"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 375°F." },
+            { "@type": "HowToStep", "text": "Unroll pie crust and press into a 9-inch pie plate." },
+            { "@type": "HowToStep", "text": "Whisk eggs, milk, salt, and pepper in a large bowl." },
+            { "@type": "HowToStep", "text": "Sprinkle ham, cheese, and green onions into pie crust and pour egg mixture over top." },
+            { "@type": "HowToStep", "text": "Bake 35-40 minutes until eggs are set. Cool 5-10 minutes before serving." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Overnight Oats",
+        "recipeCategory": "breakfast",
+        "recipeYield": "1 serving",
+        "prepTime": "PT10M",
+        "cookTime": "PT2H",
+        "recipeIngredient": [
+            "1/2 cup rolled oats",
+            "1/2 cup milk",
+            "1/4 cup greek yogurt",
+            "1 tbsp chia seeds",
+            "1 tbsp honey",
+            "1/4 tsp vanilla extract"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Mix all ingredients in a glass container." },
+            { "@type": "HowToStep", "text": "Cover and refrigerate for 2 hours to 5 days." },
+            { "@type": "HowToStep", "text": "Uncover and serve." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Pizza (Store-Bought Crust)",
+        "recipeCategory": "italian",
+        "recipeYield": "4 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT15M",
+        "recipeIngredient": [
+            "1 pizza crust",
+            "1/2 jar pizza sauce",
+            "6 oz shredded cheese"
+        ],
+        "recipeInstructions": [
+            {
+                "@type": "HowToStep",
+                "text": "Follow instructions on pizza crust package. Top with pizza sauce and shredded cheese before baking."
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Pizza (Homemade Crust)",
+        "recipeCategory": "italian",
+        "recipeYield": "4 servings",
+        "prepTime": "PT2H30M",
+        "cookTime": "PT15M",
+        "recipeIngredient": [
+            "1 1/2 cups warm water",
+            "2 tsp sugar",
+            "2 tsp salt",
+            "1 tbsp olive oil",
+            "4 cups all-purpose flour",
+            "1 tbsp yeast",
+            "1/2 jar pizza sauce",
+            "6 oz shredded cheese"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Mix warm water, sugar, salt, and yeast. Let sit for 5 minutes." },
+            { "@type": "HowToStep", "text": "Add olive oil and flour. Knead until smooth." },
+            { "@type": "HowToStep", "text": "Let dough rise for 1-2 hours until doubled." },
+            { "@type": "HowToStep", "text": "Preheat oven to 425°F." },
+            { "@type": "HowToStep", "text": "Roll dough to desired thickness." },
+            { "@type": "HowToStep", "text": "Place on pizza stone or baking sheet." },
+            { "@type": "HowToStep", "text": "Spread pizza sauce and sprinkle cheese on top." },
+            { "@type": "HowToStep", "text": "Bake for 15 minutes until crust is golden brown." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Sheetpan Sausage, Potatoes & Peppers",
+        "recipeCategory": "main dish",
+        "recipeIngredient": [],
+        "recipeInstructions": []
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Fried Rice",
+        "recipeCategory": "main dish",
+        "recipeYield": "10 servings",
+        "prepTime": "PT30M",
+        "recipeIngredient": [],
+        "recipeInstructions": []
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Lasagna",
+        "recipeCategory": "italian",
+        "recipeYield": "10 servings",
+        "prepTime": "PT40M",
+        "cookTime": "PT1H",
+        "recipeIngredient": [
+            "8-10 oz lasagna noodles",
+            "1/2 cup diced onion",
+            "1 lb ground beef",
+            "1 lb pork sausage",
+            "1 clove minced garlic",
+            "1/2 tsp oregano",
+            "1/2 tsp basil",
+            "Salt and pepper",
+            "1 lb tomatoes",
+            "12 oz tomato paste",
+            "16 oz small curd cottage cheese",
+            "1/2 cup parmesan cheese",
+            "8 oz mozzarella cheese",
+            "1 tsp parsley",
+            "2 eggs"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Brown hamburger and onion." },
+            { "@type": "HowToStep", "text": "Brown pork sausage and combine with hamburger mixture." },
+            { "@type": "HowToStep", "text": "Add garlic, oregano, basil, salt, tomatoes, and tomato paste." },
+            { "@type": "HowToStep", "text": "Cook lasagna noodles according to package directions." },
+            { "@type": "HowToStep", "text": "Mix cottage cheese, mozzarella, parmesan, eggs, and parsley." },
+            { "@type": "HowToStep", "text": "Place a little tomato juice in a 9x13-inch pan." },
+            { "@type": "HowToStep", "text": "Layer noodles, cheese mixture, and meat sauce twice." },
+            { "@type": "HowToStep", "text": "Sprinkle parmesan cheese on top." },
+            { "@type": "HowToStep", "text": "Bake at 350°F for 1 hour." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Chicken Pesto Bagels",
+        "recipeCategory": "main dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT15M",
+        "recipeIngredient": [
+            "6 bagels",
+            "1 can pesto sauce",
+            "12 grilled chicken strips",
+            "Sundried tomatoes",
+            "8 oz mozzarella cheese"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 350°F." },
+            { "@type": "HowToStep", "text": "Cut bagels in half and place on a baking sheet." },
+            { "@type": "HowToStep", "text": "Spread pesto sauce on each bagel half." },
+            { "@type": "HowToStep", "text": "Top with chicken strips." },
+            { "@type": "HowToStep", "text": "Add sundried tomatoes." },
+            { "@type": "HowToStep", "text": "Top with mozzarella cheese." },
+            { "@type": "HowToStep", "text": "Bake for 10-15 minutes." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Scalloped Potatoes + Ham",
+        "recipeCategory": "main dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT45M",
+        "cookTime": "PT1H",
+        "description": "Put a pan underneath in case of bubble over.",
+        "recipeIngredient": [
+            "6 medium potatoes",
+            "2 cups cooked ham",
+            "1 1/2 cups shredded cheddar cheese",
+            "1/4 cup flour",
+            "8 oz mozzarella cheese",
+            "3 cups milk",
+            "1 1/2 tsp salt",
+            "3/4 tsp pepper",
+            "3/4 tsp onion powder"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Slice potatoes thinly and cube ham into 1/2-inch pieces." },
+            { "@type": "HowToStep", "text": "Grease a 9x13-inch pan and preheat oven to 400°F." },
+            { "@type": "HowToStep", "text": "Whisk milk and flour together." },
+            { "@type": "HowToStep", "text": "Mix salt, pepper, and onion powder." },
+            { "@type": "HowToStep", "text": "Layer one-third of the potatoes, seasonings, ham, and cheese." },
+            { "@type": "HowToStep", "text": "Repeat the layer a second time." },
+            { "@type": "HowToStep", "text": "Add final layer, pouring milk mixture before topping with cheese." },
+            { "@type": "HowToStep", "text": "Bake covered for 30 minutes, then uncovered for 30 minutes." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Chicken Roll Ups",
+        "recipeCategory": "main dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT20M",
+        "cookTime": "PT20M",
+        "recipeIngredient": [
+            "2 packages crescent rolls",
+            "2 cups cooked chicken",
+            "4 oz cream cheese",
+            "2-3 tsp lemon pepper",
+            "7 oz mushrooms",
+            "4 tsp butter",
+            "1 cup bread crumbs",
+            "2/3 cup chopped pecans"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Cook and dice chicken." },
+            { "@type": "HowToStep", "text": "Mix bread crumbs and pecans together; set aside." },
+            { "@type": "HowToStep", "text": "Mix chicken, cream cheese, lemon pepper, and mushrooms." },
+            { "@type": "HowToStep", "text": "Flatten crescent rolls into rectangles." },
+            { "@type": "HowToStep", "text": "Spoon chicken mixture onto each rectangle." },
+            { "@type": "HowToStep", "text": "Roll up and dip in butter." },
+            { "@type": "HowToStep", "text": "Roll in bread crumb mixture and place on baking sheet." },
+            { "@type": "HowToStep", "text": "Bake at 350°F for 20 minutes until golden brown." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Broccoli Salad",
+        "recipeCategory": "side dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT10M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "recipeIngredient": [
+            "6 slices bacon, chopped",
+            "1 1/2 heads broccoli, cut into florets",
+            "1 onion, chopped",
+            "1 apple, chopped",
+            "1 cup sunflower seeds",
+            "2/3 cup raisins",
+            "1/2 cup plain low-fat yogurt",
+            "1/4 cup light mayonnaise",
+            "1/4 cup lemon juice",
+            "1 tbsp sugar",
+            "Pepper to taste"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Cook bacon until crisp. Drain and set aside." },
+            { "@type": "HowToStep", "text": "Prepare broccoli florets." },
+            { "@type": "HowToStep", "text": "Combine bacon, broccoli, onion, apple, sunflower seeds, and raisins." },
+            { "@type": "HowToStep", "text": "Mix mayonnaise, yogurt, lemon juice, sugar, and pepper to make dressing." },
+            { "@type": "HowToStep", "text": "Toss salad with dressing and serve." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Fettuccine Carbonara",
+        "recipeCategory": "italian",
+        "recipeYield": "4 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT15M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 10
+        },
+        "recipeIngredient": [
+            "1 lb fettuccine",
+            "6 slices bacon, chopped",
+            "1 tbsp olive oil",
+            "1 tsp minced garlic",
+            "4 eggs",
+            "1/4 cup Parmesan cheese",
+            "2 tbsp chopped parsley",
+            "Salt to taste",
+            "Pepper to taste"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Cook fettuccine al dente." },
+            { "@type": "HowToStep", "text": "Cook bacon until crisp and drain." },
+            { "@type": "HowToStep", "text": "Reserve 1 tbsp bacon fat and add olive oil." },
+            { "@type": "HowToStep", "text": "Sauté garlic for 1 minute." },
+            { "@type": "HowToStep", "text": "Beat eggs." },
+            { "@type": "HowToStep", "text": "Return bacon and pasta to pan and quickly toss with eggs until thickened." },
+            { "@type": "HowToStep", "text": "Add Parmesan, salt, and pepper." },
+            { "@type": "HowToStep", "text": "Garnish with parsley and serve." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Meatballs (Meatloaf Style)",
+        "recipeCategory": "italian",
+        "recipeYield": "6 servings",
+        "prepTime": "PT30M",
+        "cookTime": "PT1H",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "recipeIngredient": [
+            "2 lb hamburger",
+            "1 lb pork",
+            "2 cups oatmeal",
+            "1 small onion, chopped",
+            "1 can evaporated milk",
+            "1/2 tsp salt",
+            "1/2 tsp garlic salt",
+            "1/2 tsp chili powder",
+            "2 eggs",
+            "2 cups ketchup",
+            "1 tbsp liquid smoke",
+            "1/2 tsp garlic salt",
+            "2 cups brown sugar",
+            "1 cup diced onions"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 350°F." },
+            { "@type": "HowToStep", "text": "Mix hamburger, pork, oatmeal, onion, milk, seasonings, and eggs." },
+            { "@type": "HowToStep", "text": "Form into meatballs and place in baking dish." },
+            { "@type": "HowToStep", "text": "Combine ketchup, liquid smoke, garlic salt, brown sugar, and onions. Bring to a boil." },
+            { "@type": "HowToStep", "text": "Pour sauce over meatballs." },
+            { "@type": "HowToStep", "text": "Bake uncovered for 1 hour." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Buttermilk Pancakes",
+        "recipeCategory": "breakfast",
+        "recipeYield": "4 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT15M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "recipeIngredient": [
+            "3 eggs, separated",
+            "1 2/3 cups buttermilk",
+            "1 tsp baking soda",
+            "1 1/2 cups sifted all-purpose flour",
+            "1 tbsp sugar",
+            "1 tsp salt",
+            "1 tsp vanilla",
+            "3 tbsp melted butter"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Separate eggs." },
+            { "@type": "HowToStep", "text": "Beat egg whites until stiff." },
+            { "@type": "HowToStep", "text": "Beat egg yolks in a bowl." },
+            { "@type": "HowToStep", "text": "Mix yolks with buttermilk, baking soda, flour, sugar, salt, vanilla, and butter." },
+            { "@type": "HowToStep", "text": "Fold in egg whites." },
+            { "@type": "HowToStep", "text": "Let batter rest for 10 minutes." },
+            { "@type": "HowToStep", "text": "Cook on hot griddle until golden." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Mashed Turnips and Potatoes",
+        "recipeCategory": "side dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT25M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 6
+        },
+        "recipeIngredient": [
+            "1 1/2 pounds turnips, peeled and diced",
+            "1 pound Yukon Gold potatoes, peeled and diced",
+            "5 tbsp melted unsalted butter",
+            "1/2 cup hot milk",
+            "1/2 tbsp finely chopped fresh herbs",
+            "1/4 tsp garlic powder",
+            "Salt to taste",
+            "Pepper to taste"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Boil turnips and potatoes until fork tender." },
+            { "@type": "HowToStep", "text": "Drain and mash to desired consistency." },
+            { "@type": "HowToStep", "text": "Stir in milk, butter, herbs, and garlic powder." },
+            { "@type": "HowToStep", "text": "Season with salt and pepper and serve." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Squash Soup",
+        "recipeCategory": "side dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT25M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 3
+        },
+        "recipeIngredient": [
+            "1 onion",
+            "1 stalk celery",
+            "2 tsp canola oil",
+            "1 butternut squash",
+            "2 apples",
+            "1 potato",
+            "4 cups water",
+            "1 tsp ginger",
+            "1/2 tsp cinnamon",
+            "Pepper to taste",
+            "2 tsp brown sugar",
+            "1 cup plain low-fat yogurt",
+            "1 cup pecan pieces"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Sauté onion and celery in oil until tender." },
+            { "@type": "HowToStep", "text": "Add squash, apples, and potato." },
+            { "@type": "HowToStep", "text": "Add water and seasonings. Bring to a boil." },
+            { "@type": "HowToStep", "text": "Simmer about 12 minutes until vegetables are tender." },
+            { "@type": "HowToStep", "text": "Blend until smooth." },
+            { "@type": "HowToStep", "text": "Return to pan, add brown sugar, and heat through." },
+            { "@type": "HowToStep", "text": "Serve topped with yogurt and pecans." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Tomato Penne",
+        "recipeCategory": "italian",
+        "recipeYield": "6 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT15M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 10
+        },
+        "recipeIngredient": [
+            "1 1/4 lbs penne",
+            "1 tbsp canola oil",
+            "2 tsp minced garlic",
+            "28 oz canned diced tomatoes",
+            "12 pitted black olives",
+            "1/2 cup chopped parsley",
+            "1/4 cup torn basil",
+            "1 tsp thyme",
+            "6 oz feta cheese",
+            "1/2 cup grated parmesan"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Cook penne al dente." },
+            { "@type": "HowToStep", "text": "Sauté garlic in oil for 2 minutes." },
+            { "@type": "HowToStep", "text": "Add tomatoes and cook for 4 minutes." },
+            { "@type": "HowToStep", "text": "Drain pasta." },
+            { "@type": "HowToStep", "text": "Combine pasta with tomatoes, olives, parsley, and basil." },
+            { "@type": "HowToStep", "text": "Top with thyme, feta, and parmesan before serving." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Chicken Fajitas",
+        "recipeCategory": "mexican",
+        "recipeYield": "4 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT10M",
+        "description": "Don't be afraid to overcook the veggies. Add seasoning to rice.",
+        "recipeIngredient": [
+            "1 1/2 lbs chicken breasts, cut into strips",
+            "1 red pepper, sliced",
+            "1 green pepper, sliced",
+            "1/2 red onion, sliced",
+            "1 tbsp canola oil",
+            "1 tsp chili powder",
+            "1 tsp coriander",
+            "1 tsp cumin",
+            "1 tsp oregano",
+            "Pepper to taste",
+            "1 tsp garlic",
+            "2 tsp lemon juice",
+            "Hot sauce, to taste",
+            "Worcestershire sauce, to taste"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Cook chicken with spices in oil until golden and fully cooked." },
+            { "@type": "HowToStep", "text": "Remove chicken and stir-fry vegetables until tender-crisp." },
+            { "@type": "HowToStep", "text": "Return chicken to skillet." },
+            { "@type": "HowToStep", "text": "Add lemon juice, hot sauce, and Worcestershire sauce." },
+            { "@type": "HowToStep", "text": "Heat through and serve with tortillas and toppings." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Feta Fusilli",
+        "recipeCategory": "italian",
+        "recipeYield": "4 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT15M",
+        "description": "Add red wine vinegar separately if desired.",
+        "recipeIngredient": [
+            "1 lb whole grain fusilli",
+            "3 cups green beans, cut into pieces",
+            "1/2 head broccoli, cut into pieces",
+            "1 red pepper, julienned",
+            "1/3 cup olive oil",
+            "1/4 cup red wine vinegar",
+            "2 tsp lemon juice",
+            "2 tbsp oregano",
+            "2 tbsp fresh parsley, chopped",
+            "8 oz crumbled feta cheese",
+            "12 pitted black olives",
+            "4 tomatoes, quartered"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Cook fusilli al dente." },
+            { "@type": "HowToStep", "text": "Steam green beans and broccoli until tender-crisp." },
+            { "@type": "HowToStep", "text": "Combine pasta, vegetables, and red pepper." },
+            { "@type": "HowToStep", "text": "Whisk together olive oil, vinegar, lemon juice, oregano, and parsley." },
+            { "@type": "HowToStep", "text": "Toss pasta mixture with dressing." },
+            { "@type": "HowToStep", "text": "Add feta cheese and olives. Serve with tomatoes." }
+        ]
+    },
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Chicken Fingers",
+        "recipeCategory": "main dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT12M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 10
+        },
+        "recipeIngredient": [
+            "1 lb chicken breasts, skinned, deboned, sliced into 1-inch strips",
+            "1/2 cup flour",
+            "2 beaten eggs",
+            "1 cup breadcrumbs",
+            "2/3 cup grated Parmesan cheese",
+            "1 tbsp oregano",
+            "1 tbsp paprika",
+            "1 tbsp basil"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 450°F." },
+            { "@type": "HowToStep", "text": "Prepare three bowls: flour, beaten eggs, and breadcrumb mixture with Parmesan, oregano, paprika, and basil." },
+            { "@type": "HowToStep", "text": "Coat chicken strips in flour, egg, then breadcrumb mixture." },
+            { "@type": "HowToStep", "text": "Arrange on a lightly greased baking sheet." },
+            { "@type": "HowToStep", "text": "Bake for 6 minutes per side until crisp and cooked through." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Pumpkin Chocolate Chip Muffins",
+        "recipeCategory": "breakfast",
+        "recipeYield": "12 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT20M",
+        "recipeIngredient": [
+            "1 cup flour",
+            "2/3 cup sugar",
+            "1/4 tsp salt",
+            "3/4 tsp baking powder",
+            "3/4 tsp baking soda",
+            "1/4 tsp cinnamon",
+            "2 eggs",
+            "1/2 cup oil",
+            "2/3 cup pumpkin",
+            "2/3 cup chocolate chips"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 350°F." },
+            { "@type": "HowToStep", "text": "Combine dry ingredients in a bowl." },
+            { "@type": "HowToStep", "text": "Combine wet ingredients in a separate bowl." },
+            { "@type": "HowToStep", "text": "Mix wet and dry ingredients together." },
+            { "@type": "HowToStep", "text": "Fold in chocolate chips." },
+            { "@type": "HowToStep", "text": "Fill muffin tins about 1/4 cup full." },
+            { "@type": "HowToStep", "text": "Bake 18-20 minutes." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Shepherd's Pie",
+        "recipeCategory": "main dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT20M",
+        "cookTime": "PT25M",
+        "description": "Mix Worcestershire and hot sauce together before adding to the meat.",
+        "recipeIngredient": [
+            "5 large yellow potatoes",
+            "1/4 cup milk",
+            "1 tsp minced garlic",
+            "1 finely chopped onion",
+            "1 lb ground beef",
+            "1 can (14 oz) cream style corn",
+            "1 cup frozen corn niblets",
+            "Worcestershire sauce to taste",
+            "Hot sauce to taste",
+            "Pepper to taste",
+            "1 tsp paprika"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Cook potatoes until tender and mash with milk and garlic." },
+            { "@type": "HowToStep", "text": "Brown beef with onion and garlic. Season with salt and pepper." },
+            { "@type": "HowToStep", "text": "Mix Worcestershire sauce and hot sauce, then stir into meat." },
+            { "@type": "HowToStep", "text": "Spread meat mixture in baking dish." },
+            { "@type": "HowToStep", "text": "Heat and spread both corn varieties over meat." },
+            { "@type": "HowToStep", "text": "Top with mashed potatoes and paprika." },
+            { "@type": "HowToStep", "text": "Broil until golden brown." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Fruit Cobbler",
+        "recipeCategory": "dessert",
+        "recipeYield": "8 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT45M",
+        "description": "Serve with ice cream.",
+        "recipeIngredient": [
+            "21 oz fruit filling",
+            "1 package yellow cake mix",
+            "1/2 cup butter"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 350°F." },
+            { "@type": "HowToStep", "text": "Spray an 8x8-inch pan and spread fruit filling evenly." },
+            { "@type": "HowToStep", "text": "Mix butter and cake mix." },
+            { "@type": "HowToStep", "text": "Spread cake mixture over fruit filling." },
+            { "@type": "HowToStep", "text": "Bake 45 minutes until golden brown." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Pumpkin Roll",
+        "recipeCategory": "dessert",
+        "recipeYield": "8 servings",
+        "prepTime": "PT20M",
+        "cookTime": "PT1H45M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "recipeIngredient": [
+            "3/4 cup flour",
+            "1/2 tsp salt",
+            "1 tsp baking soda",
+            "1 tsp ground cinnamon",
+            "1 tsp pumpkin pie spice",
+            "1 cup granulated sugar",
+            "3 large eggs",
+            "2/3 cup canned pumpkin",
+            "1 tsp vanilla extract",
+            "8 oz softened cream cheese",
+            "2 tbsp softened butter",
+            "1 tsp vanilla extract",
+            "1 cup powdered sugar, plus more for dusting"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 350°F and prepare a jelly roll pan." },
+            { "@type": "HowToStep", "text": "Whisk together dry ingredients." },
+            { "@type": "HowToStep", "text": "Mix eggs, sugar, vanilla, and pumpkin." },
+            { "@type": "HowToStep", "text": "Combine wet and dry ingredients." },
+            { "@type": "HowToStep", "text": "Spread batter in pan and bake 12-15 minutes." },
+            { "@type": "HowToStep", "text": "Roll warm cake in parchment and cool completely." },
+            { "@type": "HowToStep", "text": "Beat cream cheese, butter, vanilla, and powdered sugar until smooth." },
+            { "@type": "HowToStep", "text": "Unroll cooled cake, spread filling, and reroll." },
+            { "@type": "HowToStep", "text": "Wrap and refrigerate at least 1 hour." },
+            { "@type": "HowToStep", "text": "Dust with powdered sugar before serving." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Roasted Zucchini",
+        "recipeCategory": "side dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT5M",
+        "cookTime": "PT10M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 7
+        },
+        "recipeIngredient": [
+            "2 medium zucchini, cut into 1/2-inch rounds",
+            "2 tbsp extra-virgin olive oil",
+            "1/2 tsp salt",
+            "1/2 tsp black pepper",
+            "1 tsp garlic powder",
+            "1/2 cup grated Parmesan cheese"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 450°F." },
+            { "@type": "HowToStep", "text": "Toss zucchini with oil, salt, pepper, and garlic powder." },
+            { "@type": "HowToStep", "text": "Arrange on a sheet pan." },
+            { "@type": "HowToStep", "text": "Sprinkle with Parmesan cheese." },
+            { "@type": "HowToStep", "text": "Bake 5 minutes, then broil 2-3 minutes until golden." },
+            { "@type": "HowToStep", "text": "Serve immediately." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Meatballs (Oven-Baked)",
+        "recipeCategory": "main dish",
+        "recipeYield": "5 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT20M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 10
+        },
+        "recipeIngredient": [
+            "1 lb ground beef (80% lean or half pork)",
+            "1 beaten large egg",
+            "1/4 cup breadcrumbs",
+            "1/4 cup grated Parmesan cheese",
+            "1/4 cup finely chopped onion",
+            "2 tsp minced garlic",
+            "3/4 tsp salt",
+            "1/4 tsp pepper",
+            "2 tbsp parsley (optional)",
+            "2 cups marinara sauce (optional)"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 400°F and prepare a baking sheet." },
+            { "@type": "HowToStep", "text": "Mix beef, egg, breadcrumbs, Parmesan, onion, garlic, salt, pepper, and parsley." },
+            { "@type": "HowToStep", "text": "Form into 1½-inch meatballs and arrange on baking sheet." },
+            { "@type": "HowToStep", "text": "Bake 17-20 minutes, turning halfway through." },
+            { "@type": "HowToStep", "text": "Serve with marinara sauce if desired." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Brownies",
+        "recipeCategory": "dessert",
+        "recipeYield": "16 servings",
+        "prepTime": "PT5M",
+        "cookTime": "PT45M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "recipeIngredient": [
+            "1 1/2 cups granulated sugar",
+            "3/4 cup all-purpose flour",
+            "2/3 cup cocoa powder",
+            "1/2 cup powdered sugar",
+            "1/2 cup dark chocolate chips",
+            "3/4 tsp sea salt",
+            "2 large eggs",
+            "1/2 cup canola oil or olive oil",
+            "2 tbsp water",
+            "1/2 tsp vanilla extract"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 325°F and prepare an 8x8-inch baking dish." },
+            { "@type": "HowToStep", "text": "Combine dry ingredients in one bowl." },
+            { "@type": "HowToStep", "text": "Whisk eggs, oil, water, and vanilla in another bowl." },
+            { "@type": "HowToStep", "text": "Mix dry ingredients into wet ingredients until just combined." },
+            { "@type": "HowToStep", "text": "Spread batter into prepared pan." },
+            { "@type": "HowToStep", "text": "Bake 40-48 minutes." },
+            { "@type": "HowToStep", "text": "Cool completely before cutting into squares." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Blueberry Baked Oatmeal",
+        "recipeCategory": "breakfast",
+        "recipeYield": "8 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT45M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "description": "Keeps well in the refrigerator for up to 5 days.",
+        "recipeIngredient": [
+            "2/3 cup chopped pecans",
+            "2 cups old-fashioned oats",
+            "2 tsp cinnamon",
+            "1 tsp baking powder",
+            "3/4 tsp salt",
+            "1/4 tsp nutmeg",
+            "1 3/4 cups milk",
+            "1/3 cup maple syrup or honey",
+            "2 large eggs",
+            "3 tbsp melted butter or coconut oil",
+            "2 tsp vanilla extract",
+            "12 oz blueberries",
+            "2 tsp raw sugar (optional)"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 375°F and grease a baking dish." },
+            { "@type": "HowToStep", "text": "Toast pecans for 4-5 minutes." },
+            { "@type": "HowToStep", "text": "Mix oats, pecans, cinnamon, baking powder, salt, and nutmeg." },
+            { "@type": "HowToStep", "text": "Whisk milk, syrup, eggs, butter, and vanilla." },
+            { "@type": "HowToStep", "text": "Spread most blueberries in baking dish." },
+            { "@type": "HowToStep", "text": "Add oat mixture and pour liquid mixture over top." },
+            { "@type": "HowToStep", "text": "Top with remaining blueberries and optional sugar." },
+            { "@type": "HowToStep", "text": "Bake 42-45 minutes until set." },
+            { "@type": "HowToStep", "text": "Cool slightly before serving." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Chocolate Chip Cookies",
+        "recipeCategory": "dessert",
+        "recipeYield": "36 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT8M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 10
+        },
+        "description": "For soft and chewy cookies, remove from oven while centers still appear slightly underbaked.",
+        "recipeIngredient": [
+            "1 cup softened salted butter",
+            "1 cup granulated sugar",
+            "1 cup packed light brown sugar",
+            "2 tsp pure vanilla extract",
+            "2 large eggs",
+            "3 cups all-purpose flour",
+            "1 tsp baking soda",
+            "1/2 tsp baking powder",
+            "1 tsp sea salt",
+            "2 cups chocolate chips"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 375°F and line baking sheets." },
+            { "@type": "HowToStep", "text": "Whisk flour, baking soda, baking powder, and salt." },
+            { "@type": "HowToStep", "text": "Cream butter and sugars." },
+            { "@type": "HowToStep", "text": "Beat in eggs and vanilla." },
+            { "@type": "HowToStep", "text": "Mix in dry ingredients until just combined." },
+            { "@type": "HowToStep", "text": "Fold in chocolate chips." },
+            { "@type": "HowToStep", "text": "Form dough balls and place on baking sheets." },
+            { "@type": "HowToStep", "text": "Bake 8-10 minutes." },
+            { "@type": "HowToStep", "text": "Cool on pan 5 minutes before transferring to a rack." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Pork Chops, Potatoes, and Broccoli",
+        "recipeCategory": "main dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT30M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "description": "Stagger baking times so potatoes, pork, and broccoli finish cooking together.",
+        "recipeIngredient": [
+            "4 thick-cut boneless pork chops",
+            "Salt and pepper to taste",
+            "1 tsp garlic powder",
+            "1 tsp Italian herb seasoning",
+            "1/2 tsp smoked paprika",
+            "2 tsp dry ranch seasoning",
+            "3 cups broccoli florets",
+            "3 tbsp olive oil",
+            "1 lb baby gold or red potatoes, halved",
+            "2 tsp garlic powder (for potatoes)",
+            "1/3 cup grated Parmesan cheese"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 425°F and grease a large baking sheet." },
+            { "@type": "HowToStep", "text": "Toss potatoes with olive oil, salt, pepper, garlic powder, and Parmesan. Bake 5-10 minutes." },
+            { "@type": "HowToStep", "text": "Season pork chops with seasonings and place on pan." },
+            { "@type": "HowToStep", "text": "Bake pork and potatoes for 10 minutes." },
+            { "@type": "HowToStep", "text": "Toss broccoli with olive oil, salt, and pepper and add to pan." },
+            { "@type": "HowToStep", "text": "Bake another 10-15 minutes until pork reaches 145°F." },
+            { "@type": "HowToStep", "text": "Rest pork 3-5 minutes before serving." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Chicken Chow Mein",
+        "recipeCategory": "main dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT25M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "description": "Add additional stock or water if the sauce becomes too thick.",
+        "recipeIngredient": [
+            "2 tbsp butter",
+            "4 tbsp minced onion",
+            "1 cup whole button mushrooms",
+            "1 1/2 cups shredded cooked chicken",
+            "1 cup diced celery",
+            "1 1/2 cups meat stock or water",
+            "2 tbsp soy sauce",
+            "1 tbsp sugar",
+            "1 1/2 tbsp cornstarch",
+            "3 tbsp cold water",
+            "Hot chow mein noodles for serving"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Melt butter and lightly brown onion and mushrooms." },
+            { "@type": "HowToStep", "text": "Add chicken, celery, stock, soy sauce, and sugar. Simmer 15 minutes." },
+            { "@type": "HowToStep", "text": "Mix cornstarch and cold water until smooth." },
+            { "@type": "HowToStep", "text": "Stir slurry into skillet and cook until thickened." },
+            { "@type": "HowToStep", "text": "Serve over hot chow mein noodles." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Baked Chicken Parmesan",
+        "recipeCategory": "main dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT25M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "recipeIngredient": [
+            "1/4 cup mayonnaise",
+            "1 egg",
+            "1 tbsp seasoning blend",
+            "4 chicken cutlets (about 1 lb)",
+            "Panko breadcrumbs",
+            "Marinara sauce",
+            "Shredded mozzarella cheese"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 450°F and prepare a sheet pan with a rack." },
+            { "@type": "HowToStep", "text": "Mix mayonnaise, egg, and seasoning blend." },
+            { "@type": "HowToStep", "text": "Coat chicken cutlets in mixture." },
+            { "@type": "HowToStep", "text": "Cover chicken with panko breadcrumbs." },
+            { "@type": "HowToStep", "text": "Bake 20 minutes." },
+            { "@type": "HowToStep", "text": "Top with marinara sauce and mozzarella cheese." },
+            { "@type": "HowToStep", "text": "Bake 5-7 more minutes until cheese melts." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Corn Pudding",
+        "recipeCategory": "side dish",
+        "recipeYield": "6 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT1H",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "description": "Best served warm.",
+        "recipeIngredient": [
+            "1 can whole kernel corn",
+            "1 can cream style corn",
+            "1 can evaporated milk",
+            "2 large or 3 small eggs",
+            "3/4 cup sugar",
+            "2 tsp cornstarch",
+            "2 tsp butter"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Mix corn, milk, eggs, sugar, and cornstarch until smooth." },
+            { "@type": "HowToStep", "text": "Pour into a buttered casserole dish." },
+            { "@type": "HowToStep", "text": "Dot with butter." },
+            { "@type": "HowToStep", "text": "Bake at 325°F for 1 hour until firm." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "One-Pot Enchilada",
+        "recipeCategory": "mexican",
+        "recipeYield": "8 servings",
+        "prepTime": "PT5M",
+        "cookTime": "PT20M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "recipeIngredient": [
+            "1 lb ground beef",
+            "1/2 cup salsa",
+            "1/4 cup water",
+            "10 oz can enchilada sauce"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Prepare rice separately for serving." },
+            { "@type": "HowToStep", "text": "Brown ground beef over medium heat." },
+            { "@type": "HowToStep", "text": "Drain grease." },
+            { "@type": "HowToStep", "text": "Add salsa, enchilada sauce, and water." },
+            { "@type": "HowToStep", "text": "Cook until sauce thickens." },
+            { "@type": "HowToStep", "text": "Serve over rice." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Slow Cooker Pulled Pork",
+        "recipeCategory": "main dish",
+        "recipeYield": "8 servings",
+        "prepTime": "PT10M",
+        "cookTime": "PT9H",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "recipeIngredient": [
+            "1.5 cups ketchup",
+            "0.25 cup brown sugar",
+            "0.25 cup BBQ sauce",
+            "2 tbsp Worcestershire sauce",
+            "2 tbsp Dijon mustard",
+            "1 tsp liquid smoke",
+            "0.5 tsp salt",
+            "0.25 tsp garlic powder",
+            "0.25 tsp black pepper",
+            "3.5 lb pork shoulder roast"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Place pork roast in a slow cooker." },
+            { "@type": "HowToStep", "text": "Whisk remaining ingredients together." },
+            { "@type": "HowToStep", "text": "Pour sauce over pork and coat thoroughly." },
+            { "@type": "HowToStep", "text": "Cook on LOW for 8-10 hours or HIGH for 4-5 hours." },
+            { "@type": "HowToStep", "text": "Shred pork with two forks before serving." },
+            { "@type": "HowToStep", "text": "Serve alone or on sandwich rolls." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Drunken Noodles",
+        "recipeCategory": "main dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT30M",
+        "cookTime": "PT10M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 9
+        },
+        "description": "Thai chilies can be replaced with chili crisp. Top with peanuts and extra chilies if desired.",
+        "recipeIngredient": [
+            "1 cup noodles, cooked",
+            "2 tbsp oil",
+            "3 cloves garlic, minced",
+            "2 Thai chilies, diced",
+            "1/2 onion, diced",
+            "1 cup diced chicken thighs",
+            "1 tsp soy sauce or fish sauce",
+            "2 green onions, chopped",
+            "1/4 cup chopped fresh basil"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Prepare noodles according to package directions." },
+            { "@type": "HowToStep", "text": "Heat oil in a wok over high heat." },
+            { "@type": "HowToStep", "text": "Cook garlic and chilies briefly." },
+            { "@type": "HowToStep", "text": "Add onion and cook 1 minute." },
+            { "@type": "HowToStep", "text": "Add chicken and soy sauce and stir-fry until cooked." },
+            { "@type": "HowToStep", "text": "Add green onions, noodles, and sauce." },
+            { "@type": "HowToStep", "text": "Cook until noodles are coated." },
+            { "@type": "HowToStep", "text": "Remove from heat, toss with basil, and serve." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Garlic Bread",
+        "recipeCategory": "side dish",
+        "recipeYield": "4 servings",
+        "prepTime": "PT5M",
+        "cookTime": "PT10M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "recipeIngredient": [
+            "1 loaf Italian bread, sliced",
+            "2 tbsp melted butter",
+            "1 tsp garlic and herb seasoning"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 400°F." },
+            { "@type": "HowToStep", "text": "Arrange bread slices on a baking sheet." },
+            { "@type": "HowToStep", "text": "Brush with melted butter." },
+            { "@type": "HowToStep", "text": "Sprinkle with seasoning." },
+            { "@type": "HowToStep", "text": "Bake 8-12 minutes until golden brown." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Bran Muffins",
+        "recipeCategory": "breakfast",
+        "recipeYield": "12 servings",
+        "prepTime": "PT30M",
+        "cookTime": "PT20M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "description": "Unused batter can be refrigerated for up to 3 weeks.",
+        "recipeIngredient": [
+            "3 cups bran cereal",
+            "1 cup boiling water",
+            "2 cups buttermilk",
+            "1 1/2 cups sugar",
+            "1/2 cup softened margarine",
+            "2 eggs",
+            "2 1/2 cups flour",
+            "2 1/2 tsp baking soda",
+            "Raisins (optional)",
+            "Chocolate chips (optional)"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Combine bran cereal and boiling water." },
+            { "@type": "HowToStep", "text": "Stir in buttermilk and cool completely." },
+            { "@type": "HowToStep", "text": "Cream sugar and margarine." },
+            { "@type": "HowToStep", "text": "Add eggs and mix well." },
+            { "@type": "HowToStep", "text": "Combine wet mixtures." },
+            { "@type": "HowToStep", "text": "Mix flour and baking soda and add to batter." },
+            { "@type": "HowToStep", "text": "Fold in optional mix-ins." },
+            { "@type": "HowToStep", "text": "Fill muffin tins and bake at 350°F for about 20 minutes." }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Blueberry Muffins",
+        "recipeCategory": "breakfast",
+        "recipeYield": "12 servings",
+        "prepTime": "PT15M",
+        "cookTime": "PT20M",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 8
+        },
+        "description": "Store in an airtight container for up to 4 days.",
+        "recipeIngredient": [
+            "2 cups flour",
+            "1 cup sugar",
+            "2 tsp baking powder",
+            "1/2 tsp salt",
+            "1/2 cup butter",
+            "2 eggs",
+            "1/2 cup milk",
+            "1 tsp vanilla extract",
+            "2 cups blueberries",
+            "1/4 cup flour (streusel)",
+            "2 tbsp brown sugar",
+            "2 tbsp sugar",
+            "1/4 tsp cinnamon",
+            "1/8 tsp salt",
+            "2 tbsp cold butter"
+        ],
+        "recipeInstructions": [
+            { "@type": "HowToStep", "text": "Preheat oven to 400°F and line a muffin pan." },
+            { "@type": "HowToStep", "text": "Mix flour, sugar, baking powder, and salt." },
+            { "@type": "HowToStep", "text": "Whisk eggs, butter, milk, and vanilla." },
+            { "@type": "HowToStep", "text": "Combine wet and dry ingredients and fold in blueberries." },
+            { "@type": "HowToStep", "text": "Make streusel by combining flour, sugars, cinnamon, salt, and butter until crumbly." },
+            { "@type": "HowToStep", "text": "Fill muffin cups and top with streusel." },
+            { "@type": "HowToStep", "text": "Bake 18-22 minutes until a toothpick comes out clean." },
+            { "@type": "HowToStep", "text": "Cool before serving." }
+        ]
+    }
+]
